@@ -7,7 +7,3 @@ This is a repository for our Chess-like game project at university.
 - Maria Kittan
 - Maram Khoury
 - Mariam Khalil
-
-## How to setup:
-
-1. Clone the project on your comupter:
