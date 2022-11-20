@@ -1,3 +1,5 @@
+package Model;
+
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.scene.effect.DropShadow;

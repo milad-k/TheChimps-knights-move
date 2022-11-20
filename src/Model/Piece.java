@@ -1,3 +1,5 @@
+package Model;
+
 import javafx.event.EventHandler;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
@@ -31,7 +33,7 @@ public class Piece extends ImageView {
     }
 
     public void setImage() {
-        this.setPiece(new Image("pieces/" + this.color + "" + this.type +".png"));
+        this.setPiece(new Image("Model/pieces/" + this.color + "" + this.type +".png"));
     }
 
     private void addEventHandler() {

@@ -1,3 +1,5 @@
+package Model;
+
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -80,11 +82,7 @@ public class ChessBoard {
         for(Square square : squares) {
             if(square.occupied)
                 continue;
-            if(square.y == 1) {
-                addPiece(square, new Pawn("black", square.x, square.y));
-            } else if(square.y == 6) {
-                addPiece(square, new Pawn("white", square.x, square.y));
-            } else if(square.y == 0) {
+            if(square.y == 0) {
                 if(square.x == 4){
                     addPiece(square, new King("black", square.x, square.y));
                 }
