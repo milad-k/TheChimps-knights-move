@@ -11,16 +11,15 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.LoginPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.LoginPageController">
    <children>
-      <ImageView fitHeight="418.0" fitWidth="706.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/1.png" />
          </image>
       </ImageView>
-      <Label layoutX="300.0" layoutY="73.0" text="Move">
+      <Label layoutX="448.0" layoutY="120.0" text="Move">
          <font>
             <Font size="35.0" />
          </font>
@@ -41,35 +40,34 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <TextField fx:id="usernameField" layoutX="262.0" layoutY="137.0" promptText="Username" />
-      <PasswordField fx:id="passwordField" layoutX="262.0" layoutY="191.0" promptText="Password" />
-      <Button fx:id="loginButton" layoutX="318.0" layoutY="247.0" mnemonicParsing="false" onAction="#login" text="Login" />
-      <Text fx:id="invalidText" fill="RED" layoutX="220.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your username or password was incorrect." visible="false" wrappingWidth="237.861328125" />
-      <Button fx:id="exitButton" layoutX="586.0" layoutY="51.0" mnemonicParsing="false" onAction="#exit" prefHeight="43.0" prefWidth="60.0" text="Exit">
+      <Label layoutX="430.0" layoutY="73.0" text="Knight's">
+         <font>
+            <Font size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <TextField fx:id="usernameField" layoutX="411.0" layoutY="205.0" promptText="Username" />
+      <PasswordField fx:id="passwordField" layoutX="410.0" layoutY="263.0" promptText="Password" />
+      <Button fx:id="loginButton" layoutX="462.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" text="Login" />
+      <Button fx:id="exitButton" layoutX="816.0" layoutY="91.0" mnemonicParsing="false" onAction="#exit" prefHeight="50.0" prefWidth="77.0" text="Exit">
          <font>
             <Font size="12.0" />
          </font>
       </Button>
-      <Label layoutX="281.0" layoutY="30.0" text="Knight's">
-         <font>
-            <Font size="35.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
    </children>
 </AnchorPane>

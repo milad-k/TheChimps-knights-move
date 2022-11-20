@@ -10,14 +10,14 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.HomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.HomeScreenController">
    <children>
-      <ImageView fitHeight="418.0" fitWidth="706.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/1.png" />
          </image>
       </ImageView>
-      <Label layoutX="300.0" layoutY="73.0" text="Move">
+      <Label layoutX="448.0" layoutY="120.0" text="Move">
          <font>
             <Font size="35.0" />
          </font>
@@ -38,13 +38,16 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button fx:id="logoutButton" layoutX="609.0" layoutY="40.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Button fx:id="startGameButton" layoutX="291.0" layoutY="154.0" mnemonicParsing="false" onAction="#startGame" prefHeight="43.0" prefWidth="95.0" text="Start Game">
+      <Button fx:id="logoutButton" layoutX="778.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="138.0" text="Logout">
          <font>
-            <Font size="12.0" />
+            <Font size="32.0" />
+         </font></Button>
+      <Button fx:id="startGameButton" layoutX="380.0" layoutY="205.0" mnemonicParsing="false" onAction="#startGame" prefHeight="99.0" prefWidth="204.0" text="Start Game">
+         <font>
+            <Font size="32.0" />
          </font>
       </Button>
-      <Label layoutX="281.0" layoutY="30.0" text="Knight's">
+      <Label layoutX="430.0" layoutY="73.0" text="Knight's">
          <font>
             <Font size="35.0" />
          </font>
