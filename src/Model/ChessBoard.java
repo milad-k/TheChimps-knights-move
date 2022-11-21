@@ -89,14 +89,8 @@ public class ChessBoard {
                 if(square.x == 3){
                     addPiece(square, new Queen("black", square.x, square.y));
                 }
-                if(square.x == 2 || square.x == 5){
-                    addPiece(square, new Bishop("black", square.x, square.y));
-                }
                 if(square.x == 1 || square.x == 6){
                     addPiece(square, new Knight("black", square.x, square.y));
-                }
-                if(square.x == 0 || square.x == 7){
-                    addPiece(square, new Rook("black", square.x, square.y));
                 }
             } else if(square.y == 7) {
                 if(square.x == 4){
@@ -105,14 +99,8 @@ public class ChessBoard {
                 if(square.x == 3){
                     addPiece(square, new Queen("white", square.x, square.y));
                 }
-                if(square.x == 2 || square.x == 5){
-                    addPiece(square, new Bishop("white", square.x, square.y));
-                }
                 if(square.x == 1 || square.x == 6){
                     addPiece(square, new Knight("white", square.x, square.y));
-                }
-                if(square.x == 0 || square.x == 7){
-                    addPiece(square, new Rook("white", square.x, square.y));
                 }
             }
         }

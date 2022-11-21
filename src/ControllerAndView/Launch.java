@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 public class Launch extends Application {
 
     private static String[] arguments;
-    private static String fileName = "Rest.ser";
     public static Stage stage;
 
     public static void main(String[] args) {
