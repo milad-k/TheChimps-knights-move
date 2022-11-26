@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.QuestionsController">
+   <children>
+      <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="71.0" layoutY="62.0" mnemonicParsing="false" onAction="#back" prefHeight="60.0" prefWidth="138.0" text="Back">
+         <font>
+            <Font size="32.0" />
+         </font></Button>
+      <Label layoutX="382.0" layoutY="63.0" text="Questions">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="addQuestionButton" layoutX="163.0" layoutY="546.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="54.0" prefWidth="163.0" style="-fx-background-radius: 25;" text="Add Question">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateQuestionButton" layoutX="407.0" layoutY="545.0" mnemonicParsing="false" onAction="#updateQuestion" prefHeight="54.0" prefWidth="163.0" style="-fx-background-radius: 25;" text="Update Question">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteQuestionButton" layoutX="647.0" layoutY="545.0" mnemonicParsing="false" onAction="#deleteQuestion" prefHeight="54.0" prefWidth="163.0" style="-fx-background-radius: 25;" text="Delete Question">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <ListView layoutX="71.0" layoutY="156.0" prefHeight="356.0" prefWidth="842.0" />
+      <ImageView fx:id="image" fitHeight="69.0" fitWidth="66.0" layoutX="607.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

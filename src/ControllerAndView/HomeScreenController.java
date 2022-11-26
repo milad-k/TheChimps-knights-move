@@ -18,15 +18,44 @@ import java.util.ResourceBundle;
 public class HomeScreenController implements Initializable {
 
     @FXML
+    private Button gamesHistoryButton;
+
+    @FXML
     private Button logoutButton;
+
+    @FXML
+    private Button questionsButton;
 
     @FXML
     private Button startGameButton;
 
     @FXML
+    void gamesHistory(ActionEvent event) {
+
+    }
+
+    @FXML
     void logout(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+            root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
+            Scene customerScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(customerScene);
+            window.show();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    void questions(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Questions.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

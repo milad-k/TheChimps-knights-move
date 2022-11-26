@@ -42,7 +42,7 @@
          <font>
             <Font size="32.0" />
          </font></Button>
-      <Button fx:id="startGameButton" layoutX="380.0" layoutY="205.0" mnemonicParsing="false" onAction="#startGame" prefHeight="99.0" prefWidth="204.0" text="Start Game">
+      <Button fx:id="startGameButton" layoutX="383.0" layoutY="207.0" mnemonicParsing="false" onAction="#startGame" prefHeight="66.0" prefWidth="204.0" text="Start Game">
          <font>
             <Font size="32.0" />
          </font>
@@ -68,5 +68,15 @@
             </LinearGradient>
          </textFill>
       </Label>
+      <Button fx:id="gamesHistoryButton" layoutX="382.0" layoutY="305.0" mnemonicParsing="false" onAction="#gamesHistory" prefHeight="66.0" prefWidth="204.0" text="Games history">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="questionsButton" layoutX="383.0" layoutY="406.0" mnemonicParsing="false" onAction="#questions" prefHeight="66.0" prefWidth="204.0" text="Questions">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
