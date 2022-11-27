@@ -38,13 +38,13 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button fx:id="logoutButton" layoutX="778.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="138.0" text="Logout">
+      <Button fx:id="logoutButton" layoutX="778.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="138.0" style="-fx-background-radius: 30;" text="Logout">
          <font>
-            <Font size="32.0" />
+            <Font size="29.0" />
          </font></Button>
-      <Button fx:id="startGameButton" layoutX="383.0" layoutY="207.0" mnemonicParsing="false" onAction="#startGame" prefHeight="66.0" prefWidth="204.0" text="Start Game">
+      <Button fx:id="startGameButton" layoutX="383.0" layoutY="207.0" mnemonicParsing="false" onAction="#startGame" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Start Game">
          <font>
-            <Font size="32.0" />
+            <Font size="28.0" />
          </font>
       </Button>
       <Label layoutX="430.0" layoutY="73.0" text="Knight's">
@@ -68,14 +68,14 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button fx:id="gamesHistoryButton" layoutX="382.0" layoutY="305.0" mnemonicParsing="false" onAction="#gamesHistory" prefHeight="66.0" prefWidth="204.0" text="Games history">
+      <Button fx:id="gamesHistoryButton" layoutX="382.0" layoutY="305.0" mnemonicParsing="false" onAction="#gamesHistory" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Games history">
          <font>
-            <Font size="25.0" />
+            <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="questionsButton" layoutX="383.0" layoutY="406.0" mnemonicParsing="false" onAction="#questions" prefHeight="66.0" prefWidth="204.0" text="Questions">
+      <Button fx:id="questionsButton" layoutX="383.0" layoutY="406.0" mnemonicParsing="false" onAction="#questions" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Questions">
          <font>
-            <Font size="36.0" />
+            <Font size="29.0" />
          </font>
       </Button>
    </children>

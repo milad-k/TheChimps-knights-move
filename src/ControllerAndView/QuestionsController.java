@@ -1,6 +1,12 @@
 package ControllerAndView;
 
+import Model.Question;
+import Model.SysData;
+import Utils.Difficulty;
 import javafx.animation.PathTransition;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
@@ -17,6 +24,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class QuestionsController implements Initializable {
@@ -35,6 +44,21 @@ public class QuestionsController implements Initializable {
 
     @FXML
     private ImageView image;
+
+    @FXML
+    private ListView<Question> list;
+
+    public ListView<Question> getList() {
+        return list;
+    }
+
+    public void setList(ListView<Question> list) {
+        this.list = list;
+    }
+
+    private HashMap<Difficulty, ArrayList<Question>> questions;
+    SysData sysData = SysData.getInstance();
+    private ArrayList<Question> level = new ArrayList<Question>();
 
     @FXML
     void addQuestion(ActionEvent event) {
@@ -71,6 +95,19 @@ public class QuestionsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        SysData.getInstance().loadQuestions(null);
+
+        questions = sysData.getQuestions();
+        for(Difficulty d : questions.keySet()) {
+            for(Question q : questions.get(d)) {
+                if(!level.contains(q))
+                    level.add(q);
+            }
+        }
+        ObservableList<Question> question = FXCollections.observableArrayList(level);
+        list.setItems(question);
+        
         Line l = new Line(3,50, 150, 50);
 
         PathTransition transition = new PathTransition();

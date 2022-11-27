@@ -18,7 +18,7 @@
             <Image url="@Images/1.png" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" layoutX="71.0" layoutY="62.0" mnemonicParsing="false" onAction="#back" prefHeight="60.0" prefWidth="138.0" text="Back">
+      <Button fx:id="backButton" layoutX="71.0" layoutY="62.0" mnemonicParsing="false" onAction="#back" prefHeight="60.0" prefWidth="138.0" style="-fx-background-radius: 30;" text="Back">
          <font>
             <Font size="32.0" />
          </font></Button>
@@ -58,7 +58,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <ListView layoutX="71.0" layoutY="156.0" prefHeight="356.0" prefWidth="842.0" />
+      <ListView fx:id="list" layoutX="71.0" layoutY="156.0" prefHeight="356.0" prefWidth="842.0" />
       <ImageView fx:id="image" fitHeight="69.0" fitWidth="66.0" layoutX="607.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/2.png" />

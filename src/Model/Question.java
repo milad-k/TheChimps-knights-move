@@ -14,9 +14,9 @@ public class Question {
     private Difficulty difficulty;
     private Team team;
 
-    public Question(String text, ArrayList<String> answers, int correctAnswer, Difficulty difficulty, Team team) {
+    public Question(String text, int correctAnswer, Difficulty difficulty, Team team) {
         this.text = text;
-        this.answers = answers;
+        this.answers = new ArrayList<String>();
         this.correctAnswer = correctAnswer;
         this.difficulty = difficulty;
         this.team = team;

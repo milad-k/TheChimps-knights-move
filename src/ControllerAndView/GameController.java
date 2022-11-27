@@ -1,6 +1,11 @@
 package ControllerAndView;
 
 import Model.Game;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +16,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,14 +26,31 @@ import java.util.ResourceBundle;
 
 public class GameController {
 
+    private static final Integer STARTTIME = 60;
+    private Timeline timeline;
+    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
+
     @FXML
     private Button backButton;
 
     @FXML
     private GridPane chessBoard;
 
+    @FXML
+    private Text timer;
+
     public void initialize() {
         Game game = new Game(chessBoard, "Sandcastle");
+        timer.textProperty().bind(timeSeconds.asString());
+        if (timeline != null) {
+            timeline.stop();
+        }
+        timeSeconds.set(STARTTIME);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(STARTTIME+1),
+                        new KeyValue(timeSeconds, 0)));
+        timeline.playFromStart();
     }
 
     @FXML
