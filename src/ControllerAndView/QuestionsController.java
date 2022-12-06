@@ -5,6 +5,7 @@ import Model.SysData;
 import Utils.Difficulty;
 import javafx.animation.PathTransition;
 import javafx.beans.Observable;
+import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
@@ -85,7 +87,25 @@ public class QuestionsController implements Initializable {
 
     @FXML
     void deleteQuestion(ActionEvent event) {
-
+        Question q = list.getSelectionModel().getSelectedItem();
+        if(!list.getItems().isEmpty() && q != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Remove Question");
+            alert.setHeaderText("Remove Question?");
+            alert.setContentText("Are you sure you want to remove this question?");
+            alert.showAndWait();
+            if(alert.getResult().equals(ButtonType.OK)) {
+                list.getItems().remove(q);
+                SysData.getInstance().removeQuestion(q);
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No question selected");
+            alert.setHeaderText("Select Question");
+            alert.setContentText("Please select a question to delete.");
+            alert.showAndWait();
+        }
     }
 
     @FXML
