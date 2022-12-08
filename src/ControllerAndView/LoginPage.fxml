@@ -12,7 +12,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.LoginPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.LoginPageController">
    <children>
       <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -28,12 +28,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
+                        <Color blue="0.004477339331060648" green="0.7745797038078308" red="0.9671052694320679" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
+                        <Color blue="0.472889244556427" green="0.7697368264198303" red="0.40625" />
                      </color>
                   </Stop>
                </stops>
@@ -49,12 +49,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
+                        <Color blue="0.004477339331060648" green="0.7745797038078308" red="0.9671052694320679" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
+                        <Color blue="0.472889244556427" green="0.7697368264198303" red="0.40625" />
                      </color>
                   </Stop>
                </stops>
@@ -62,7 +62,7 @@
          </textFill>
       </Label>
       <TextField fx:id="usernameField" layoutX="411.0" layoutY="205.0" promptText="Username" style="-fx-background-radius: 30;" />
-      <PasswordField fx:id="passwordField" layoutX="410.0" layoutY="263.0" promptText="Password" style="-fx-background-radius: 30;" />
+      <PasswordField fx:id="passwordField" layoutX="411.0" layoutY="262.0" promptText="Password" style="-fx-background-radius: 30;" />
       <Button fx:id="loginButton" layoutX="462.0" layoutY="328.0" mnemonicParsing="false" onAction="#login" style="-fx-background-radius: 30;" text="Login" />
       <Button fx:id="exitButton" layoutX="816.0" layoutY="91.0" mnemonicParsing="false" onAction="#exit" prefHeight="50.0" prefWidth="77.0" style="-fx-background-radius: 30;" text="Exit">
          <font>

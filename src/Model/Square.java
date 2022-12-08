@@ -8,6 +8,8 @@ public class Square extends StackPane {
     boolean occupied;
     String name;
 
+    String type;
+
     public Square(int x, int y) {
         this.x = x;
         this.y = y;
