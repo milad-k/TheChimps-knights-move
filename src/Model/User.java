@@ -7,12 +7,12 @@ public class User {
     private static int idCounter = 1;
     private int id;
     private String username;
-    private String password;
+    //private String password;
 
-    public User(String username, String password) {
+    public User(String username/*, String password*/) {
         this.id = idCounter++;
         this.username = username;
-        this.password = password;
+        //this.password = password;
     }
 
     public static int getIdCounter() {
@@ -39,13 +39,13 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
+    /* public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
+    } */
 
     @Override
     public boolean equals(Object o) {
@@ -55,15 +55,15 @@ public class User {
         User user = (User) o;
 
         if (id != user.id) return false;
-        if (!Objects.equals(username, user.username)) return false;
-        return Objects.equals(password, user.password);
+        return !Objects.equals(username, user.username);
+        //return Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
+       // result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 
@@ -72,7 +72,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                //", password='" + password + '\'' +
                 '}';
     }
 }

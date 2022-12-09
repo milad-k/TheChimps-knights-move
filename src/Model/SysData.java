@@ -22,6 +22,7 @@ public class SysData {
     private ArrayList<Game> games;
     private ArrayList<Game> pausedGames;
     private ArrayList<String> rules;
+    private ArrayList<User> users;
 
     private String questionJSONPath = "src/JSON/QuestionsFormat.txt";
     private String originalPath = questionJSONPath;
@@ -37,6 +38,7 @@ public class SysData {
         games = new ArrayList<Game>();
         pausedGames = new ArrayList<Game>();
         rules = new ArrayList<>();
+        users = new ArrayList<>();
     }
 
     public HashMap<Difficulty, ArrayList<Question>> getQuestions() {
@@ -69,6 +71,26 @@ public class SysData {
 
     public void setRules(ArrayList<String> rules) {
         this.rules = rules;
+    }
+
+    public ArrayList<User> getUsers() { return users; }
+
+    public void setUsers(ArrayList<User> users) { this.users = users; }
+
+    public void addUser(User user){
+        if (!users.contains(user)) {
+            users.add(user);
+        }
+
+    }
+
+    public boolean checkUsernameExistince(String username){
+    for(User u : users){
+    if(u.getUsername().equals(username)){
+        return true;
+    }
+    }
+    return false;
     }
 
     public boolean loadQuestions(String externalPath) {
