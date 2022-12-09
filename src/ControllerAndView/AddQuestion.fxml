@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.AddQuestionController">
+    <children>
+        <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/1.png" />
+            </image>
+        </ImageView>
+      <Label layoutX="420.0" layoutY="65.0" text="Adding a question" textFill="#9cab15">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="160.0" text="Question context :" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="questionField" layoutX="338.0" layoutY="163.0" prefHeight="25.0" prefWidth="543.0" />
+      <Label layoutX="168.0" layoutY="204.0" text="Answers :" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="answerThreeField" layoutX="338.0" layoutY="278.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="answerTwoField" layoutX="338.0" layoutY="242.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="answerOneField" layoutX="338.0" layoutY="207.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="answerFourField" layoutX="338.0" layoutY="315.0" prefHeight="25.0" prefWidth="543.0" />
+      <Label layoutX="168.0" layoutY="357.0" text="Correct answer :" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="correctAnswerBox" layoutX="338.0" layoutY="360.0" prefHeight="25.0" prefWidth="120.0" />
+      <Label layoutX="168.0" layoutY="409.0" text="Difficulty :" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="difficultyBox" layoutX="338.0" layoutY="412.0" prefHeight="25.0" prefWidth="120.0" />
+      <Label layoutX="324.0" layoutY="205.0" text="1" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="324.0" layoutY="276.0" text="3" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="324.0" layoutY="313.0" text="4" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="324.0" layoutY="240.0" text="2" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="471.0" text="Team :" textFill="#9cab15">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="teamBox" layoutX="338.0" layoutY="474.0" prefHeight="25.0" prefWidth="120.0" />
+      <Button fx:id="addQuestionButton" layoutX="770.0" layoutY="569.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="44.0" prefWidth="111.0" text="Add Question" />
+      <Button fx:id="backButton" layoutX="822.0" layoutY="33.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="88.0" text="Back" />
+    </children>
+</AnchorPane>
