@@ -39,6 +39,9 @@ public class GameController {
     @FXML
     private Text timer;
 
+    @FXML
+    private Text points;
+
     public void initialize() {
         Game game = new Game(chessBoard, "Sandcastle");
         timer.textProperty().bind(timeSeconds.asString());
@@ -51,6 +54,7 @@ public class GameController {
                 new KeyFrame(Duration.seconds(STARTTIME+1),
                         new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
+
     }
 
     @FXML

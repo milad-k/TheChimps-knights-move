@@ -5,6 +5,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ChessBoard {
 
@@ -20,8 +21,8 @@ public class ChessBoard {
     }
 
     private void makeBoard(GridPane chessBoard, String theme) {
-        for(int i = 0; i < 8; i++) {
-            for(int j = 0; j < 8; j++) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 Square square = new Square(i, j);
                 square.setName("Square" + i + j);
                 square.setPrefHeight(100);
@@ -33,6 +34,7 @@ public class ChessBoard {
             }
         }
         addPieces();
+        addRandomJumpSquares();
     }
 
     private void setTheme(Square square, String theme, int i, int j) {
@@ -66,7 +68,7 @@ public class ChessBoard {
             }
         }
 
-        if((i+j)%2 == 0) {
+        if ((i + j) % 2 == 0) {
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
         } else {
             square.setBackground(new Background(new BackgroundFill(color2, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -79,20 +81,72 @@ public class ChessBoard {
     }
 
     private void addPieces() {
-        for(Square square : squares) {
-            if(square.occupied)
+        for (Square square : squares) {
+            if (square.occupied)
                 continue;
-            if(square.y == 0) {
-                if(square.x == 7){
+            if (square.y == 0) {
+                /*if(square.x == 7){
                     addPiece(square, new King("white", square.x, square.y));
-                }
-                if(square.x == 7){
+                }*/
+                if (square.x == 7) {
                     addPiece(square, new Queen("white", square.x, square.y));
                 }
-                if(square.x == 0){
+                if (square.x == 0) {
                     addPiece(square, new Knight("white", square.x, square.y));
                 }
             }
         }
     }
-}
+
+    private void addRandomJumpSquares() {
+
+        Color color1 = Color.web("black");
+        for (int i = 0; i < 3; i++) {
+            Random rand = new Random();
+            int int_rand = rand.nextInt(64);
+            squares.get(int_rand).setType("Random Jump Square");
+
+        }
+    }
+
+        private void addForgetfulSquares() {
+
+            Color color1 = Color.web("black");
+            for (int i = 0; i < 3; i++) {
+                Random rand = new Random();
+                int int_rand = rand.nextInt(64);
+                squares.get(int_rand).setType("Forgetful Square");
+
+            }
+
+        }
+    private void addForgetfulAndRandomJumpSquares() {
+
+        Color color1 = Color.web("black");
+        for (int i = 0; i < 2; i++) {
+            Random rand = new Random();
+            int int_rand = rand.nextInt(64);
+            squares.get(int_rand).setType("Forgetful Square");
+
+        }
+        for (int i = 0; i < 2; i++) {
+            Random rand = new Random();
+            int int_rand = rand.nextInt(64);
+            squares.get(int_rand).setType("Random Jump Square");
+
+        }
+
+    }
+    private void addBlockingSquares() {
+
+        Color color1 = Color.web("black");
+        for (int i = 0; i < 8; i++) {
+            Random rand = new Random();
+            int int_rand = rand.nextInt(64);
+            squares.get(int_rand).setType("Blocking Square");
+
+        }
+
+    }
+    }
+
