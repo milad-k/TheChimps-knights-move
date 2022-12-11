@@ -192,12 +192,20 @@ public class SysData {
     }
 
     public boolean addQuestion(Question question) {
+        if(question == null){
+            return false;
+        }
         ArrayList<Question> myArray = questions.get(question.getDifficulty());
+
         if(myArray == null) {
             myArray = new ArrayList<Question>();
             myArray.add(question);
             return true;
-        } else if (!myArray.contains(question)) {
+        }
+        if(myArray.contains(question)){
+            return false;
+        }
+         else if (!myArray.contains(question)) {
             myArray.add(question);
             return true;
         }
@@ -206,6 +214,9 @@ public class SysData {
     }
 
     public boolean removeQuestion(Question question) {
+        if(question == null){
+            return false;
+        }
         ArrayList<Question> myArray = questions.get(question.getDifficulty());
         if(myArray.contains(question)) {
             questions.get(question.getDifficulty()).remove(question);
@@ -215,6 +226,12 @@ public class SysData {
     }
 
     public boolean editQuestion(Question question, Question newQuestion) {
+        if(question == null){
+            return false;
+        }
+        if(newQuestion == null){
+            return false;
+        }
         if(removeQuestion(question)) {
             addQuestion(newQuestion);
             return true;

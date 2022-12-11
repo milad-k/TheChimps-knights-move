@@ -1,5 +1,6 @@
 package Model;
 
+import Utils.Stage;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
 import javafx.scene.effect.DropShadow;
@@ -8,16 +9,22 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 public class Game {
+
+    private int id;
+    private static int idCounter = 1;
     public static Piece currentPiece;
     public static String currentPlayer;
     public static ChessBoard cb;
     private boolean game;
+    private Stage stage;
+    private boolean turnToPlay;
 
     public Game(GridPane chessBoard, String theme) {
         cb = new ChessBoard(chessBoard, theme);
         currentPiece = null;
         currentPlayer = "white";
         this.game = true;
+        this.id = idCounter++;
         addEventHandlers(cb.chessBoard);
     }
     private void addEventHandlers(GridPane chessBoard){
@@ -143,4 +150,19 @@ public class Game {
         deselectPiece(true);
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public boolean isTurnToPlay() {
+        return turnToPlay;
+    }
+
+    public void setTurnToPlay(boolean turnToPlay) {
+        this.turnToPlay = turnToPlay;
+    }
 }

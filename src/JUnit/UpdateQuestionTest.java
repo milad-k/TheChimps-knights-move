@@ -22,6 +22,8 @@ public class UpdateQuestionTest {
         ArrayList<Question> arrayList = questions.get(Difficulty.EASY);
 
         Question question = null;
+        Question question1 = null;
+
 
         for(Question q : arrayList) {
             if(q.getText().equals("q1")) {
@@ -30,7 +32,14 @@ public class UpdateQuestionTest {
         }
         Question q3 = new Question("q", 3, Difficulty.EASY, Team.Chimp);
 
-        assertTrue(SysData.getInstance().editQuestion(question,q3));
+        assertTrue("successful",SysData.getInstance().editQuestion(question,q3));
+        assertTrue("successful",SysData.getInstance().editQuestion(q3,question));
+        assertFalse(SysData.getInstance().editQuestion(question1,q3));
+        assertFalse(SysData.getInstance().editQuestion(q3,question1));
+
+
+
+
     }
 }
 
