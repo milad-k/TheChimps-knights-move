@@ -1,4 +1,4 @@
-package ControllerAndView;
+package Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,9 @@ public class HomeScreenController implements Initializable {
 
     @FXML
     private Button gamesHistoryButton;
+
+    @FXML
+    private Text helloText;
 
     @FXML
     private Button logoutButton;
@@ -37,7 +41,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void logout(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -55,7 +59,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void questions(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Questions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -73,7 +77,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void startGame(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -90,6 +94,6 @@ public class HomeScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+//        helloText.setText("Hello, " + UserController.getUser().getUsername());
     }
 }

@@ -1,4 +1,4 @@
-package ControllerAndView;
+package Controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -58,7 +58,7 @@ public class LoginPageController implements Initializable {
         else if(username.equals("admin") || !(SysData.getInstance().checkUsernameExistince(username))/* && password.equals("admin")*/) {
             SysData.getInstance().addUser(new User(username));
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
                 root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
                 Scene adminScene = new Scene(root);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -87,7 +87,7 @@ public class LoginPageController implements Initializable {
 
             if(button == ButtonType.OK){
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
                     root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
                     Scene adminScene = new Scene(root);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -103,7 +103,7 @@ public class LoginPageController implements Initializable {
             }
             else{
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
                     root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
                     Scene customerScene = new Scene(root);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

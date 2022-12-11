@@ -1,4 +1,4 @@
-package ControllerAndView;
+package Controller;
 
 import Model.Question;
 import Model.SysData;
@@ -16,7 +16,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,7 +52,7 @@ public class AddQuestionController {
     @FXML
     void back(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Questions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,11 +1,9 @@
-package ControllerAndView;
+package Controller;
 
 import Model.Question;
 import Model.SysData;
 import Utils.Difficulty;
 import javafx.animation.PathTransition;
-import javafx.beans.Observable;
-import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -65,7 +63,7 @@ public class QuestionsController implements Initializable {
     @FXML
     void addQuestion(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AddQuestion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/AddQuestion.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -83,7 +81,7 @@ public class QuestionsController implements Initializable {
     @FXML
     void back(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

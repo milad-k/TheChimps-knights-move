@@ -27,6 +27,9 @@ public class SysData {
     private String questionJSONPath = "src/JSON/QuestionsFormat.txt";
     private String originalPath = questionJSONPath;
 
+    private String userJSONPath = "src/JSON/usersDb.txt";
+    private String originalUsersPath = questionJSONPath;
+
     public static SysData getInstance() {
         if(SysData == null)
             SysData = new SysData();
@@ -85,11 +88,10 @@ public class SysData {
     }
 
     public boolean checkUsernameExistince(String username){
-    for(User u : users){
-    if(u.getUsername().equals(username)){
-        return true;
-    }
-    }
+        for(User u : users){
+            if(u.getUsername().equals(username)){
+                return true;
+            }}
     return false;
     }
 
