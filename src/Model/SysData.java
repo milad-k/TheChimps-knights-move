@@ -191,15 +191,18 @@ public class SysData {
         resetPathToDefault();
     }
 
-    public void addQuestion(Question question) {
+    public boolean addQuestion(Question question) {
         ArrayList<Question> myArray = questions.get(question.getDifficulty());
         if(myArray == null) {
             myArray = new ArrayList<Question>();
             myArray.add(question);
+            return true;
         } else if (!myArray.contains(question)) {
             myArray.add(question);
+            return true;
         }
         questions.put(question.getDifficulty(), myArray);
+        return true;
     }
 
     public boolean removeQuestion(Question question) {
