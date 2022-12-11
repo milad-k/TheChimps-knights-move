@@ -1,4 +1,4 @@
-package ControllerAndView;
+package Controller;
 
 public class RulesScreenController {
 }
