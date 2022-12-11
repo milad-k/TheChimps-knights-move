@@ -80,14 +80,22 @@ public class SysData {
 
     public void setUsers(ArrayList<User> users) { this.users = users; }
 
-    public void addUser(User user){
+    public boolean addUser(User user){
+        if(user == null){
+          return false;
+        }
         if (!users.contains(user)) {
             users.add(user);
+            return true;
         }
+        return false;
 
     }
 
     public boolean checkUsernameExistince(String username){
+        if(username == null){
+            return false;
+        }
         for(User u : users){
             if(u.getUsername().equals(username)){
                 return true;
@@ -248,6 +256,9 @@ public class SysData {
     }
 
     static Difficulty getQuestionLevel(int level) {
+        if((level != 1) || (level != 2) || (level != 3)){
+            return null;
+        }
         if(level == 1)
             return Difficulty.EASY;
         else if (level == 2)
