@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerAndView.RulesScreenController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="133.0" layoutX="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="972.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="280.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="280.0" layoutX="649.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="280.0" layoutX="324.0" layoutY="400.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />
+      <Label layoutX="232.0" layoutY="23.0" text="Knight's Move Rules" textFill="WHITE">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="227.0" fitWidth="259.0" layoutX="710.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/chessboard-3D.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="67.0" fitWidth="64.0" layoutX="18.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/back.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="349.0" layoutY="140.0" text="Check The Figures" textFill="#e5d997">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="426.0" layoutY="204.0" text="Text">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="372.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/chess-figures.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="-1.0" layoutY="506.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/knight.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="317.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/king.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="103.0" fitWidth="100.0" layoutX="641.0" layoutY="501.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/queen.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="148.0" layoutY="510.0" text="Text">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="511.0" text="Text">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Label layoutX="819.0" layoutY="520.0" text="Text">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="441.0" text="Knight" textFill="WHITE">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="339.0" layoutY="439.0" text="King" textFill="WHITE">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="653.0" layoutY="441.0" text="Queen" textFill="WHITE">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
