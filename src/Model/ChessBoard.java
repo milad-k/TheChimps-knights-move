@@ -75,7 +75,7 @@ public class ChessBoard {
         }
     }
 
-    private void addPiece(Square square, Piece piece) {
+    public void addPiece(Square square, Piece piece) {
         square.getChildren().add(piece);
         square.occupied = true;
     }
@@ -149,5 +149,13 @@ public class ChessBoard {
         }
 
     }
+
+    public ArrayList<Square> getSquares() {
+        return squares;
     }
+
+    public void setSquares(ArrayList<Square> squares) {
+        this.squares = squares;
+    }
+}
 

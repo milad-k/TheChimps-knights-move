@@ -8,6 +8,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+
 public class Game {
 
     private int id;
@@ -27,6 +29,15 @@ public class Game {
         this.id = idCounter++;
         addEventHandlers(cb.chessBoard);
     }
+
+    public static ChessBoard getCb() {
+        return cb;
+    }
+
+    public static void setCb(ChessBoard cb) {
+        Game.cb = cb;
+    }
+
     private void addEventHandlers(GridPane chessBoard){
         chessBoard.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -165,4 +176,21 @@ public class Game {
     public void setTurnToPlay(boolean turnToPlay) {
         this.turnToPlay = turnToPlay;
     }
+
+    public void upgradeQueen(int GameId){
+        ChessBoard c = Game.cb;
+        ArrayList<Square> squares = Game.cb.getSquares();
+        if(this.stage == Stage.Third){
+            for (Square square : squares) {
+                if (square.occupied){
+                    if(square.name.equals("Queen")){
+                        c.addPiece(square, new King("white", square.x, square.y));
+
+                    }
+                }
+        }
+
+
+    }
 }
+    }
