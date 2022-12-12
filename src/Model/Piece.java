@@ -10,8 +10,8 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-public class Piece extends ImageView {
-
+abstract class Piece extends ImageView {
+    abstract void getAllPossibleMoves();
     String type;
     String color;
     int posX, posY;
@@ -45,7 +45,7 @@ public class Piece extends ImageView {
         });
     }
 
-    public void getAllPossibleMoves() {}
+
 
     public void showAllPossibleMoves(boolean val) {
         if(val) {
