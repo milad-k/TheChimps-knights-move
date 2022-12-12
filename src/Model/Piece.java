@@ -17,6 +17,11 @@ abstract class Piece extends ImageView {
     int posX, posY;
     ArrayList<String> possibleMoves;
 
+    //Template method
+    public final void getPossibleMoves(){
+        getAllPossibleMoves();
+    }
+
     public Piece(String color, int posX, int posY) {
         this.color = color;
         this.posX = posX;
