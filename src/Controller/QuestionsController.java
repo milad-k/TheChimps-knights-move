@@ -48,6 +48,8 @@ public class QuestionsController implements Initializable {
     @FXML
     private ListView<Question> list;
 
+    static Question updatedQ;
+
     public ListView<Question> getList() {
         return list;
     }
@@ -120,8 +122,18 @@ public class QuestionsController implements Initializable {
     }
 
     @FXML
-    void updateQuestion(ActionEvent event) {
-
+    void updateQuestion(ActionEvent event) throws IOException {
+        updatedQ = list.getSelectionModel().getSelectedItem();
+        closeWindow();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/View/UpdateQuestion.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("update question");
+        primaryStage.show();
+    }
+    public void closeWindow() {
+        ((Stage) backButton.getScene().getWindow()).close();
     }
 
     @Override

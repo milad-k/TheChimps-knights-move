@@ -89,7 +89,7 @@ public class ChessBoard {
                     addPiece(square, new King("white", square.x, square.y));
                 }*/
                 if (square.x == 7) {
-                    addPiece(square, new Queen("white", square.x, square.y));
+                    addPiece(square, new Queen("black", square.x, square.y));
                 }
                 if (square.x == 0) {
                     addPiece(square, new Knight("white", square.x, square.y));
