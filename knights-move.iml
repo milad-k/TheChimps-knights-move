@@ -83,7 +83,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx-swt.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx-swt.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -92,7 +92,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.base.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.base.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -101,7 +101,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.controls.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.controls.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -110,7 +110,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.fxml.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.fxml.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -119,7 +119,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.graphics.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.graphics.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -128,7 +128,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.media.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.media.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -137,7 +137,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.swing.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.swing.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -146,7 +146,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-19/lib/javafx.web.jar!/" />
+          <root url="jar://C:/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.web.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
