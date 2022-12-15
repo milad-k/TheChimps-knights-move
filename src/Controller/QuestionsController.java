@@ -13,10 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
@@ -29,6 +26,11 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class QuestionsController implements Initializable {
+
+    static Question ToRead;
+
+    @FXML
+    private ComboBox<Difficulty> difficulty = new ComboBox<Difficulty>();
 
     @FXML
     private Button addQuestionButton;
@@ -46,9 +48,7 @@ public class QuestionsController implements Initializable {
     private ImageView image;
 
     @FXML
-    private ListView<Question> list;
-
-    static Question updatedQ;
+    private ListView<Question> list = new ListView<Question>();
 
     public ListView<Question> getList() {
         return list;
@@ -57,6 +57,8 @@ public class QuestionsController implements Initializable {
     public void setList(ListView<Question> list) {
         this.list = list;
     }
+
+    static Question updatedQ;
 
     private HashMap<Difficulty, ArrayList<Question>> questions;
     SysData sysData = SysData.getInstance();
@@ -100,6 +102,7 @@ public class QuestionsController implements Initializable {
 
     @FXML
     void deleteQuestion(ActionEvent event) {
+
         Question q = list.getSelectionModel().getSelectedItem();
         if(!list.getItems().isEmpty() && q != null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -110,6 +113,7 @@ public class QuestionsController implements Initializable {
             if(alert.getResult().equals(ButtonType.OK)) {
                 list.getItems().remove(q);
                 SysData.getInstance().removeQuestion(q);
+                SysData.getInstance().observableMethod();
             }
         }
         else {
@@ -122,15 +126,30 @@ public class QuestionsController implements Initializable {
     }
 
     @FXML
+    @SuppressWarnings("unlikely-arg-type")
     void updateQuestion(ActionEvent event) throws IOException {
         updatedQ = list.getSelectionModel().getSelectedItem();
-        closeWindow();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/View/UpdateQuestion.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("update question");
-        primaryStage.show();
+        if(updatedQ == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Question");
+            alert.setContentText("You must select a question first");
+            alert.show();
+            return;
+        }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/UpdateQuestion.fxml"));
+            root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
+            Scene customerScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(customerScene);
+            window.show();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
     }
     public void closeWindow() {
         ((Stage) backButton.getScene().getWindow()).close();
@@ -139,7 +158,10 @@ public class QuestionsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        SysData.getInstance().loadQuestions(null);
+        ObservableList<Difficulty> currentList = FXCollections.observableArrayList(Difficulty.values());
+        difficulty.setItems(currentList);
+
+        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.txt");
 
         questions = sysData.getQuestions();
         for(Difficulty d : questions.keySet()) {
@@ -151,7 +173,7 @@ public class QuestionsController implements Initializable {
         ObservableList<Question> question = FXCollections.observableArrayList(level);
         list.setItems(question);
         
-        Line l = new Line(3,50, 150, 50);
+ /*       Line l = new Line(3,50, 150, 50);
 
         PathTransition transition = new PathTransition();
         transition.setNode(image);
@@ -159,6 +181,6 @@ public class QuestionsController implements Initializable {
         transition.setPath(l);
         transition.setCycleCount(PathTransition.INDEFINITE);
         transition.setAutoReverse(true);
-        transition.play();
+        transition.play();*/
     }
 }

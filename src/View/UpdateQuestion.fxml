@@ -33,51 +33,42 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="ans3" layoutX="338.0" layoutY="278.0" prefHeight="25.0" prefWidth="543.0" />
-      <TextField fx:id="ans2" layoutX="338.0" layoutY="242.0" prefHeight="25.0" prefWidth="543.0" />
-      <TextField fx:id="ans1" layoutX="338.0" layoutY="207.0" prefHeight="25.0" prefWidth="543.0" />
-      <TextField fx:id="ans4" layoutX="338.0" layoutY="315.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="editanswer3" layoutX="338.0" layoutY="278.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="editanswer2" layoutX="338.0" layoutY="242.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="editanswer1" layoutX="338.0" layoutY="207.0" prefHeight="25.0" prefWidth="543.0" />
+      <TextField fx:id="editanswer4" layoutX="338.0" layoutY="315.0" prefHeight="25.0" prefWidth="543.0" />
       <Label layoutX="168.0" layoutY="409.0" text="Difficulty :" textFill="#9cab15">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="diff" layoutX="338.0" layoutY="412.0" prefHeight="25.0" prefWidth="120.0" />
-      <Label layoutX="324.0" layoutY="205.0" text="1" textFill="#9cab15">
+      <ComboBox fx:id="editDifficulty" layoutX="338.0" layoutY="412.0" prefHeight="25.0" prefWidth="120.0" />
+      <Label layoutX="288.0" layoutY="205.0" text="1" textFill="#9cab15">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="324.0" layoutY="276.0" text="3" textFill="#9cab15">
+      <Label layoutX="287.0" layoutY="277.0" text="3" textFill="#9cab15">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="324.0" layoutY="313.0" text="4" textFill="#9cab15">
+      <Label layoutX="287.0" layoutY="314.0" text="4" textFill="#9cab15">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="324.0" layoutY="240.0" text="2" textFill="#9cab15">
+      <Label layoutX="287.0" layoutY="242.0" text="2" textFill="#9cab15">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="471.0" text="Team :" textFill="#9cab15">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="team" layoutX="338.0" layoutY="474.0" prefHeight="25.0" prefWidth="120.0" />
-      <Button fx:id="update" layoutX="770.0" layoutY="569.0" mnemonicParsing="false" onAction="#update" prefHeight="44.0" prefWidth="111.0" text="Update">
-         <font>
-            <Font size="21.0" />
-         </font></Button>
+      <Button fx:id="saveEdit" layoutX="770.0" layoutY="569.0" mnemonicParsing="false" onAction="#updateQuestion" prefHeight="44.0" prefWidth="111.0" text="Update Question" />
       <Button fx:id="backButton" layoutX="822.0" layoutY="33.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="88.0" text="Back" />
-      <RadioButton fx:id="r1" layoutX="893.0" layoutY="208.0" mnemonicParsing="false" />
-      <RadioButton fx:id="r2" layoutX="893.0" layoutY="244.0" mnemonicParsing="false" />
-      <RadioButton fx:id="r3" layoutX="893.0" layoutY="280.0" mnemonicParsing="false" />
-      <RadioButton layoutX="893.0" layoutY="317.0" mnemonicParsing="false" />
-      <TextArea fx:id="text" layoutX="334.0" layoutY="125.0" prefHeight="70.0" prefWidth="548.0" />
+      <TextArea fx:id="editques" layoutX="337.0" layoutY="122.0" prefHeight="72.0" prefWidth="547.0" />
+      <RadioButton fx:id="redit1" layoutX="311.0" layoutY="211.0" mnemonicParsing="false" />
+      <RadioButton fx:id="redit2" layoutX="311.0" layoutY="246.0" mnemonicParsing="false" />
+      <RadioButton fx:id="redit3" layoutX="311.0" layoutY="281.0" mnemonicParsing="false" />
+      <RadioButton fx:id="redit4" layoutX="311.0" layoutY="317.0" mnemonicParsing="false" />
     </children>
 </AnchorPane>

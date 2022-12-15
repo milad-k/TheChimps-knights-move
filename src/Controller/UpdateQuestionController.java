@@ -1,13 +1,8 @@
 package Controller;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import Model.Question;
 import Model.SysData;
 import Utils.Difficulty;
-import Utils.Team;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,181 +12,150 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class UpdateQuestionController implements Initializable  {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-
-    @FXML
-    private TextArea text = new TextArea();
-
-    @FXML
-    private TextField ans1 = new TextField();
+public class UpdateQuestionController implements Initializable {
 
     @FXML
-    private TextField ans2 = new TextField();
+    private Button backButton;
 
     @FXML
-    private TextField ans3 = new TextField();
+    private ComboBox<Difficulty> editDifficulty = new ComboBox<Difficulty>();
 
     @FXML
-    private TextField ans4 = new TextField();
+    private TextField editanswer1 = new TextField();
 
     @FXML
-    private ComboBox<Difficulty> diff = new ComboBox<Difficulty>();
+    private TextField editanswer2 = new TextField();
 
     @FXML
-    private ComboBox<Team> team = new ComboBox<Team>();
+    private TextField editanswer3 = new TextField();
 
     @FXML
-    private Button update;
+    private TextField editanswer4 = new TextField();
 
     @FXML
-    private RadioButton r1 = new RadioButton();
+    private TextArea editques = new TextArea();
 
     @FXML
-    private ToggleGroup right;
+    private RadioButton redit1 = new RadioButton();
 
     @FXML
-    private RadioButton r2 = new RadioButton();
+    private RadioButton redit2 = new RadioButton();
 
     @FXML
-    private RadioButton r3 = new RadioButton();
+    private RadioButton redit3 = new RadioButton();
 
     @FXML
-    private RadioButton r4 = new RadioButton();
+    private RadioButton redit4 = new RadioButton();
 
-    public void closeWindow() {
-        ((Stage) r3.getScene().getWindow()).close();
+    @FXML
+    private Button saveEdit;
+
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
+            root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
+            Scene customerScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(customerScene);
+            window.show();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
     }
 
     @FXML
-    void back(ActionEvent event) throws Exception {
-        closeWindow();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Questions.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("questions");
-        primaryStage.show();
-    }
-
-
-    @FXML
-    void update(ActionEvent event) {
-        String ques = text.getText();
-        String answer1 = ans1.getText();
-        String answer2 = ans2.getText();
-        String answer3 = ans3.getText();
-        String answer4 = ans4.getText();
-        int rightAnswer = 0;
-        int flag=0;
-        Difficulty d = diff.getValue();
-        Team t = team.getValue();
-        if (r1.isSelected()) {
-            rightAnswer = 1;
-        } else if (r2.isSelected()) {
-            rightAnswer = 2;
-        } else if (r3.isSelected()) {
-            rightAnswer = 3;
-        } else if (r4.isSelected()){
-            rightAnswer = 4;
-        }
-        else
-        {
-            flag=1;
+    void updateQuestion(ActionEvent event) {
+        String quest = editques.getText();
+        String answer1 = editanswer1.getText();
+        String answer2 = editanswer2.getText();
+        String answer3 = editanswer3.getText();
+        String answer4 = editanswer4.getText();
+        String correctAnswer = null;
+        int flag = 0;
+        Difficulty d = editDifficulty.getValue();
+        if(redit1.isSelected()) {
+            correctAnswer = answer1;
+        } else if (redit2.isSelected()) {
+            correctAnswer = answer2;
+        } else if (redit3.isSelected()) {
+            correctAnswer = answer3;
+        } else if (redit4.isSelected()) {
+            correctAnswer = answer4;
+        } else {
+            flag = 1;
         }
 
-        if(ques.isEmpty()||flag==1||diff.getValue()==null ||team.getValue()==null
-                || ans1.getText().isEmpty()||ans2.getText().isEmpty()|| ans3.getText().isEmpty()||
-                ans4.getText().isEmpty())
-        {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("missing fields");
-            alert.setContentText("You must fill all the fields!");
+        if(quest.isEmpty() || flag == 1 || editDifficulty.getValue() == null || editanswer1.getText().isEmpty() || editanswer2.getText().isEmpty() || editanswer3.getText().isEmpty() || editanswer4.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Missing fields");
+            alert.setContentText("You must fill all the fields");
             alert.show();
-
-        }
-        else
-        {
-            Question q1 = new Question(ques, rightAnswer, d, t);
-            if(q1.getAnswers().contains(answer1) ||q1.getAnswers().contains(answer2) ||q1.getAnswers().contains(answer3)
-                    ||q1.getAnswers().contains(answer4) )
-            {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("same answer");
-                alert.setContentText("You must enter different answers!");
+        } else {
+            Question q1 = new Question(quest, answer1, answer2, answer3, answer4, correctAnswer, d, "Chimp");
+            if(answer1.equals(answer2) || answer1.equals(answer3) || answer1.equals(answer4) || answer2.equals(answer3) || answer2.equals(answer4) || answer3.equals(answer4)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Same fields");
+                alert.setContentText("You must enter different answers");
                 alert.show();
-            }
-            else
-            {
-                q1.addAnswer(answer1);
-                q1.addAnswer(answer2);
-                q1.addAnswer(answer3);
-                q1.addAnswer(answer4);
-
-                System.out.println(QuestionsController.updatedQ.getText());
-                SysData.getInstance().addQuestion(q1);
-                SysData.getInstance().removeQuestion(QuestionsController.updatedQ);
-                //SysData.getInstance().saveQuestions(null);
-                ((Stage) ans3.getScene().getWindow()).close();
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
-                    root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
-                    Scene customerScene = new Scene(root);
-                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    window.setScene(customerScene);
-                    window.show();
-                } catch (IOException e) {
+            } else {
+                q1.setAnswer1(answer1);
+                q1.setAnswer2(answer2);
+                q1.setAnswer3(answer3);
+                q1.setAnswer4(answer4);
+                boolean isAdded = SysData.getInstance().updateQuestion(QuestionsController.updatedQ, q1);
+                System.out.println(isAdded);
+                if(!isAdded) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("FXML");
-                    alert.setHeaderText("Load failure");
-                    alert.setContentText("Failed to load the FXML file.");
-                    alert.showAndWait();
+                    alert.setTitle("Same question exists");
+                    alert.setContentText("You must enter a different question");
+                    alert.show();
+                } else {
+                    SysData.getInstance().observableMethod();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Done");
+                    alert.setContentText("Your question was updated successfully!");
+                    alert.show();
                 }
             }
         }
+
     }
 
-
+    public void prepareForUpdate() {
+    }
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-
-
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Question q = QuestionsController.updatedQ;
-        //Question q = list.getSelectionModel().getSelectedItem();
-        text.setText(q.getText());
-        System.out.println(text.getText());
-        ans1.setText(q.getAnswers().get(0));
-        ans2.setText(q.getAnswers().get(1));
-        ans3.setText(q.getAnswers().get(2));
-        ans4.setText(q.getAnswers().get(3));
-        int rightAnswer = q.getCorrectAnswer();
-        if (rightAnswer == 1) {
-            r1.setSelected(true);
-        } else if (rightAnswer == 2) {
-            r2.setSelected(true);
-        } else if (rightAnswer == 3) {
-            r3.setSelected(true);
+        editques.setText(q.getText());
+        editanswer1.setText(q.getAnswer1());
+        editanswer2.setText(q.getAnswer2());
+        editanswer3.setText(q.getAnswer3());
+        editanswer4.setText(q.getAnswer4());
+        String correctAnswer = q.getCorrect_ans();
+        if(correctAnswer.equals("1")) {
+            redit1.setSelected(true);
+        } else if (correctAnswer.equals("2")) {
+            redit2.setSelected(true);
+        } else if (correctAnswer.equals("3")) {
+            redit3.setSelected(true);
         } else {
-            r4.setSelected(true);
+            redit4.setSelected(true);
         }
-        diff.setValue(q.getDifficulty());
-        team.setValue(q.getTeam());
-        ObservableList<Difficulty> list=FXCollections.observableArrayList(Difficulty.values());
-        diff.setItems(list);
-        ObservableList<Team> list2=FXCollections.observableArrayList(Team.values());
-        team.setItems(list2);
-
+        editDifficulty.setValue(q.getLevel());
+        ObservableList<Difficulty> editList = FXCollections.observableArrayList(Difficulty.values());
+        editDifficulty.setItems(editList);
     }
-
 }
