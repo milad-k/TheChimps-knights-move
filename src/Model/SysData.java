@@ -58,6 +58,17 @@ public class SysData {
         return false;
     }
 
+    public boolean removeUser(User user) {
+        if(user == null) {
+            return false;
+        }
+        if (users.contains(user)) {
+            users.remove(user);
+            return true;
+        }
+        return false;
+    }
+
     public boolean checkUsernameExistince(String username) {
         if(username == null) {
             return false;
@@ -237,13 +248,97 @@ public class SysData {
             return true;
     }
 
+    public Boolean writeUsersJSON() {
+        try {
+            JSONObject JsonObject = new JSONObject();
+            JSONArray JsonArray = new JSONArray();
+
+            for (User u : users) {
+                Map<String, Object> map = new LinkedHashMap<String, Object>(2);
+                map.put("id", u.getId());
+                map.put("username", u.getUsername());
+                JsonArray.add(map);
+            }
+            JsonObject.put("users", JsonArray);
+            PrintWriter pw = new PrintWriter("src/JSON/UsersFormat.txt");
+            pw.write(JsonObject.toJSONString());
+            pw.flush();
+            pw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     public void observableMethod() {
         writeJSON();
         loadQuestions("src/JSON/QuestionsFormat.txt");
     }
 
+    public void usersObservableMethod() {
+        writeUsersJSON();
+        loadUsers("src/JSON/UsersFormat.txt");
+    }
+
     public void observableMethodForGame() {
         writeJSON();
+    }
+
+    public boolean loadUsers(String path) {
+
+        if (path != null) {
+            JSONParser parser = new JSONParser();
+            try {
+                // get question's JSON file
+                FileInputStream fis = new FileInputStream(path);
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+
+                Object obj = parser.parse(reader);
+                JSONObject jo = (JSONObject) obj;
+
+                // convert question's JSON file to array .
+                JSONArray quesArray = (JSONArray) jo.get("users");
+
+                //if the JSON file is empty and there is no questions
+                if (Objects.isNull(quesArray)) {
+                    return false;
+                }
+
+                // iterate over the values (questions).
+                Iterator<JSONObject> quesIterator = quesArray.iterator();
+                // get the questions data.
+                while (quesIterator.hasNext()) {
+
+                    JSONObject q = quesIterator.next();
+
+                    // get question's content
+                    String userId = (String) q.get("id");
+
+                    // get correct answer's number.
+                    String username = (String) q.get("username");
+
+                    User userToAdd = new User(userId,username);
+
+                    if(users != null) {
+                        if(!users.contains(userToAdd)) {
+                            users.add(userToAdd);
+                        }
+                    } else {
+                        users.add(userToAdd);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
 
 

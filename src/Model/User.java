@@ -4,30 +4,24 @@ import java.util.Objects;
 
 public class User {
 
-    private static int idCounter = 1;
-    private int id;
+    private String id;
     private String username;
 
 
-    public User(String username) {
-        this.id = idCounter++;
+    public User(String id, String username) {
+        this.id = id;
         this.username = username;
-
     }
 
-    public static int getIdCounter() {
-        return idCounter;
+    public User(String username) {
+        this.username = username;
     }
 
-    public static void setIdCounter(int idCounter) {
-        User.idCounter = idCounter;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,7 +33,6 @@ public class User {
         this.username = username;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,13 +40,13 @@ public class User {
 
         User user = (User) o;
 
-        if (id != user.id) return false;
-        return !Objects.equals(username, user.username);
+        if (!Objects.equals(id, user.id)) return false;
+        return Objects.equals(username, user.username);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         return result;
     }
@@ -61,7 +54,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }
