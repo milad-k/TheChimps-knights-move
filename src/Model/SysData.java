@@ -69,6 +69,18 @@ public class SysData {
         return false;
     }
 
+    public boolean updateUser(User user, User newUser) {
+        if(newUser != null) {
+            if(!users.contains(newUser.getUsername())) {
+                if(removeUser(user)) {
+                    addUser(newUser);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean checkUsernameExistince(String username) {
         if(username == null) {
             return false;
@@ -250,20 +262,20 @@ public class SysData {
 
     public Boolean writeUsersJSON() {
         try {
-            JSONObject JsonObject = new JSONObject();
-            JSONArray JsonArray = new JSONArray();
+            JSONObject JsonObject1 = new JSONObject();
+            JSONArray JsonArray1 = new JSONArray();
 
             for (User u : users) {
                 Map<String, Object> map = new LinkedHashMap<String, Object>(2);
                 map.put("id", u.getId());
                 map.put("username", u.getUsername());
-                JsonArray.add(map);
+                JsonArray1.add(map);
             }
-            JsonObject.put("users", JsonArray);
-            PrintWriter pw = new PrintWriter("src/JSON/UsersFormat.txt");
-            pw.write(JsonObject.toJSONString());
-            pw.flush();
-            pw.close();
+            JsonObject1.put("users", JsonArray1);
+            PrintWriter pw1 = new PrintWriter("src/JSON/UsersFormat.txt");
+            pw1.write(JsonObject1.toJSONString());
+            pw1.flush();
+            pw1.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return false;
@@ -288,41 +300,41 @@ public class SysData {
         writeJSON();
     }
 
-    public boolean loadUsers(String path) {
+    public boolean loadUsers(String path1) {
 
-        if (path != null) {
-            JSONParser parser = new JSONParser();
+        if (path1 != null) {
+            JSONParser parser1 = new JSONParser();
             try {
-                // get question's JSON file
-                FileInputStream fis = new FileInputStream(path);
+                // get users' JSON file
+                FileInputStream fis1 = new FileInputStream(path1);
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+                BufferedReader reader1 = new BufferedReader(new InputStreamReader(fis1));
 
-                Object obj = parser.parse(reader);
-                JSONObject jo = (JSONObject) obj;
+                Object obj1 = parser1.parse(reader1);
+                JSONObject jo1 = (JSONObject) obj1;
 
-                // convert question's JSON file to array .
-                JSONArray quesArray = (JSONArray) jo.get("users");
+                // convert users' JSON file to array .
+                JSONArray usersArray = (JSONArray) jo1.get("users");
 
-                //if the JSON file is empty and there is no questions
-                if (Objects.isNull(quesArray)) {
+                //if the JSON file is empty and there is no users
+                if (Objects.isNull(usersArray)) {
                     return false;
                 }
 
                 // iterate over the values (questions).
-                Iterator<JSONObject> quesIterator = quesArray.iterator();
-                // get the questions data.
-                while (quesIterator.hasNext()) {
+                Iterator<JSONObject> usersIterator = usersArray.iterator();
+                // get the users data.
+                while (usersIterator.hasNext()) {
 
-                    JSONObject q = quesIterator.next();
+                    JSONObject u = usersIterator.next();
 
-                    // get question's content
-                    String userId = (String) q.get("id");
+                    // get users' id
+                    String userId = (String) u.get("id");
 
-                    // get correct answer's number.
-                    String username = (String) q.get("username");
+                    // get correct users' username.
+                    String username = (String) u.get("username");
 
-                    User userToAdd = new User(userId,username);
+                    User userToAdd = new User(userId, username);
 
                     if(users != null) {
                         if(!users.contains(userToAdd)) {

@@ -1,9 +1,7 @@
 package Controller;
 
-import Model.Question;
 import Model.SysData;
 import Model.User;
-import Utils.Difficulty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,6 +42,8 @@ public class UsersController implements Initializable {
     private ArrayList<User> users;
 
     SysData sysData = SysData.getInstance();
+
+    static User updatedU;
 
     public ListView<User> getList() {
         return list;
@@ -114,8 +114,30 @@ public class UsersController implements Initializable {
     }
 
     @FXML
+    @SuppressWarnings("unlikely-arg-type")
     void updateUser(ActionEvent event) {
-
+        updatedU = list.getSelectionModel().getSelectedItem();
+        if(updatedU == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No User");
+            alert.setContentText("You must select a user first");
+            alert.show();
+            return;
+        }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/UpdateUser.fxml"));
+            root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
+            Scene customerScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(customerScene);
+            window.show();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
     }
 
     @Override

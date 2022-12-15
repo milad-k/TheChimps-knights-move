@@ -133,9 +133,6 @@ public class UpdateQuestionController implements Initializable {
 
     }
 
-    public void prepareForUpdate() {
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Question q = QuestionsController.updatedQ;
