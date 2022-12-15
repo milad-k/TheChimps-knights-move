@@ -1,5 +1,6 @@
 package Model;
 
+import Utils.Stage;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -7,10 +8,11 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ChessBoard {
+public abstract class ChessBoard {
 
     GridPane chessBoard;
     String theme;
+    Stage stage;
 
     public ArrayList<Square> squares = new ArrayList<>();
 
@@ -34,7 +36,7 @@ public class ChessBoard {
             }
         }
         addPieces();
-        addRandomJumpSquares();
+        addSpecialSquares();
     }
 
     private void setTheme(Square square, String theme, int i, int j) {
@@ -98,62 +100,15 @@ public class ChessBoard {
         }
     }
 
-    private void addRandomJumpSquares() {
 
-        Color color1 = Color.web("black");
-        for (int i = 0; i < 3; i++) {
-            Random rand = new Random();
-            int int_rand = rand.nextInt(64);
-            squares.get(int_rand).setType("Random Jump Square");
-            //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        }
-    }
-
-        private void addForgetfulSquares() {
-
-            Color color1 = Color.web("black");
-            for (int i = 0; i < 3; i++) {
-                Random rand = new Random();
-                int int_rand = rand.nextInt(64);
-                squares.get(int_rand).setType("Forgetful Square");
-
-            }
-
-        }
-    private void addForgetfulAndRandomJumpSquares() {
-
-        Color color1 = Color.web("black");
-        for (int i = 0; i < 2; i++) {
-            Random rand = new Random();
-            int int_rand = rand.nextInt(64);
-            squares.get(int_rand).setType("Forgetful Square");
-
-        }
-        for (int i = 0; i < 2; i++) {
-            Random rand = new Random();
-            int int_rand = rand.nextInt(64);
-            squares.get(int_rand).setType("Random Jump Square");
-
-        }
-
-    }
-    private void addBlockingSquares() {
-
-        Color color1 = Color.web("black");
-        for (int i = 0; i < 8; i++) {
-            Random rand = new Random();
-            int int_rand = rand.nextInt(64);
-            squares.get(int_rand).setType("Blocking Square");
-
-        }
-
-    }
 
     public ArrayList<Square> getSquares() {
         return squares;
     }
+    public void addSpecialSquares(){
 
+    }
     public void setSquares(ArrayList<Square> squares) {
         this.squares = squares;
     }

@@ -22,7 +22,8 @@ public class Game {
     private boolean turnToPlay;
 
     public Game(GridPane chessBoard, String theme) {
-        cb = new ChessBoard(chessBoard, theme);
+        ChessBoardFactory boardFactory = new ChessBoardFactory();
+        cb = boardFactory.makeChessBoard("First Stage ChessBoard",chessBoard, theme);
         currentPiece = null;
         currentPlayer = "white";
         this.game = true;
