@@ -140,7 +140,6 @@ public class SysData {
     }
     // Helper method to define question's difficulty level
     public Difficulty getQuestionLevel(String level) {
-
         if (level.equals("EASY"))
             return Difficulty.EASY;
         else if (level.equals("MEDIUM"))

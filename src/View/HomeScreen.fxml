@@ -74,11 +74,6 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="questionsButton" layoutX="383.0" layoutY="406.0" mnemonicParsing="false" onAction="#questions" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Questions">
-         <font>
-            <Font size="29.0" />
-         </font>
-      </Button>
       <Text fx:id="helloText" layoutX="100.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="41.0" />

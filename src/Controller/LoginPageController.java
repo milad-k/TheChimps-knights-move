@@ -120,6 +120,24 @@ public class LoginPageController implements Initializable {
         }
     }
 
+    @FXML
+    void admin(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/AdminLoginPage.fxml"));
+            root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
+            Scene adminScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(adminScene);
+            window.show();
+        } catch(IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernameField.textProperty().addListener((arg2, oldValue, newValue) -> {
