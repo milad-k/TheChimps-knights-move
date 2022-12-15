@@ -93,6 +93,12 @@ public class SysData {
         return false;
     }
 
+    public Question popQuestion(Difficulty level) {
+        ArrayList<Question> myArray = questions.get(level);
+        Question q = myArray.get(new Random().nextInt(myArray.size()));
+        return q;
+    }
+
     public boolean loadQuestions(String path) {
 
         if (path != null) {
