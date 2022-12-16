@@ -7,6 +7,8 @@ public class User {
     private String id;
     private String username;
 
+    private int points;
+
 
     public User(String id, String username) {
         this.id = id;
@@ -31,6 +33,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     @Override

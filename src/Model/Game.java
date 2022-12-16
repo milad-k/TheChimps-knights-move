@@ -178,20 +178,4 @@ public class Game {
         this.turnToPlay = turnToPlay;
     }
 
-    public void upgradeQueen(int GameId){
-        ChessBoard c = Game.cb;
-        ArrayList<Square> squares = Game.cb.getSquares();
-        if(this.stage == Stage.Third){
-            for (Square square : squares) {
-                if (square.occupied){
-                    if(square.name.equals("Queen")){
-                        c.addPiece(square, new King("white", square.x, square.y));
-
-                    }
-                }
-        }
-
-
-    }
-}
     }
