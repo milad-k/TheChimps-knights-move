@@ -49,14 +49,24 @@
             <Font size="46.0" />
          </font>
       </Text>
-      <Text fill="#f0f0f0fa" layoutX="367.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points: ">
+      <Text fill="#f0f0f0fa" layoutX="474.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points: ">
          <font>
             <Font size="46.0" />
          </font>
       </Text>
-      <Text fx:id="points" fill="#f5f0f0" layoutX="515.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text fx:id="points" fill="#f5f0f0" layoutX="622.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="46.0" />
+         </font>
+      </Text>
+      <Text fill="#f0f0f0fa" layoutX="207.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User:" wrappingWidth="58.1416015625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="usernameField" fill="#f0f0f0fa" layoutX="265.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="127.0000114440918">
+         <font>
+            <Font size="24.0" />
          </font>
       </Text>
    </children>

@@ -26,9 +26,6 @@ public class LoginPageController implements Initializable {
     @FXML
     private Button loginButton;
 
-   /* @FXML
-    private PasswordField passwordField; */
-
     @FXML
     private TextField usernameField;
 
@@ -40,13 +37,10 @@ public class LoginPageController implements Initializable {
     @FXML
     void login(ActionEvent event) {
         String username = usernameField.getText();
-        //String password = passwordField.getText();
         /* Here we check if the fields are empty/null and if the username/password fields are empty/null we get an invalid alert pop-up. */
-        if(username == null || username.isEmpty() /* || password == null || password.isEmpty() */) {
+        if(username == null || username.isEmpty()) {
             usernameField.setStyle("-fx-background-radius: 8px");
-            /* passwordField.setStyle("-fx-background-radius: 8px"); */
             usernameField.setStyle("-fx-border-color: red");
-            /* passwordField.setStyle("-fx-border-color: red"); */
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login");
             alert.setHeaderText("Invalid input");
@@ -55,7 +49,7 @@ public class LoginPageController implements Initializable {
         }
 
         /* Here we check if the fields are match the Manager's username and password and if there is a match then the program will login to the manager's account. */
-        else if(username.equals("admin") || !(SysData.getInstance().checkUsernameExistince(username))/* && password.equals("admin")*/) {
+        else if(username.equals("admin") || !(SysData.getInstance().checkUsernameExistince(username))) {
             SysData.getInstance().addUser(new User(username));
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
@@ -75,9 +69,7 @@ public class LoginPageController implements Initializable {
         else {
 
             usernameField.setStyle("-fx-background-radius: 8px");
-            /* passwordField.setStyle("-fx-background-radius: 8px"); */
             usernameField.setStyle("-fx-border-color: red");
-            /* passwordField.setStyle("-fx-border-color: red"); */
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Login");
             alert.setHeaderText("Verification Failed");
@@ -86,6 +78,7 @@ public class LoginPageController implements Initializable {
             ButtonType button = result.orElse(ButtonType.OK);
 
             if(button == ButtonType.OK){
+                SysData.getInstance().setCurrentUser(SysData.getInstance().getUserByUserName(username));
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
                     root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
@@ -143,18 +136,10 @@ public class LoginPageController implements Initializable {
         usernameField.textProperty().addListener((arg2, oldValue, newValue) -> {
             if(newValue.length() > 0 && flag) {
                 usernameField.setStyle("");
-                /* passwordField.setStyle(""); */
                 invalidText.setVisible(false);
                 flag = false;
             }
         });
-        /* passwordField.textProperty().addListener((arg2, oldValue, newValue) -> {
-            if(newValue.length() > 0 && flag) {
-                usernameField.setStyle("");
-                passwordField.setStyle("");
-                invalidText.setVisible(false);
-                flag = false;
-            }
-        }); */
+
     }
 }

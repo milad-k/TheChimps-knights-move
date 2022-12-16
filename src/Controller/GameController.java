@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Game;
+import Model.SysData;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -38,9 +39,14 @@ public class GameController {
 
     @FXML
     private Text points;
+    @FXML
+    private Text usernameField;
 
     public void initialize() {
-        Game game = new Game(chessBoard, "Sandcastle");
+        String username = usernameField.getText();
+        username = SysData.getInstance().getCurrentUser().getUsername();
+        usernameField.setText(username);
+        Game game = new Game(chessBoard, "Sandcastle", SysData.getInstance().getCurrentUser());
         timer.textProperty().bind(timeSeconds.asString());
         if (timeline != null) {
             timeline.stop();

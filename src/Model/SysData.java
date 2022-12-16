@@ -15,6 +15,8 @@ public class SysData {
     private ArrayList<Game> games;
     private ArrayList<User> users;
 
+    private User currentUser;
+
     public static SysData getInstance() {
         if(SysData == null)
             SysData = new SysData();
@@ -53,9 +55,18 @@ public class SysData {
         }
         if (!users.contains(user)) {
             users.add(user);
+            setCurrentUser(user);
             return true;
         }
         return false;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     public boolean removeUser(User user) {
@@ -80,7 +91,17 @@ public class SysData {
         }
         return false;
     }
-
+    public User getUserByUserName(String username){
+       for(int i = 0 ; i<users.size(); i++){
+           if(users.get(i).getUsername().equals(username)){
+               return users.get(i);
+           }
+           else{
+               return null;
+           }
+       }
+       return null;
+    }
     public boolean checkUsernameExistince(String username) {
         if(username == null) {
             return false;

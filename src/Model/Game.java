@@ -20,13 +20,15 @@ public class Game {
     private boolean game;
     private Stage stage;
     private boolean turnToPlay;
+    private User currentuser;
 
-    public Game(GridPane chessBoard, String theme) {
+    public Game(GridPane chessBoard, String theme, User user) {
         ChessBoardFactory boardFactory = new ChessBoardFactory();
         cb = boardFactory.makeChessBoard("First Stage ChessBoard",chessBoard, theme);
         currentPiece = null;
         currentPlayer = "white";
         this.game = true;
+        this.currentuser = user;
         this.id = idCounter++;
         addEventHandlers(cb.chessBoard);
     }
