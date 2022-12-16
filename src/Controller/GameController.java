@@ -38,14 +38,14 @@ public class GameController {
     private Text timer;
 
     @FXML
-    private Text points;
+    private Text pointsField;
     @FXML
     private Text usernameField;
 
     public void initialize() {
-        String username = usernameField.getText();
-        username = SysData.getInstance().getCurrentUser().getUsername();
+        String username = SysData.getInstance().getCurrentUser().getUsername();
         usernameField.setText(username);
+        putPoints();
         Game game = new Game(chessBoard, "Sandcastle", SysData.getInstance().getCurrentUser());
         timer.textProperty().bind(timeSeconds.asString());
         if (timeline != null) {
@@ -78,4 +78,15 @@ public class GameController {
         }
     }
 
+    public Text getPointsField() {
+        return pointsField;
+    }
+
+    public void setPointsField(Text pointsField) {
+        this.pointsField = pointsField;
+    }
+    public void putPoints(){
+        int points = SysData.getInstance().getCurrentUser().getPoints();
+        pointsField.setText(String.valueOf(points));
+    }
 }

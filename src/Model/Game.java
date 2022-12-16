@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.GameController;
 import Utils.Stage;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
@@ -21,6 +22,7 @@ public class Game {
     private Stage stage;
     private boolean turnToPlay;
     private User currentuser;
+
 
     public Game(GridPane chessBoard, String theme, User user) {
         ChessBoardFactory boardFactory = new ChessBoardFactory();
@@ -134,8 +136,7 @@ public class Game {
     }
 
     private void dropPiece(Square square) {
-        if(!currentPiece.possibleMoves.contains(square.name)) return;
-
+        if (!currentPiece.possibleMoves.contains(square.name)) return;
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().add(currentPiece);
         square.occupied = true;
@@ -143,15 +144,18 @@ public class Game {
         initialSquare.occupied = false;
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
-        deselectPiece(true);
-    }
+        if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
+            SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
+        }
 
+        deselectPiece(true);
+
+    }
     private void killPiece(Square square) {
         if(!currentPiece.possibleMoves.contains(square.name)) return;
 
         Piece killedPiece = (Piece) square.getChildren().get(0);
         if(killedPiece.type.equals("King")) this.game = false;
-
 
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().remove(0);
@@ -161,6 +165,9 @@ public class Game {
         initialSquare.occupied = false;
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
+        if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
+            SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
+        }
         deselectPiece(true);
     }
 
