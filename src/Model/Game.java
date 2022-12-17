@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-public class Game {
+public class Game extends GameController{
 
     private int id;
     private static int idCounter = 1;
@@ -147,7 +147,7 @@ public class Game {
         if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
         }
-
+        staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
         deselectPiece(true);
 
     }
@@ -168,6 +168,8 @@ public class Game {
         if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
         }
+        staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+
         deselectPiece(true);
     }
 
