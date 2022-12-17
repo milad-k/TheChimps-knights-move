@@ -27,6 +27,7 @@ public abstract class ChessBoard {
     public void setTheme(Square square, String theme, int i, int j) {
         Color color1 = Color.web("#ffffff00");
         Color color2 = Color.web("#ffffff00");
+        Color color3 = Color.web("#FF0000");
 
         switch (theme) {
             case "Coral" -> {
@@ -54,8 +55,10 @@ public abstract class ChessBoard {
                 color2 = Color.web("#b88b4a");
             }
         }
-
-        if ((i + j) % 2 == 0) {
+        if(i == 0 && j == 0){
+            square.setBackground(new Background(new BackgroundFill(color3, CornerRadii.EMPTY, Insets.EMPTY)));
+        }
+        else if ((i + j) % 2 == 0) {
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
         } else {
             square.setBackground(new Background(new BackgroundFill(color2, CornerRadii.EMPTY, Insets.EMPTY)));

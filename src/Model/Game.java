@@ -4,12 +4,19 @@ import Controller.GameController;
 import Utils.Stage;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
+import javafx.geometry.Insets;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.geometry.Insets;
+import javafx.scene.layout.*;
 
 import java.util.ArrayList;
+import javafx.scene.paint.Color;
+
 
 public class Game extends GameController{
 
@@ -136,6 +143,7 @@ public class Game extends GameController{
     }
 
     private void dropPiece(Square square) {
+        Color color1 = Color.web("#FF0000");
         if (!currentPiece.possibleMoves.contains(square.name)) return;
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().add(currentPiece);
@@ -146,12 +154,16 @@ public class Game extends GameController{
         currentPiece.posY = square.y;
         if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
+            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
         }
-        staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+
         deselectPiece(true);
 
     }
     private void killPiece(Square square) {
+        Color color1 = Color.web("#FF0000");
+
         if(!currentPiece.possibleMoves.contains(square.name)) return;
 
         Piece killedPiece = (Piece) square.getChildren().get(0);
@@ -167,8 +179,10 @@ public class Game extends GameController{
         currentPiece.posY = square.y;
         if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
+            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
         }
-        staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+
 
         deselectPiece(true);
     }
