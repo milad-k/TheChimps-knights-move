@@ -30,7 +30,7 @@ public class GameController {
 
     @FXML
     private Button backButton;
-
+    public static GridPane staticChessBoard;
     @FXML
     private GridPane chessBoard;
 
