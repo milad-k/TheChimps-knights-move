@@ -69,5 +69,20 @@
             <Font size="24.0" />
          </font>
       </Text>
+      <Text fill="#f0f0f0fa" layoutX="803.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level: ">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="pointsField1" fill="#f5f0f0" layoutX="885.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Text>
+      <Text fx:id="StageField" fill="#f0f0f0fa" layoutX="885.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="72.0000114440918">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

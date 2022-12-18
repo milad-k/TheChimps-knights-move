@@ -42,12 +42,16 @@ public class GameController {
     public static Text staticPoints;
     @FXML
     private Text usernameField;
+    public static Text staticStage;
+    @FXML
+    private Text StageField;
 
     public void initialize() {
         String username = SysData.getInstance().getCurrentUser().getUsername();
         usernameField.setText(username);
         staticPoints = pointsField;
-        Game game = new Game(chessBoard, "Sandcastle", SysData.getInstance().getCurrentUser());
+        staticStage = StageField;
+        Game game = new Game(chessBoard, "Sandcastle", SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         timer.textProperty().bind(timeSeconds.asString());
         if (timeline != null) {
             timeline.stop();

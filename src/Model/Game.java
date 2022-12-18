@@ -31,14 +31,15 @@ public class Game extends GameController{
     private User currentuser;
 
 
-    public Game(GridPane chessBoard, String theme, User user) {
+    public Game(GridPane chessBoard, String theme, User user, String stage, Stage stage1) {
         ChessBoardFactory boardFactory = new ChessBoardFactory();
-        cb = boardFactory.makeChessBoard("First Stage ChessBoard",chessBoard, theme);
+        cb = boardFactory.makeChessBoard(stage,chessBoard, theme);
         currentPiece = null;
         currentPlayer = "white";
         this.game = true;
         this.currentuser = user;
         this.id = idCounter++;
+        staticStage.setText(Stage.First.toString());
         addEventHandlers(cb.chessBoard);
     }
 
