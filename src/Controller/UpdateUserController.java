@@ -1,11 +1,7 @@
 package Controller;
 
-import Model.Question;
 import Model.SysData;
 import Model.User;
-import Utils.Difficulty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

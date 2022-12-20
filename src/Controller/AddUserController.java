@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Question;
 import Model.SysData;
 import Model.User;
 import javafx.event.ActionEvent;

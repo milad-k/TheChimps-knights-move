@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeScreenMaramController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeScreenMaramController">
    <children>
-      <ImageView fitHeight="691.0" fitWidth="1025.0" layoutY="-1.0" opacity="0.62" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="691.0" fitWidth="1025.0" layoutY="-1.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Controller/Images/bg.jpg" />
          </image>
@@ -19,7 +19,7 @@
             <Font size="26.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="150.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="183.0" onMouseEntered="#playEnter" onMouseExited="#addExit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Controller/Images/play-btn.png" />
                </image>
@@ -61,7 +61,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="277.0" layoutY="41.0" text="Knight's Move" textFill="#cdba56">
+      <Label layoutX="277.0" layoutY="41.0" text="Knight's Move" textFill="#ae962b">
          <font>
             <Font size="70.0" />
          </font>
