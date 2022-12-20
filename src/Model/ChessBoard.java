@@ -19,7 +19,6 @@ public abstract class ChessBoard {
     public ChessBoard(GridPane chessBoard, String theme) {
         this.chessBoard = chessBoard;
         this.theme = theme;
-        makeBoard(this.chessBoard, theme);
     }
 
     abstract void makeBoard(GridPane chessBoard, String theme);

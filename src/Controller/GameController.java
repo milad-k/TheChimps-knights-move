@@ -51,6 +51,7 @@ public class GameController {
         usernameField.setText(username);
         staticPoints = pointsField;
         staticStage = StageField;
+        staticChessBoard = chessBoard;
         Game game = new Game(chessBoard, "Sandcastle", SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         timer.textProperty().bind(timeSeconds.asString());
         if (timeline != null) {
