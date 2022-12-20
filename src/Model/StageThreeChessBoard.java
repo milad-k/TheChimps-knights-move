@@ -12,6 +12,8 @@ public class StageThreeChessBoard extends ChessBoard{
     public StageThreeChessBoard(GridPane chessBoard, String theme) {
         super(chessBoard, theme);
         this.stage = Stage.Third;
+        makeBoard(this.chessBoard, theme);
+
     }
 
     @Override

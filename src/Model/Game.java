@@ -11,17 +11,15 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 
-import java.util.ArrayList;
-import javafx.scene.paint.Color;
 
 
 public class Game extends GameController{
 
     private int id;
     private static int idCounter = 1;
+    private GridPane chessBoard;
     public static Piece currentPiece;
     public static String currentPlayer;
     public static ChessBoard cb;
@@ -153,20 +151,32 @@ public class Game extends GameController{
         initialSquare.occupied = false;
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
+        deselectPiece(true);
+
         if(square.getBackground().getFills().get(0).getFill().equals(color1)){
             if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
 
                 SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() - 1);
                 staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+
             }
         }
         else if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
             staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        }
+        else if(SysData.getInstance().getCurrentUser().getPoints() == 15){
+            ChessBoardFactory cbTwo = new ChessBoardFactory();
+            cb = cbTwo.makeChessBoard("Second Stage ChessBoard",cb.chessBoard,"Sandcastle" );
+
+            setCb(cb);
+            setStage(Stage.Second);
+            staticStage.setText(Stage.Second.toString());
+
         }
 
-        deselectPiece(true);
 
     }
     private void killPiece(Square square) {
@@ -212,3 +222,4 @@ public class Game extends GameController{
     }
 
     }
+
