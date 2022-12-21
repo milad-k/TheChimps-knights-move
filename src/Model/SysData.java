@@ -273,7 +273,7 @@ public class SysData {
                     }
                 }
                 JsonObject.put("questions", JsonArray);
-                PrintWriter pw = new PrintWriter("src/JSON/QuestionsFormat.txt");
+                PrintWriter pw = new PrintWriter("src/JSON/QuestionsFormat.json");
                 pw.write(JsonObject.toJSONString());
                 pw.flush();
                 pw.close();
@@ -299,7 +299,7 @@ public class SysData {
                 JsonArray1.add(map);
             }
             JsonObject1.put("users", JsonArray1);
-            PrintWriter pw1 = new PrintWriter("src/JSON/UsersFormat.txt");
+            PrintWriter pw1 = new PrintWriter("src/JSON/UsersFormat.json");
             pw1.write(JsonObject1.toJSONString());
             pw1.flush();
             pw1.close();
@@ -315,12 +315,12 @@ public class SysData {
 
     public void observableMethod() {
         writeJSON();
-        loadQuestions("src/JSON/QuestionsFormat.txt");
+        loadQuestions("src/JSON/QuestionsFormat.json");
     }
 
     public void usersObservableMethod() {
         writeUsersJSON();
-        loadUsers("src/JSON/UsersFormat.txt");
+        loadUsers("src/JSON/UsersFormat.json");
     }
 
     public void observableMethodForGame() {

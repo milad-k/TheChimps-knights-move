@@ -158,7 +158,7 @@ public class QuestionsController implements Initializable {
         ObservableList<Difficulty> currentList = FXCollections.observableArrayList(Difficulty.values());
         difficulty.setItems(currentList);
 
-        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.txt");
+        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
 
         questions = sysData.getQuestions();
         for(Difficulty d : questions.keySet()) {

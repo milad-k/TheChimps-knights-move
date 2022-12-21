@@ -19,7 +19,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/junit-4.10 copy.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/json-simple-1.1 copy.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/slf4j-api-1.7.2 copy.jar" path-in-jar="/" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/JSON/QuestionsFormat.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/JSON/QuestionsFormat.json" />
     </root>
   </artifact>
 </component>
