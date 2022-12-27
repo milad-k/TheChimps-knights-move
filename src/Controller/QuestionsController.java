@@ -13,7 +13,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,8 +22,6 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class QuestionsController implements Initializable {
-
-    static Question ToRead;
 
     @FXML
     private ComboBox<Difficulty> difficulty = new ComboBox<Difficulty>();
@@ -40,9 +37,6 @@ public class QuestionsController implements Initializable {
 
     @FXML
     private Button updateQuestionButton;
-
-    @FXML
-    private ImageView image;
 
     @FXML
     private ListView<Question> list = new ListView<Question>();
@@ -148,9 +142,6 @@ public class QuestionsController implements Initializable {
             alert.showAndWait();
         }
     }
-    public void closeWindow() {
-        ((Stage) backButton.getScene().getWindow()).close();
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -169,15 +160,6 @@ public class QuestionsController implements Initializable {
         }
         ObservableList<Question> question = FXCollections.observableArrayList(level);
         list.setItems(question);
-        
- /*       Line l = new Line(3,50, 150, 50);
 
-        PathTransition transition = new PathTransition();
-        transition.setNode(image);
-        transition.setDuration(Duration.seconds(2));
-        transition.setPath(l);
-        transition.setCycleCount(PathTransition.INDEFINITE);
-        transition.setAutoReverse(true);
-        transition.play();*/
     }
 }

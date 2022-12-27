@@ -50,9 +50,6 @@ public class AddQuestionController implements Initializable {
     private RadioButton ranswer4;
 
     @FXML
-    private ComboBox correctAnswerBox;
-
-    @FXML
     private ComboBox<Difficulty> difficulty = new ComboBox<Difficulty>();
 
     @FXML
@@ -63,9 +60,6 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private Button backButton;
-
-
-    ObservableList<Integer> correctAnswerList = FXCollections.observableArrayList(1,2,3,4);
 
     @FXML
     void back(ActionEvent event) {
