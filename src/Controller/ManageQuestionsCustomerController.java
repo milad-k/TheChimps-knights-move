@@ -58,7 +58,7 @@ public class ManageQuestionsCustomerController implements Initializable {
     @FXML
     void addQuestion(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/AddQuestion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/AddQuestionCustomer.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -128,7 +128,7 @@ public class ManageQuestionsCustomerController implements Initializable {
             return;
         }
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/UpdateQuestion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/UpdateQuestionCustomer.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
