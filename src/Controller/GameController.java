@@ -30,6 +30,8 @@ public class GameController {
 
     @FXML
     private Button backButton;
+    @FXML
+    private Button pauseButton;
     public static GridPane staticChessBoard;
     @FXML
     private GridPane chessBoard;
@@ -83,7 +85,23 @@ public class GameController {
             alert.showAndWait();
         }
     }
-
+    @FXML
+    void pause(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/PausePopUp.fxml"));
+            root.setStyle("-fx-background-color: #FFEB7B;");
+            Scene customerScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(customerScene);
+            window.show();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+    }
     public Text getPointsField() {
         return pointsField;
     }
