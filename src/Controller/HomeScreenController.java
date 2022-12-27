@@ -19,13 +19,16 @@ import java.util.ResourceBundle;
 public class HomeScreenController implements Initializable {
 
     @FXML
+    private Button exitButton;
+
+    @FXML
     private Button gamesHistoryButton;
 
     @FXML
-    private Text helloText;
+    private Button questionsButton;
 
     @FXML
-    private Button logoutButton;
+    private Button rulesButton;
 
     @FXML
     private Button startGameButton;
@@ -74,6 +77,11 @@ public class HomeScreenController implements Initializable {
             alert.setContentText("Failed to load the FXML file.");
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    void questions(ActionEvent event) {
+
     }
 
     @FXML
