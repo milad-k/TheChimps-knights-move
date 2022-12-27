@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="491.0" style="-fx-background-color: E5D997;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <RadioButton fx:id="userAnswer1" layoutX="167.0" layoutY="119.0" mnemonicParsing="false" text="Answer 1">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="userAnswer2" layoutX="167.0" layoutY="154.0" mnemonicParsing="false" text="Answer 2">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="userAnswer4" layoutX="167.0" layoutY="228.0" mnemonicParsing="false" prefWidth="132.0" text="Answer 4">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="userAnswer3" layoutX="167.0" layoutY="190.0" mnemonicParsing="false" text="Answer 3">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <Button layoutX="205.0" layoutY="290.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="82.0" style="-fx-background-color: #5a9ceb;" text="Answer!">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="119.0" layoutY="33.0" text="Please answer the question" textFill="#5a9ceb">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="192.0" layoutY="75.0" text="Easy - 1 point " textFill="#32b12c">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
