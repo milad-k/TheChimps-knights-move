@@ -49,7 +49,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="rulesButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="540.0" layoutY="439.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Rules" textFill="WHITE">
+      <Button fx:id="rulesButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="540.0" layoutY="439.0" mnemonicParsing="false" onAction="#rules" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Rules" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>

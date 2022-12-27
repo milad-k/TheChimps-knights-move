@@ -22,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class AddQuestionController implements Initializable {
 
+    ToggleGroup group = new ToggleGroup();
     @FXML
     private TextArea questionField;
 
@@ -154,5 +155,9 @@ public class AddQuestionController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<Difficulty> list=FXCollections.observableArrayList(Difficulty.values());
         difficulty.setItems(list);
+        ranswer1.setToggleGroup(group);
+        ranswer2.setToggleGroup(group);
+        ranswer3.setToggleGroup(group);
+        ranswer4.setToggleGroup(group);
     }
 }

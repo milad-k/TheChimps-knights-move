@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RulesScreenController">
    <children>
@@ -22,11 +22,6 @@
       <ImageView fitHeight="227.0" fitWidth="259.0" layoutX="710.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Controller/Images/chessboard-3D.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="67.0" fitWidth="64.0" layoutX="18.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Controller/Images/back.png" />
          </image>
       </ImageView>
       <Label layoutX="349.0" layoutY="140.0" text="Check The Figures" textFill="#e5d997">
@@ -89,5 +84,17 @@
             <Font size="28.0" />
          </font>
       </Label>
+      <Button fx:id="backButton" layoutX="11.0" layoutY="11.0" mnemonicParsing="false" onAction="#back" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="67.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

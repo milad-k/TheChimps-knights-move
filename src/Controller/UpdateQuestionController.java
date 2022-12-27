@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 
 public class UpdateQuestionController implements Initializable {
 
+    ToggleGroup group = new ToggleGroup();
     @FXML
     private Button backButton;
 
@@ -154,5 +155,9 @@ public class UpdateQuestionController implements Initializable {
         editDifficulty.setValue(q.getLevel());
         ObservableList<Difficulty> editList = FXCollections.observableArrayList(Difficulty.values());
         editDifficulty.setItems(editList);
+        redit1.setToggleGroup(group);
+        redit2.setToggleGroup(group);
+        redit3.setToggleGroup(group);
+        redit4.setToggleGroup(group);
     }
 }
