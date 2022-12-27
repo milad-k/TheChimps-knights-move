@@ -26,20 +26,41 @@
          </font>
       </Button>
       <ListView fx:id="list" layoutX="88.0" layoutY="157.0" prefHeight="388.0" prefWidth="809.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" />
-      <Button fx:id="addQuestionButton" layoutX="129.0" layoutY="570.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="70.0" prefWidth="180.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Add Question" textFill="WHITE">
+      <Button fx:id="addQuestionButton" layoutX="91.0" layoutY="571.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: A5C3DC; -fx-background-radius: 25;" text="Add Question" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/add-question.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <Button fx:id="updateQuestionButton" layoutX="407.0" layoutY="570.0" mnemonicParsing="false" onAction="#updateQuestion" prefHeight="70.0" prefWidth="180.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Update Question" textFill="WHITE">
+      <Button fx:id="updateQuestionButton" layoutX="371.0" layoutY="570.0" mnemonicParsing="false" onAction="#updateQuestion" prefHeight="70.0" prefWidth="236.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Update Question" textFill="WHITE">
          <font>
             <Font size="21.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/update-question.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <Button fx:id="deleteQuestionButton" layoutX="680.0" layoutY="570.0" mnemonicParsing="false" onAction="#deleteQuestion" prefHeight="70.0" prefWidth="180.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Delete Question" textFill="WHITE">
+      <Button fx:id="deleteQuestionButton" layoutX="669.0" layoutY="570.0" mnemonicParsing="false" onAction="#deleteQuestion" prefHeight="70.0" prefWidth="229.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Delete Question" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/delete-question.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
 
    </children>

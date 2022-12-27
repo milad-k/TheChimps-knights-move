@@ -18,7 +18,7 @@
             <Image url="@../Controller/Images/bg.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="290.0" layoutY="48.0" text="Add Question" textFill="#ae962b">
+      <Label layoutX="231.0" layoutY="40.0" text="Add New Question" textFill="#e5d997">
          <font>
             <Font size="70.0" />
          </font>
@@ -28,25 +28,49 @@
             <Font size="24.0" />
          </font>
       </TextArea>
-      <TextField fx:id="answer1" layoutX="271.0" layoutY="292.0" prefHeight="26.0" prefWidth="430.0" promptText="Answer 1" style="-fx-background-radius: 30;" />
-      <TextField fx:id="answer2" layoutX="271.0" layoutY="340.0" prefHeight="26.0" prefWidth="430.0" promptText="Answer 2" style="-fx-background-radius: 30;" />
-      <TextField fx:id="answer3" layoutX="271.0" layoutY="390.0" prefHeight="26.0" prefWidth="430.0" promptText="Answer 3" style="-fx-background-radius: 30;" />
-      <TextField fx:id="answer4" layoutX="271.0" layoutY="442.0" prefHeight="26.0" prefWidth="430.0" promptText="Answer 4" style="-fx-background-radius: 30;" />
-      <Button fx:id="addQuestionButton" layoutX="433.0" layoutY="586.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="37.0" prefWidth="87.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Add" textFill="WHITE">
+      <TextField fx:id="answer1" layoutX="271.0" layoutY="286.0" prefHeight="50.0" prefWidth="430.0" promptText="Answer 1" style="-fx-background-radius: 10;">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="answer2" layoutX="271.0" layoutY="344.0" prefHeight="50.0" prefWidth="430.0" promptText="Answer 2" style="-fx-background-radius: 10;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="answer3" layoutX="271.0" layoutY="402.0" prefHeight="50.0" prefWidth="430.0" promptText="Answer 3" style="-fx-background-radius: 10;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="answer4" layoutX="271.0" layoutY="460.0" prefHeight="50.0" prefWidth="430.0" promptText="Answer 4" style="-fx-background-radius: 10;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button fx:id="addQuestionButton" layoutX="761.0" layoutY="535.0" mnemonicParsing="false" onAction="#addQuestion" prefHeight="100.0" prefWidth="149.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="32.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/add-question-confirm.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
       <Button fx:id="backButton" layoutX="47.0" layoutY="51.0" mnemonicParsing="false" onAction="#back" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Back" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <RadioButton fx:id="ranswer1" layoutX="243.0" layoutY="296.0" mnemonicParsing="false" />
-      <RadioButton fx:id="ranswer2" layoutX="243.0" layoutY="344.0" mnemonicParsing="false" />
-      <RadioButton fx:id="ranswer3" layoutX="243.0" layoutY="394.0" mnemonicParsing="false" />
-      <RadioButton fx:id="ranswer4" layoutX="243.0" layoutY="446.0" mnemonicParsing="false" />
-      <ComboBox fx:id="difficulty" layoutX="272.0" layoutY="495.0" prefWidth="150.0" promptText="Difficulty" style="-fx-background-radius: 30;" />
+      <RadioButton fx:id="ranswer1" layoutX="243.0" layoutY="306.0" mnemonicParsing="false" prefWidth="27.0" />
+      <RadioButton fx:id="ranswer2" layoutX="243.0" layoutY="361.0" mnemonicParsing="false" />
+      <RadioButton fx:id="ranswer3" layoutX="243.0" layoutY="418.0" mnemonicParsing="false" />
+      <RadioButton fx:id="ranswer4" layoutX="243.0" layoutY="476.0" mnemonicParsing="false" />
+      <ComboBox fx:id="difficulty" layoutX="272.0" layoutY="526.0" prefHeight="38.0" prefWidth="150.0" promptText="Difficulty" style="-fx-background-radius: 10;" />
+      <ImageView fitHeight="114.0" fitWidth="98.0" layoutX="33.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/add-question-logo.png" />
+         </image>
+      </ImageView>
 
    </children>
 </AnchorPane>
