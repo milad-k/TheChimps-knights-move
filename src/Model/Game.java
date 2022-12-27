@@ -12,9 +12,6 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.*;
-
-
-
 public class Game extends GameController{
 
     private int id;
