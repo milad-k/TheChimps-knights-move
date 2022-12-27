@@ -42,7 +42,7 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button fx:id="logoutButton" layoutX="830.0" layoutY="559.0" mnemonicParsing="false" onAction="#logout" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Logout" textFill="WHITE">
+      <Button fx:id="logoutButton" layoutX="47.0" layoutY="51.0" mnemonicParsing="false" onAction="#logout" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Logout" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>

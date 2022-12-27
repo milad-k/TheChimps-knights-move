@@ -20,7 +20,7 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <Button fx:id="exitButton" layoutX="830.0" layoutY="559.0" mnemonicParsing="false" onAction="#exit" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Exit" textFill="WHITE">
+      <Button fx:id="exitButton" layoutX="47.0" layoutY="51.0" mnemonicParsing="false" onAction="#exit" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Exit" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>

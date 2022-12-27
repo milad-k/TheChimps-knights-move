@@ -30,7 +30,7 @@ public class AdminHomeScreenController {
     @FXML
     void logout(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/AdminLoginPage.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
