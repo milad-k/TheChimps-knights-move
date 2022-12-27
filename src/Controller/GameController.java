@@ -32,6 +32,8 @@ public class GameController {
     @FXML
     private Button backButton;
     @FXML
+    private Button settingsButton;
+    @FXML
     private Button pauseButton;
     public static GridPane staticChessBoard;
     @FXML
@@ -111,4 +113,20 @@ public class GameController {
         this.pointsField = pointsField;
     }
 
+    public void settings(ActionEvent actionEvent)  throws IOException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/SettingPopUp.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+    }
 }
