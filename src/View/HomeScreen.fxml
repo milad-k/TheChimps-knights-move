@@ -5,79 +5,72 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeScreenController">
    <children>
-      <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="691.0" fitWidth="1025.0" layoutY="-1.0" opacity="0.25" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Controller/Images/1.png" />
+            <Image url="@../Controller/Images/bg.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="448.0" layoutY="120.0" text="Move">
+      <Button fx:id="startGameButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="264.0" layoutY="194.0" mnemonicParsing="false" onAction="#startGame" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Play" textFill="WHITE">
          <font>
-            <Font size="35.0" />
+            <Font size="26.0" />
          </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/play-btn.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="gamesHistoryButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="541.0" layoutY="190.0" mnemonicParsing="false" onAction="#gamesHistory" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="History" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/history-games-btn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="questionsButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="263.0" layoutY="441.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Questions" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/question-btn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="rulesButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="540.0" layoutY="439.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Rules" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/rules-btn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="277.0" layoutY="41.0" text="Knight's Move" textFill="#ae962b">
+         <font>
+            <Font size="70.0" />
+         </font>
       </Label>
-      <Button fx:id="logoutButton" layoutX="778.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="138.0" style="-fx-background-radius: 30;" text="Logout">
+      <Button fx:id="logoutButton" layoutX="830.0" layoutY="559.0" mnemonicParsing="false" onAction="#logout" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Logout" textFill="WHITE">
          <font>
-            <Font size="29.0" />
-         </font></Button>
-      <Button fx:id="startGameButton" layoutX="383.0" layoutY="207.0" mnemonicParsing="false" onAction="#startGame" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Start Game">
-         <font>
-            <Font size="28.0" />
+            <Font size="26.0" />
          </font>
       </Button>
-      <Label layoutX="430.0" layoutY="73.0" text="Knight's">
-         <font>
-            <Font size="35.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <Button fx:id="gamesHistoryButton" layoutX="382.0" layoutY="305.0" mnemonicParsing="false" onAction="#gamesHistory" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Games history">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Button>
-      <Text fx:id="helloText" layoutX="100.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font size="41.0" />
-         </font>
-      </Text>
+
    </children>
 </AnchorPane>

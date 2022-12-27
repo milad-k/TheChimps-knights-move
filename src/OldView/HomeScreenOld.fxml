@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeScreenController">
+   <children>
+      <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/1.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="448.0" layoutY="120.0" text="Move">
+         <font>
+            <Font size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="logoutButton" layoutX="778.0" layoutY="66.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="138.0" style="-fx-background-radius: 30;" text="Logout">
+         <font>
+            <Font size="29.0" />
+         </font></Button>
+      <Button fx:id="startGameButton" layoutX="383.0" layoutY="207.0" mnemonicParsing="false" onAction="#startGame" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Start Game">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+      <Label layoutX="430.0" layoutY="73.0" text="Knight's">
+         <font>
+            <Font size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9671052694320679" green="0.7745797038078308" blue="0.004477339331060648" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.40625" green="0.7697368264198303" blue="0.472889244556427" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="gamesHistoryButton" layoutX="382.0" layoutY="305.0" mnemonicParsing="false" onAction="#gamesHistory" prefHeight="66.0" prefWidth="204.0" style="-fx-background-radius: 30;" text="Games history">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Text fx:id="helloText" layoutX="100.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
