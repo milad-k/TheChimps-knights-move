@@ -46,7 +46,7 @@
       <RadioButton fx:id="ranswer2" layoutX="243.0" layoutY="344.0" mnemonicParsing="false" />
       <RadioButton fx:id="ranswer3" layoutX="243.0" layoutY="394.0" mnemonicParsing="false" />
       <RadioButton fx:id="ranswer4" layoutX="243.0" layoutY="446.0" mnemonicParsing="false" />
-      <ComboBox fx:id="difficulty" layoutX="272.0" layoutY="495.0" prefWidth="150.0" style="-fx-background-radius: 30;" />
+      <ComboBox fx:id="difficulty" layoutX="272.0" layoutY="495.0" prefWidth="150.0" promptText="Difficulty" style="-fx-background-radius: 30;" />
 
    </children>
 </AnchorPane>

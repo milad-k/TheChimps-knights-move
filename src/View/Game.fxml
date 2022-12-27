@@ -1,88 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GameController">
    <children>
-      <ImageView fitHeight="981.0" fitWidth="1268.0" layoutX="-296.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="100.0" layoutX="12.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="360.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="100.0" layoutX="597.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="360.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="100.0" layoutX="396.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="180.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="120.0" layoutX="829.0" layoutY="185.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
+      <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="19.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Controller/Images/1.png" />
+            <Image url="@../Controller/Images/avatar1.png" />
          </image>
       </ImageView>
-      <GridPane fx:id="chessBoard" layoutX="236.0" layoutY="93.0" maxHeight="800.0" maxWidth="800.0" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0">
+      <Label layoutX="141.0" layoutY="44.0" text="Hey," textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Text fx:id="usernameField" fill="WHITE" layoutX="202.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="27.0" fitWidth="60.0" layoutX="401.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/clock.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="437.0" layoutY="26.0" text="Time Left:" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Text fx:id="timer" layoutX="461.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="01:00">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Label layoutX="617.0" layoutY="20.0" text="Level:" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="619.0" layoutY="66.0" text="Level Score:" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="40.0" layoutX="789.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="40.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="40.0" layoutX="789.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="40.0" />
+      <Text fx:id="pointsField1" layoutX="802.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="855.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/pause.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="StageField" layoutX="803.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Label layoutX="862.0" layoutY="268.0" text="Pause" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="829.0" layoutY="329.0" mnemonicParsing="false" onAction="#back" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: #5a9ceb;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="120.0" layoutX="829.0" layoutY="473.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
+      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="855.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/setting.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="855.0" layoutY="556.0" text="Setting" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="chessBoard" gridLinesVisible="true" layoutX="239.0" layoutY="142.0" prefHeight="495.0" prefWidth="495.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="backButton" layoutX="41.0" layoutY="32.0" mnemonicParsing="false" onAction="#back" prefHeight="64.0" prefWidth="127.0" style="-fx-background-radius: 30;" text="Back">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="372.0" layoutX="18.0" layoutY="199.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="149.0" />
+      <ImageView fitHeight="104.0" fitWidth="112.0" layoutX="40.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/total-score.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="33.0" layoutY="322.0" text="Total Score:" textFill="WHITE">
          <font>
-            <Font size="32.0" />
+            <Font size="23.0" />
          </font>
-      </Button>
-      <Text fx:id="timer" fill="WHITE" layoutX="810.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="01:00" wrappingWidth="118.52092529126469">
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e5d997" height="60.0" layoutX="63.0" layoutY="385.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="60.0" />
+      <Text fx:id="pointsField" layoutX="86.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
-            <Font size="46.0" />
-         </font>
-      </Text>
-      <Text fill="#f0f0f0fa" layoutX="474.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Points: ">
-         <font>
-            <Font size="46.0" />
-         </font>
-      </Text>
-      <Text fx:id="pointsField" fill="#f5f0f0" layoutX="622.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-         <font>
-            <Font size="46.0" />
+            <Font size="23.0" />
          </font>
       </Text>
-      <Text fill="#f0f0f0fa" layoutX="207.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User:" wrappingWidth="58.1416015625">
+      <Label layoutX="872.0" layoutY="420.0" text="Exit" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="23.0" />
          </font>
-      </Text>
-      <Text fx:id="usernameField" fill="#f0f0f0fa" layoutX="265.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="127.0000114440918">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#f0f0f0fa" layoutX="803.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level: ">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Text>
-      <Text fx:id="pointsField1" fill="#f5f0f0" layoutX="885.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font size="46.0" />
-         </font>
-      </Text>
-      <Text fx:id="StageField" fill="#f0f0f0fa" layoutX="885.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="72.0000114440918">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
+      </Label>
    </children>
 </AnchorPane>
