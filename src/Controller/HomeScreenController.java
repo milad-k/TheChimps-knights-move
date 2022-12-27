@@ -61,6 +61,7 @@ public class HomeScreenController implements Initializable {
         }
     }
 
+
     @FXML
     void admin(ActionEvent event) {
         try {
@@ -81,7 +82,20 @@ public class HomeScreenController implements Initializable {
 
     @FXML
     void questions(ActionEvent event) {
-
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../View/ManageQuestionsCustomer.fxml"));
+            root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
+            Scene customerScene = new Scene(root);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(customerScene);
+            window.show();
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
     }
 
     @FXML
