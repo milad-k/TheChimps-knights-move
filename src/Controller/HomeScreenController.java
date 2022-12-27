@@ -36,9 +36,14 @@ public class HomeScreenController implements Initializable {
     }
 
     @FXML
-    void logout(ActionEvent event) {
+    void exit(ActionEvent event) {
+        System.exit(1);
+    }
+
+    @FXML
+    void startGame(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/PrePlayScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -54,15 +59,15 @@ public class HomeScreenController implements Initializable {
     }
 
     @FXML
-    void startGame(ActionEvent event) {
+    void admin(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
-            root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
-            Scene customerScene = new Scene(root);
+            Parent root = FXMLLoader.load(getClass().getResource("../View/AdminLoginPage.fxml"));
+            root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
+            Scene adminScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(customerScene);
+            window.setScene(adminScene);
             window.show();
-        } catch (IOException e) {
+        } catch(IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("FXML");
             alert.setHeaderText("Load failure");

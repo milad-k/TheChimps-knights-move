@@ -19,7 +19,7 @@ public class Launch extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/LoginPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:50%");
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

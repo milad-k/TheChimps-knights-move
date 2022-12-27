@@ -6,15 +6,13 @@ import javafx.scene.paint.Color;
 
 import java.util.Random;
 
-public class StageOneChessBoard extends ChessBoard{
+public class StageOneChessBoard extends ChessBoard {
 
 
     public StageOneChessBoard(GridPane chessBoard, String theme) {
         super(chessBoard, theme);
         this.stage = Stage.First;
         makeBoard(this.chessBoard, theme);
-
-
     }
 
     @Override

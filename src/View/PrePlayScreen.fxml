@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrePlayScreenController">
    <children>
-      <ImageView fitHeight="680.0" fitWidth="1033.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="680.0" fitWidth="1033.0" opacity="0.18" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Controller/Images/bg.jpg" />
          </image>
@@ -58,9 +58,9 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="394.0" layoutY="238.0" prefHeight="39.0" prefWidth="260.0" promptText="Type your name:" style="-fx-background-color: E5D997;">
+      <TextField fx:id="usernameField" layoutX="394.0" layoutY="238.0" prefHeight="39.0" prefWidth="260.0" promptText="Username" style="-fx-background-color: E5D997; -fx-background-radius: 25;">
          <font>
-            <Font size="13.0" />
+            <Font size="17.0" />
          </font>
       </TextField>
       <Label layoutX="246.0" layoutY="336.0" text="Choose a color:">
@@ -99,7 +99,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="434.0" layoutY="465.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="195.0" style="-fx-background-color: E5D997;" text="Let's Start!">
+      <Button fx:id="startButton" layoutX="434.0" layoutY="465.0" mnemonicParsing="false" onAction="#start" prefHeight="49.0" prefWidth="195.0" style="-fx-background-color: E5D997;" text="Let's Start!">
          <font>
             <Font size="16.0" />
          </font></Button>
@@ -108,5 +108,10 @@
             <Image url="@../Controller/Images/start-btn.png" />
          </image>
       </ImageView>
+      <Button fx:id="backButton" layoutX="47.0" layoutY="51.0" mnemonicParsing="false" onAction="#back" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
