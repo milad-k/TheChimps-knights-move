@@ -22,10 +22,10 @@ public class AdminLoginPageController {
     private Button loginButton;
 
     @FXML
-    private TextField passwordField;
+    private TextField usernameField;
 
     @FXML
-    private TextField usernameField;
+    private TextField passwordField;
 
     @FXML
     void back(ActionEvent event) {

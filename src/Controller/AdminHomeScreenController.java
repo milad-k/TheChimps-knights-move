@@ -16,9 +16,6 @@ import java.io.IOException;
 public class AdminHomeScreenController {
 
     @FXML
-    private Text helloText;
-
-    @FXML
     private Button logoutButton;
 
     @FXML
