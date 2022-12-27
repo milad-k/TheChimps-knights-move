@@ -83,7 +83,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void questions(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/ManageQuestionsCustomer.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
