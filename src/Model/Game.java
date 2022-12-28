@@ -4,7 +4,11 @@ import Controller.GameController;
 import Utils.Stage;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
@@ -12,6 +16,9 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.*;
+
+import java.io.IOException;
+
 public class Game extends GameController{
 
     private int id;
@@ -172,6 +179,22 @@ public class Game extends GameController{
             setStage(Stage.Second);
             staticStage.setText(Stage.Second.toString());
 
+        }
+        if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                javafx.stage.Stage stage = new javafx.stage.Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            } catch (IOException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("FXML");
+                alert.setHeaderText("Load failure");
+                alert.setContentText("Failed to load the FXML file.");
+                alert.showAndWait();
+            }
         }
 
 

@@ -19,6 +19,7 @@ public abstract class ChessBoard {
     public ChessBoard(GridPane chessBoard, String theme) {
         this.chessBoard = chessBoard;
         this.theme = theme;
+
     }
 
     abstract void makeBoard(GridPane chessBoard, String theme);
@@ -83,11 +84,11 @@ public abstract class ChessBoard {
 
     public void addRandomQuestionsSquares() {
 
-        Color color1 = Color.web("black");
         for (int i = 0; i < 3; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             squares.get(int_rand).setType("Question Square");
+
 
         }
     }
