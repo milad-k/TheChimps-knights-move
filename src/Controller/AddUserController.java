@@ -39,7 +39,7 @@ public class AddUserController {
             alert.setContentText("You must type user's information");
             alert.show();
         } else {
-            User u = new User(userId, username);
+            User u = new User(username);
             boolean isAdded = SysData.getInstance().addUser(u);
             System.out.println(isAdded);
             if(!isAdded) {

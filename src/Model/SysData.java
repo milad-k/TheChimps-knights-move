@@ -1,6 +1,7 @@
 package Model;
 
 import Utils.Difficulty;
+import Utils.Theme;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -293,9 +294,12 @@ public class SysData {
             JSONArray JsonArray1 = new JSONArray();
 
             for (User u : users) {
-                Map<String, Object> map = new LinkedHashMap<String, Object>(2);
+                Map<String, Object> map = new LinkedHashMap<String, Object>(5);
                 map.put("id", u.getId());
-                map.put("username", u.getUsername());
+                map.put("username", (String) u.getUsername());
+                map.put("avatar", (String) u.getSelectedAvatar());
+                map.put("theme", (String) u.getSelectedTheme());
+                map.put("points", u.getPoints());
                 JsonArray1.add(map);
             }
             JsonObject1.put("users", JsonArray1);
@@ -360,8 +364,10 @@ public class SysData {
 
                     // get correct users' username.
                     String username = (String) u.get("username");
+                    String avatar = (String) u.get("avatar");
+                    String theme = (String) u.get("theme");
 
-                    User userToAdd = new User(userId, username);
+                    User userToAdd = new User(username, avatar, theme);
 
                     if(users != null) {
                         if(!users.contains(userToAdd)) {

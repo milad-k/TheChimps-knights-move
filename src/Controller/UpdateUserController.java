@@ -24,9 +24,6 @@ public class UpdateUserController implements Initializable {
     private Button backButton;
 
     @FXML
-    private TextField editUserIdField = new TextField();
-
-    @FXML
     private TextField editUsernameField = new TextField();
 
     @FXML
@@ -52,17 +49,15 @@ public class UpdateUserController implements Initializable {
 
     @FXML
     void updateUser(ActionEvent event) {
-        String userID = editUserIdField.getText();
         String username = editUsernameField.getText();
 
-        if(userID.isEmpty() || username.isEmpty()) {
+        if(username.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Missing fields");
             alert.setContentText("You must fill all the fields");
             alert.show();
         } else {
-            User u1 = new User(userID, username);
-            u1.setId(userID);
+            User u1 = new User(username);
             u1.setUsername(username);
             boolean isAdded = SysData.getInstance().updateUser(UsersController.updatedU, u1);
             System.out.println(isAdded);
@@ -84,7 +79,6 @@ public class UpdateUserController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         User u = UsersController.updatedU;
-        editUserIdField.setText(u.getId());
         editUsernameField.setText(u.getUsername());
     }
 }

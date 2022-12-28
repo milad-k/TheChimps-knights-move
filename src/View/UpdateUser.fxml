@@ -20,7 +20,6 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <TextField fx:id="editUserIdField" layoutX="395.0" layoutY="189.0" promptText="User ID" style="-fx-background-radius: 30;" />
       <TextField fx:id="editUsernameField" layoutX="395.0" layoutY="254.0" promptText="Username" style="-fx-background-radius: 30;" />
       <Button fx:id="updateUserButton" layoutX="434.0" layoutY="324.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="37.0" prefWidth="87.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Update" textFill="WHITE">
          <font>

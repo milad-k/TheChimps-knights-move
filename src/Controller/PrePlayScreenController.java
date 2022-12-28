@@ -117,7 +117,7 @@ public class PrePlayScreenController implements Initializable {
                 selectedAvatar = "avatar1.png";
             }
             Theme theme = themeBox.getValue();
-            SysData.getInstance().addUser(new User(username, selectedAvatar, theme));
+            SysData.getInstance().addUser(new User(username, selectedAvatar, theme.toString()));
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
                 root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
