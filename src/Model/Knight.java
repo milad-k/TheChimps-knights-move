@@ -17,6 +17,8 @@ public class Knight extends Piece{
         ArrayList<String> moves = new ArrayList<>();
         this.possibleMoves = new ArrayList<>();
 
+
+
         moves.add("Square" + (x+2) + (y+1));
         moves.add("Square" + (x+2) + (y-1));
         moves.add("Square" + (x+1) + (y+2));
