@@ -18,7 +18,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="100.0" layoutX="597.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="360.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="100.0" layoutX="396.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="180.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="120.0" layoutX="829.0" layoutY="185.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
-      <ImageView fx:id="avatarImage" fitHeight="150.0" fitWidth="100.0" layoutX="19.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="avatarImage" fitHeight="100.0" fitWidth="100.0" layoutX="19.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Controller/Images/avatar1.png" />
+         </image>
+      </ImageView>
       <Label layoutX="141.0" layoutY="44.0" text="Hey," textFill="WHITE">
          <font>
             <Font size="29.0" />

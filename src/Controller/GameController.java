@@ -59,9 +59,7 @@ public class GameController {
         String username = SysData.getInstance().getCurrentUser().getUsername();
         String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
         usernameField.setText(username);
-        System.out.println("src/Controller/Images/" + selectedAvatar);
-        //not working
-//        avatarImage.setImage(new Image("src/Controller/Images/" + selectedAvatar));
+        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
         staticPoints = pointsField;
         staticStage = StageField;
         staticChessBoard = chessBoard;
