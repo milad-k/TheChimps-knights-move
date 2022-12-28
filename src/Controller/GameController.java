@@ -16,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
@@ -29,7 +31,8 @@ public class GameController {
     private static final Integer STARTTIME = 60;
     private Timeline timeline;
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
-
+    @FXML
+    private ImageView avatarImage;
     @FXML
     private Button backButton;
     @FXML
@@ -54,7 +57,10 @@ public class GameController {
 
     public void initialize() {
         String username = SysData.getInstance().getCurrentUser().getUsername();
+        String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
         usernameField.setText(username);
+        System.out.println("src/Controller/Images/" + selectedAvatar);
+//        avatarImage.setImage(new Image("src/Controller/Images/" + selectedAvatar));
         staticPoints = pointsField;
         staticStage = StageField;
         staticChessBoard = chessBoard;

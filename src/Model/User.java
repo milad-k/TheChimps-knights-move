@@ -6,17 +6,20 @@ public class User {
 
     private String id;
     private String username;
+    private String selectedAvatar;
 
     private int points;
 
 
-    public User(String id, String username) {
+    public User(String id, String username, String selectedAvatar) {
         this.id = id;
         this.username = username;
+        this.selectedAvatar = selectedAvatar;
     }
 
-    public User(String username) {
+    public User(String username, String selectedAvatar) {
         this.username = username;
+        this.selectedAvatar = selectedAvatar;
     }
 
     public String getId() {
@@ -33,6 +36,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getSelectedAvatar() {
+        return selectedAvatar;
+    }
+
+    public void setSelectedAvatar(String selectedAvatar) {
+        this.selectedAvatar = selectedAvatar;
     }
 
     public int getPoints() {

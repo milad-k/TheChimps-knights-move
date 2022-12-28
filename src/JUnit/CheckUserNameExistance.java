@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 public class CheckUserNameExistance {
 
     SysData sysData = SysData.getInstance();
-    User u2 = new User("milad");
+    User u2 = new User("milad", "avatar4.png");
 
     @Test
     public void test1(){

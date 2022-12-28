@@ -8,8 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 public class addUserTest {
     SysData sysData = SysData.getInstance();
-    User u = new User("maryam");
-    User u3 = new User("maria");
+    User u = new User("maryam", "avatar1.png");
+    User u3 = new User("maria", "avatar2.png");
 
 
     @Test

@@ -94,7 +94,23 @@ public class PrePlayScreenController implements Initializable {
 
         /* function that check if the username is exists */
         else if(!(SysData.getInstance().checkUsernameExistince(username))) {
-            SysData.getInstance().addUser(new User(username));
+            String selectedAvatar;
+            if(avatarButton1.isSelected()) {
+                selectedAvatar = "avatar1.png";
+            } else if(avatarButton2.isSelected()) {
+                selectedAvatar = "avatar2.png";
+            } else if(avatarButton3.isSelected()) {
+                selectedAvatar = "avatar3.png";
+            } else if(avatarButton4.isSelected()) {
+                selectedAvatar = "avatar4.png";
+            } else if(avatarButton5.isSelected()) {
+                selectedAvatar = "avatar5.png";
+            } else if(avatarButton6.isSelected()) {
+                selectedAvatar = "avatar6.png";
+            } else {
+                selectedAvatar = "avatar1.png";
+            }
+            SysData.getInstance().addUser(new User(username, selectedAvatar));
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
                 root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
