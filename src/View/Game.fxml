@@ -97,11 +97,6 @@
          </font>
       </Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5a9ceb" height="120.0" layoutX="829.0" layoutY="473.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="120.0" />
-      <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="855.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Controller/Images/setting.png" />
-         </image>
-      </ImageView>
       <Label layoutX="855.0" layoutY="556.0" text="Setting" textFill="WHITE">
          <font>
             <Font size="23.0" />
@@ -151,5 +146,14 @@
             <Font size="23.0" />
          </font>
       </Label>
+      <Button fx:id="settingsButton" layoutX="849.0" layoutY="478.0" mnemonicParsing="false" onAction="#settings" style="-fx-background-color: #5a9ceb;">
+         <graphic>
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Controller/Images/setting.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

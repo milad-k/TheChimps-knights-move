@@ -5,6 +5,7 @@ import Model.SysData;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
@@ -31,6 +32,8 @@ public class GameController {
 
     @FXML
     private Button backButton;
+    @FXML
+    private Button settingsButton;
     @FXML
     private Button pauseButton;
     public static GridPane staticChessBoard;
@@ -72,6 +75,21 @@ public class GameController {
     @FXML
     void back(ActionEvent event) {
         try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/ExitPopUp.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+
+        /*try {
             Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
@@ -84,7 +102,7 @@ public class GameController {
             alert.setHeaderText("Load failure");
             alert.setContentText("Failed to load the FXML file.");
             alert.showAndWait();
-        }
+        }*/
     }
     @FXML
     void pause(ActionEvent event) throws IOException {
@@ -111,4 +129,20 @@ public class GameController {
         this.pointsField = pointsField;
     }
 
+    public void settings(ActionEvent actionEvent)  throws IOException {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/SettingPopUp.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+    }
 }
