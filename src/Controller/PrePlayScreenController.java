@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 public class PrePlayScreenController implements Initializable {
 
     ToggleGroup avatarGroup = new ToggleGroup();
+
     boolean flag = false;
     @FXML
     private Text invalidText;
@@ -29,9 +30,6 @@ public class PrePlayScreenController implements Initializable {
 
     @FXML
     private Button startButton;
-
-    @FXML
-    private TextField usernameField;
 
     @FXML
     private ToggleButton avatarButton1;
@@ -50,6 +48,9 @@ public class PrePlayScreenController implements Initializable {
 
     @FXML
     private ToggleButton avatarButton6;
+
+    @FXML
+    private TextField usernameField;
 
     @FXML
     void back(ActionEvent event) {
