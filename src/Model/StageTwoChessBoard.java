@@ -29,6 +29,7 @@ public class StageTwoChessBoard extends ChessBoard{
         }
         addPieces();
         addForgetfulSquares();
+        addRandomQuestionsSquares();
     }
 
     @Override

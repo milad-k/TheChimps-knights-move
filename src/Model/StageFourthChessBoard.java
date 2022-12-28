@@ -31,6 +31,7 @@ public class StageFourthChessBoard extends ChessBoard{
         }
         addPieces();
         addBlockingSquares();
+        addRandomQuestionsSquares();
     }
 
     @Override

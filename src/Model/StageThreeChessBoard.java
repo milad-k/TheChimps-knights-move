@@ -32,6 +32,7 @@ public class StageThreeChessBoard extends ChessBoard{
         }
         addPieces();
         addForgetfulAndRandomJumpSquares();
+        addRandomQuestionsSquares();
     }
 
     @Override

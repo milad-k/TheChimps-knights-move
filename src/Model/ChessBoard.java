@@ -6,6 +6,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class ChessBoard {
 
@@ -78,6 +79,17 @@ public abstract class ChessBoard {
     }
     public void setSquares(ArrayList<Square> squares) {
         this.squares = squares;
+    }
+
+    public void addRandomQuestionsSquares() {
+
+        Color color1 = Color.web("black");
+        for (int i = 0; i < 3; i++) {
+            Random rand = new Random();
+            int int_rand = rand.nextInt(64);
+            squares.get(int_rand).setType("Question Square");
+
+        }
     }
 }
 
