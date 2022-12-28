@@ -14,7 +14,7 @@
             <Image url="@../Controller/Images/bg.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="usersButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="264.0" layoutY="194.0" mnemonicParsing="false" onAction="#users" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Users" textFill="WHITE">
+      <Button fx:id="usersButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="389.0" layoutY="215.0" mnemonicParsing="false" onAction="#users" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Users" textFill="WHITE">
          <font>
             <Font size="26.0" />
          </font>
@@ -25,18 +25,6 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="questionsButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="537.0" layoutY="191.0" mnemonicParsing="false" onAction="#questions" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Questions" textFill="WHITE">
-         <font>
-            <Font size="26.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="150.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Controller/Images/question-btn.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
       <Label layoutX="390.0" layoutY="41.0" text="Admin" textFill="#ae962b">
          <font>
             <Font size="70.0" />
