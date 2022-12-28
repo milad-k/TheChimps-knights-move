@@ -18,7 +18,7 @@
             <Image url="@../Controller/Images/bg.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="244.0" layoutY="43.0" text="Update Old Question" textFill="#e5d997">
+      <Label layoutX="244.0" layoutY="43.0" text="Update Question" textFill="#e5d997">
          <font>
             <Font size="70.0" />
          </font>
