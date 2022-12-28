@@ -2,13 +2,14 @@ package JUnit;
 import Model.Question;
 import Model.User;
 import Utils.Difficulty;
+import Utils.Theme;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class UserEqualsTest {
-    User q = new User("u", "avatar1.png");
-    User q3 = new User("u", "avatar1.png");
+    User q = new User("u", "avatar1.png", Theme.Sandcastle);
+    User q3 = new User("u", "avatar1.png", Theme.Sandcastle);
     Question q4 = new Question("q","answer1","answer2","answer3","answer4","answer2", Difficulty.HARD,"Chimp");
 
     @Test

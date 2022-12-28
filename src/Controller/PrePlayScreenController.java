@@ -2,6 +2,9 @@ package Controller;
 
 import Model.SysData;
 import Model.User;
+import Utils.Theme;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,6 +61,9 @@ public class PrePlayScreenController implements Initializable {
     private ToggleButton avatarButton6;
 
     @FXML
+    private ComboBox<Theme> themeBox = new ComboBox<Theme>();
+
+    @FXML
     private TextField usernameField;
 
     @FXML
@@ -110,7 +116,8 @@ public class PrePlayScreenController implements Initializable {
             } else {
                 selectedAvatar = "avatar1.png";
             }
-            SysData.getInstance().addUser(new User(username, selectedAvatar));
+            Theme theme = themeBox.getValue();
+            SysData.getInstance().addUser(new User(username, selectedAvatar, theme));
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
                 root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
@@ -127,7 +134,6 @@ public class PrePlayScreenController implements Initializable {
             }
         }
         else {
-
             usernameField.setStyle("-fx-background-radius: 8px");
             usernameField.setStyle("-fx-border-color: red");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -137,7 +143,7 @@ public class PrePlayScreenController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             ButtonType button = result.orElse(ButtonType.OK);
 
-            if(button == ButtonType.OK){
+            if(button == ButtonType.OK) {
                 SysData.getInstance().setCurrentUser(SysData.getInstance().getUserByUserName(username));
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
@@ -154,7 +160,7 @@ public class PrePlayScreenController implements Initializable {
                     alert1.showAndWait();
                 }
             }
-            else{
+            else {
                 try {
                     Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
                     root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
@@ -176,6 +182,8 @@ public class PrePlayScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<Theme> list = FXCollections.observableArrayList(Theme.values());
+        themeBox.setItems(list);
         usernameField.textProperty().addListener((arg2, oldValue, newValue) -> {
             if(newValue.length() > 0 && flag) {
                 usernameField.setStyle("");

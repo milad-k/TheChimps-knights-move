@@ -2,16 +2,15 @@ package Controller;
 
 import Model.Game;
 import Model.SysData;
+import Utils.Theme;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -20,7 +19,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -58,12 +56,13 @@ public class GameController {
     public void initialize() {
         String username = SysData.getInstance().getCurrentUser().getUsername();
         String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
+        String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
         staticPoints = pointsField;
         staticStage = StageField;
         staticChessBoard = chessBoard;
-        Game game = new Game(chessBoard, "Sandcastle", SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
+        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         timer.textProperty().bind(timeSeconds.asString());
         if (timeline != null) {
             timeline.stop();

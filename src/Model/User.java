@@ -1,5 +1,7 @@
 package Model;
 
+import Utils.Theme;
+
 import java.util.Objects;
 
 public class User {
@@ -7,19 +9,20 @@ public class User {
     private String id;
     private String username;
     private String selectedAvatar;
+    private Theme selectedTheme;
 
     private int points;
 
 
-    public User(String id, String username, String selectedAvatar) {
+    public User(String id, String username) {
         this.id = id;
         this.username = username;
-        this.selectedAvatar = selectedAvatar;
     }
 
-    public User(String username, String selectedAvatar) {
+    public User(String username, String selectedAvatar, Theme selectedTheme) {
         this.username = username;
         this.selectedAvatar = selectedAvatar;
+        this.selectedTheme = selectedTheme;
     }
 
     public String getId() {
@@ -44,6 +47,14 @@ public class User {
 
     public void setSelectedAvatar(String selectedAvatar) {
         this.selectedAvatar = selectedAvatar;
+    }
+
+    public Theme getSelectedTheme() {
+        return selectedTheme;
+    }
+
+    public void setSelectedTheme(Theme selectedTheme) {
+        this.selectedTheme = selectedTheme;
     }
 
     public int getPoints() {
