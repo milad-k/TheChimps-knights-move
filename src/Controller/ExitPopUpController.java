@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -29,7 +30,8 @@ public class ExitPopUpController {
     public void yes(ActionEvent actionEvent) {
         Stage stage = (Stage) yesButton.getScene().getWindow();
         stage.close();
-
+        Stage stage1 = (Stage) Window.getWindows().get(0).getScene().getWindow();
+        stage1.close();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
