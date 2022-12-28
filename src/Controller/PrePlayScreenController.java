@@ -19,8 +19,16 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PrePlayScreenController implements Initializable {
+    @FXML
+    private ToggleButton darkToggleBtn;
+
+    @FXML
+    private ToggleButton lightToggleBtn;
 
     ToggleGroup avatarGroup = new ToggleGroup();
+
+
+    ToggleGroup modeGroup = new ToggleGroup();
 
     boolean flag = false;
     @FXML
@@ -73,7 +81,7 @@ public class PrePlayScreenController implements Initializable {
     @FXML
     void start(ActionEvent event) {
         String username = usernameField.getText();
-        /* Here we check if the fields are empty/null and if the username/password fields are empty/null we get an invalid alert pop-up. */
+        /* Here we check if the fields are empty/null then we get an invalid alert pop-up. */
         if(username == null || username.isEmpty()) {
             usernameField.setStyle("-fx-background-radius: 8px");
             usernameField.setStyle("-fx-border-color: red");
@@ -84,8 +92,8 @@ public class PrePlayScreenController implements Initializable {
             alert.showAndWait();
         }
 
-        /* Here we check if the fields are match the Manager's username and password and if there is a match then the program will login to the manager's account. */
-        else if(username.equals("admin") || !(SysData.getInstance().checkUsernameExistince(username))) {
+        /* function that check if the username is exists */
+        else if(!(SysData.getInstance().checkUsernameExistince(username))) {
             SysData.getInstance().addUser(new User(username));
             try {
                 Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
@@ -165,5 +173,7 @@ public class PrePlayScreenController implements Initializable {
         avatarButton4.setToggleGroup(avatarGroup);
         avatarButton5.setToggleGroup(avatarGroup);
         avatarButton6.setToggleGroup(avatarGroup);
+        lightToggleBtn.setToggleGroup(modeGroup);
+        darkToggleBtn.setToggleGroup(modeGroup);
     }
 }
