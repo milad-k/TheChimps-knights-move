@@ -22,6 +22,7 @@ public class AdminHomeScreenController {
     private Button usersButton;
 
     @FXML
+    //comment to try push
     void logout(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../View/AdminLoginPage.fxml"));
