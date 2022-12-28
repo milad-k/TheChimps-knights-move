@@ -22,11 +22,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PrePlayScreenController implements Initializable {
-    @FXML
-    private ToggleButton darkToggleBtn;
-
-    @FXML
-    private ToggleButton lightToggleBtn;
 
     ToggleGroup avatarGroup = new ToggleGroup();
 
@@ -197,7 +192,5 @@ public class PrePlayScreenController implements Initializable {
         avatarButton4.setToggleGroup(avatarGroup);
         avatarButton5.setToggleGroup(avatarGroup);
         avatarButton6.setToggleGroup(avatarGroup);
-        lightToggleBtn.setToggleGroup(modeGroup);
-        darkToggleBtn.setToggleGroup(modeGroup);
     }
 }
