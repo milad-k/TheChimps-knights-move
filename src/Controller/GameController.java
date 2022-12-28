@@ -60,6 +60,7 @@ public class GameController {
         String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
         usernameField.setText(username);
         System.out.println("src/Controller/Images/" + selectedAvatar);
+        //not working
 //        avatarImage.setImage(new Image("src/Controller/Images/" + selectedAvatar));
         staticPoints = pointsField;
         staticStage = StageField;
