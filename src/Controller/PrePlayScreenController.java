@@ -21,18 +21,6 @@ import java.util.ResourceBundle;
 public class PrePlayScreenController implements Initializable {
 
     ToggleGroup avatarGroup = new ToggleGroup();
-    boolean flag = false;
-    @FXML
-    private Text invalidText;
-    @FXML
-    private Button backButton;
-
-    @FXML
-    private Button startButton;
-
-    @FXML
-    private TextField usernameField;
-
     @FXML
     private ToggleButton avatarButton1;
 
@@ -50,6 +38,17 @@ public class PrePlayScreenController implements Initializable {
 
     @FXML
     private ToggleButton avatarButton6;
+    boolean flag = false;
+    @FXML
+    private Text invalidText;
+    @FXML
+    private Button backButton;
+
+    @FXML
+    private Button startButton;
+
+    @FXML
+    private TextField usernameField;
 
     @FXML
     void back(ActionEvent event) {
@@ -151,6 +150,12 @@ public class PrePlayScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        avatarButton1.setToggleGroup(avatarGroup);
+        avatarButton2.setToggleGroup(avatarGroup);
+        avatarButton3.setToggleGroup(avatarGroup);
+        avatarButton4.setToggleGroup(avatarGroup);
+        avatarButton5.setToggleGroup(avatarGroup);
+        avatarButton6.setToggleGroup(avatarGroup);
         usernameField.textProperty().addListener((arg2, oldValue, newValue) -> {
             if(newValue.length() > 0 && flag) {
                 usernameField.setStyle("");
@@ -158,11 +163,5 @@ public class PrePlayScreenController implements Initializable {
                 flag = false;
             }
         });
-        avatarButton1.setToggleGroup(avatarGroup);
-        avatarButton2.setToggleGroup(avatarGroup);
-        avatarButton3.setToggleGroup(avatarGroup);
-        avatarButton4.setToggleGroup(avatarGroup);
-        avatarButton5.setToggleGroup(avatarGroup);
-        avatarButton6.setToggleGroup(avatarGroup);
     }
 }
