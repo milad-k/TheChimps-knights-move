@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,6 +20,7 @@ import java.util.ResourceBundle;
 
 public class PrePlayScreenController implements Initializable {
 
+    ToggleGroup avatarGroup = new ToggleGroup();
     boolean flag = false;
     @FXML
     private Text invalidText;
@@ -34,6 +32,24 @@ public class PrePlayScreenController implements Initializable {
 
     @FXML
     private TextField usernameField;
+
+    @FXML
+    private ToggleButton avatarButton1;
+
+    @FXML
+    private ToggleButton avatarButton2;
+
+    @FXML
+    private ToggleButton avatarButton3;
+
+    @FXML
+    private ToggleButton avatarButton4;
+
+    @FXML
+    private ToggleButton avatarButton5;
+
+    @FXML
+    private ToggleButton avatarButton6;
 
     @FXML
     void back(ActionEvent event) {
@@ -142,5 +158,11 @@ public class PrePlayScreenController implements Initializable {
                 flag = false;
             }
         });
+        avatarButton1.setToggleGroup(avatarGroup);
+        avatarButton2.setToggleGroup(avatarGroup);
+        avatarButton3.setToggleGroup(avatarGroup);
+        avatarButton4.setToggleGroup(avatarGroup);
+        avatarButton5.setToggleGroup(avatarGroup);
+        avatarButton6.setToggleGroup(avatarGroup);
     }
 }
