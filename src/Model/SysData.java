@@ -12,9 +12,9 @@ import java.util.*;
 public class SysData {
 
     private static SysData SysData;
-    private HashMap<Difficulty, ArrayList<Question>> questions;
-    private ArrayList<Game> games;
-    private ArrayList<User> users;
+    public HashMap<Difficulty, ArrayList<Question>> questions;
+    public ArrayList<Game> games;
+    public ArrayList<User> users;
 
     private User currentUser;
 
@@ -224,11 +224,13 @@ public class SysData {
                 return false;
             }
             questions.put(question.getLevel(), myArray);
+            loadQuestions(null);
             return true;
         }
         else {
             return false;
         }
+
     }
 
     public boolean removeQuestion(Question question) {

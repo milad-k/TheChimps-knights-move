@@ -5,25 +5,26 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="491.0" style="-fx-background-color: E5D997;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PopUpQuestionController">
    <children>
-      <RadioButton fx:id="userAnswer1" layoutX="167.0" layoutY="119.0" mnemonicParsing="false" text="Answer 1">
+      <RadioButton fx:id="userAnswer1" layoutX="167.0" layoutY="147.0" mnemonicParsing="false" onAction="#userAnswer1pressed" text="1">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="userAnswer2" layoutX="167.0" layoutY="154.0" mnemonicParsing="false" text="Answer 2">
+      <RadioButton fx:id="userAnswer2" layoutX="167.0" layoutY="183.0" mnemonicParsing="false" onAction="#userAnswer2pressed" text="2">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="userAnswer4" layoutX="167.0" layoutY="228.0" mnemonicParsing="false" prefWidth="132.0" text="Answer 4">
+      <RadioButton fx:id="userAnswer4" layoutX="167.0" layoutY="254.0" mnemonicParsing="false" onAction="#userAnswer4pressed" prefWidth="132.0" text="4">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="userAnswer3" layoutX="167.0" layoutY="190.0" mnemonicParsing="false" text="Answer 3">
+      <RadioButton fx:id="userAnswer3" layoutX="167.0" layoutY="216.0" mnemonicParsing="false" onAction="#userAnswer3pressed" text="3">
          <font>
             <Font size="14.0" />
          </font>
@@ -33,15 +34,30 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="119.0" layoutY="33.0" text="Please answer the question" textFill="#5a9ceb">
+      <Label layoutX="103.0" layoutY="14.0" text="Please answer the question" textFill="#5a9ceb">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="192.0" layoutY="75.0" text="Easy - 1 point " textFill="#32b12c">
+      <Label layoutX="239.0" layoutY="49.0" prefHeight="26.0" prefWidth="14.0" text="-" textFill="#32b12c">
          <font>
-            <Font size="17.0" />
+            <Font size="28.0" />
          </font>
       </Label>
+      <Text fx:id="questionText" layoutX="48.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1" wrappingWidth="382.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="difficultyText" layoutX="77.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EASY" wrappingWidth="156.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="pointsText" layoutX="265.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="156.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

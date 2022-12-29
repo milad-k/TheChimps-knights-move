@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.GameController;
+import Controller.PopUpQuestionController;
 import Utils.Difficulty;
 import Utils.Stage;
 import javafx.event.EventHandler;
@@ -183,13 +184,6 @@ public class Game extends GameController{
 
         }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
-            Random rand1 = new Random();
-            Difficulty d = Difficulty.randomDifficulty();
-            int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(d).size());
-            Question q = SysData.getInstance().getQuestions().get(d).get(int_rand1);
-            square = new QuestionSquare(square.getX(), square.getY(),q);
-
-
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
@@ -204,10 +198,76 @@ public class Game extends GameController{
                 alert.setContentText("Failed to load the FXML file.");
                 alert.showAndWait();
             }
+            Difficulty d = Difficulty.randomDifficulty();
+            Random rand1 = new Random();
+            int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).size());
+            Question q = SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).get(int_rand1);
+            square = new QuestionSquare(square.getX(), square.getY(),q);
+            PopUpQuestionController.staticQuestion.setText(q.getText());
+            PopUpQuestionController.staticDifficulty.setText(q.getLevel().toString());
+            PopUpQuestionController.staticAnswer1.setText(q.getAnswer1());
+            PopUpQuestionController.staticAnswer2.setText(q.getAnswer2());
+            PopUpQuestionController.staticAnswer3.setText(q.getAnswer3());
+            PopUpQuestionController.staticAnswer4.setText(q.getAnswer4());
+
+
+            if(q.getLevel() == Difficulty.EASY){
+                PopUpQuestionController.staticPoints.setText("1");
+
+            }
+            if(q.getLevel() == Difficulty.MEDIUM){
+                PopUpQuestionController.staticPoints.setText("2");
+
+            }
+            if(q.getLevel() == Difficulty.HARD){
+                PopUpQuestionController.staticPoints.setText("3");
+
+            }
+
+
+
+
+
+
+        }
+        if(square.getType() != null && square.getType().equals("Random Jump Square") && square.getChildren().get(0).toString().equals("white Knight")){
+/*
+            Square initialSquare1 = (Square) currentPiece.getParent();
+            square.getChildren().add(currentPiece);
+            square.occupied = true;
+            initialSquare1.getChildren().removeAll();
+            initialSquare1.occupied = false;
+            currentPiece.posX = square.x;
+            currentPiece.posY = square.y;
+            deselectPiece(true);
+
+            Random rand = new Random();
+            int int_rand = rand.nextInt(8);
+            Random rand1 = new Random();
+            int int_rand1 = rand1.nextInt(8);
+            Piece p = (Piece) square.getChildren().get(0);
+
+            p.posX = int_rand-1;
+            p.posY = int_rand1-1;
+            ((Piece) square.getChildren().get(0)).setPiece(null);
+            square.getChildren().removeAll();
+            Square s = (Square) p.getParent();
+             p = (Piece) s.getChildren().get(0);
+             ((Piece) s.getChildren().get(0)).setPiece(p.getImage());
+             int m = cb.getSquares().indexOf(s);
+             Piece p1 = (Piece) cb.getSquares().get(m).getChildren().get(0);
+            ((Piece) p1).setPiece(p.getImage());
+
+            square.getChildren().remove(p);
+            s.setOccupied(true);
+            s.getChildren().add(p);*/
+
+
         }
 
 
-    }
+
+        }
     private void killPiece(Square square) {
         Color color1 = Color.web("#FF0000");
 
