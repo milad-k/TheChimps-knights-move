@@ -58,6 +58,7 @@ public class GameController {
         String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
         String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
         usernameField.setText(username);
+        System.out.println(selectedAvatar);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
         staticPoints = pointsField;
         staticStage = StageField;

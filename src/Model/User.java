@@ -6,8 +6,6 @@ import java.util.Objects;
 
 public class User {
 
-    private static int Serial = 0;
-    private int id;
     private String username;
     private int score;
     private String selectedAvatar;
@@ -15,7 +13,6 @@ public class User {
 
     public User(String username) {
         super();
-        id = ++Serial;
         score = 0;
         selectedAvatar = "avatar1.png";
         selectedTheme = "Sandcastle";
@@ -23,26 +20,10 @@ public class User {
 
     public User(String username, String selectedAvatar, String selectedTheme) {
         super();
-        id = ++Serial;
+        this.username = username;
         score = 0;
         this.selectedTheme = selectedTheme;
         this.selectedAvatar = selectedAvatar;
-    }
-
-    public static int getSerial() {
-        return Serial;
-    }
-
-    public static void setSerial(int serial) {
-        Serial = serial;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -86,12 +67,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && score == user.score && Objects.equals(username, user.username) && Objects.equals(selectedAvatar, user.selectedAvatar) && Objects.equals(selectedTheme, user.selectedTheme);
+        return score == user.score && Objects.equals(username, user.username) && Objects.equals(selectedAvatar, user.selectedAvatar) && Objects.equals(selectedTheme, user.selectedTheme);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, score, selectedAvatar, selectedTheme);
+        return Objects.hash(username, score, selectedAvatar, selectedTheme);
     }
 
     @Override
