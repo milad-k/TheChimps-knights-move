@@ -22,7 +22,13 @@ import javafx.scene.layout.*;
 import java.io.IOException;
 import java.util.Random;
 
-public class Game extends GameController{
+import static Controller.GameController.staticPoints;
+import static Controller.GameController.staticStage;
+import static Controller.GameLevel2Controller.staticPoints2;
+import static Controller.GameLevel3Controller.staticPoints3;
+import static Controller.GameLevel4Controller.staticPoints4;
+
+public class Game{
 
     private int id;
     private static int idCounter = 1;
@@ -44,6 +50,7 @@ public class Game extends GameController{
         this.game = true;
         this.currentuser = user;
         this.id = idCounter++;
+        this.stage = stage1;
         staticStage.setText(Stage.First.toString());
         addEventHandlers(cb.chessBoard);
     }
@@ -162,62 +169,18 @@ public class Game extends GameController{
 
         if(square.getBackground().getFills().get(0).getFill().equals(color1)){
             if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
-
-                SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
-                staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
-
+                decreasingScore(square);
             }
         }
         else if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
-            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
-            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+            IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
+
 
         }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                javafx.stage.Stage stage = new javafx.stage.Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-
-            } catch (IOException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("FXML");
-                alert.setHeaderText("Load failure");
-                alert.setContentText("Failed to load the FXML file.");
-                alert.showAndWait();
-            }
-            Difficulty d = Difficulty.randomDifficulty();
-            Random rand1 = new Random();
-            int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).size());
-            Question q = SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).get(int_rand1);
-            square = new QuestionSquare(square.getX(), square.getY(),q);
-            PopUpQuestionController.staticQuestion.setText(q.getText());
-            PopUpQuestionController.staticDifficulty.setText(q.getLevel().toString());
-            PopUpQuestionController.staticAnswer1.setText(q.getAnswer1());
-            PopUpQuestionController.staticAnswer2.setText(q.getAnswer2());
-            PopUpQuestionController.staticAnswer3.setText(q.getAnswer3());
-            PopUpQuestionController.staticAnswer4.setText(q.getAnswer4());
-
-
-            if(q.getLevel() == Difficulty.EASY){
-                PopUpQuestionController.staticPoints.setText("1");
-
-            }
-            if(q.getLevel() == Difficulty.MEDIUM){
-                PopUpQuestionController.staticPoints.setText("2");
-
-            }
-            if(q.getLevel() == Difficulty.HARD){
-                PopUpQuestionController.staticPoints.setText("3");
-
-            }
-
-
-
-
+            LoadQuestionPopUp(square);
 
 
         }
@@ -259,6 +222,87 @@ public class Game extends GameController{
 
 
         }
+
+    private void decreasingScore(Square square) {
+        if(this.stage == Stage.First) {
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+        else if(this.stage == Stage.Second){
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            staticPoints2.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+        else if(this.stage == Stage.Third){
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            staticPoints3.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+        else if(this.stage == Stage.Fourth){
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            staticPoints4.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+    }
+
+    private void IncrementScore() {
+        if(this.stage.equals(Stage.First)) {
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+        else if(this.stage == Stage.Second){
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            staticPoints2.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+        else if(this.stage == Stage.Third){
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            staticPoints3.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+        else if(this.stage == Stage.Fourth){
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            staticPoints4.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+        }
+    }
+
+    private void LoadQuestionPopUp(Square square) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FXML");
+            alert.setHeaderText("Load failure");
+            alert.setContentText("Failed to load the FXML file.");
+            alert.showAndWait();
+        }
+        Difficulty d = Difficulty.randomDifficulty();
+        Random rand1 = new Random();
+        int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).size());
+        Question q = SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).get(int_rand1);
+        square = new QuestionSquare(square.getX(), square.getY(),q);
+        PopUpQuestionController.staticQuestion.setText(q.getText());
+        PopUpQuestionController.staticDifficulty.setText(q.getLevel().toString());
+        PopUpQuestionController.staticAnswer1.setText(q.getAnswer1());
+        PopUpQuestionController.staticAnswer2.setText(q.getAnswer2());
+        PopUpQuestionController.staticAnswer3.setText(q.getAnswer3());
+        PopUpQuestionController.staticAnswer4.setText(q.getAnswer4());
+
+
+        if(q.getLevel() == Difficulty.EASY){
+            PopUpQuestionController.staticPoints.setText("1");
+
+        }
+        if(q.getLevel() == Difficulty.MEDIUM){
+            PopUpQuestionController.staticPoints.setText("2");
+
+        }
+        if(q.getLevel() == Difficulty.HARD){
+            PopUpQuestionController.staticPoints.setText("3");
+
+        }
+    }
+
     private void killPiece(Square square) {
         Color color1 = Color.web("#FF0000");
 

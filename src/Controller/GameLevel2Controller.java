@@ -91,24 +91,44 @@ public class GameLevel2Controller implements Initializable {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println(totalSec);
+                        //System.out.println(totalSec);
                         convertTime();
                         if(totalSec <= 0) {
-                            timer.cancel();
-                            timerLabel.setText("00:00:00");
-                            try {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
-                                Parent root1 = (Parent) fxmlLoader.load();
-                                Stage stage = new Stage();
-                                stage.setScene(new Scene(root1));
-                                stage.show();
+                            if(Integer.parseInt(staticPoints2.getText().toString()) < 15) {
+                                timer.cancel();
+                                timerLabel.setText("00:00:00");
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
 
-                            } catch (IOException e) {
-                                Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                                alert1.setTitle("FXML");
-                                alert1.setHeaderText("Load failure");
-                                alert1.setContentText("Failed to load the FXML file.");
-                                alert1.showAndWait();
+                                } catch (IOException e) {
+                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                    alert1.setTitle("FXML");
+                                    alert1.setHeaderText("Load failure");
+                                    alert1.setContentText("Failed to load the FXML file.");
+                                    alert1.showAndWait();
+                                }
+                            }
+                            else{
+                                timer.cancel();
+                                timerLabel.setText("00:00:00");
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/GameLevel3.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
+
+                                } catch (IOException e) {
+                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                    alert1.setTitle("FXML");
+                                    alert1.setHeaderText("Load failure");
+                                    alert1.setContentText("Failed to load the FXML file.");
+                                    alert1.showAndWait();
+                                }
                             }
                         }
 

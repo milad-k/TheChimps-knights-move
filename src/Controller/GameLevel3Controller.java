@@ -94,10 +94,30 @@ public class GameLevel3Controller implements Initializable {
                         System.out.println(totalSec);
                         convertTime();
                         if(totalSec <= 0) {
+                            if (Integer.parseInt(staticPoints3.getText().toString()) < 15) {
+                                timer.cancel();
+                                timerLabel.setText("00:00:00");
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
+
+                                } catch (IOException e) {
+                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                    alert1.setTitle("FXML");
+                                    alert1.setHeaderText("Load failure");
+                                    alert1.setContentText("Failed to load the FXML file.");
+                                    alert1.showAndWait();
+                                }
+                            }
+                        }
+                        else{
                             timer.cancel();
                             timerLabel.setText("00:00:00");
                             try {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/GameLevel4.fxml"));
                                 Parent root1 = (Parent) fxmlLoader.load();
                                 Stage stage = new Stage();
                                 stage.setScene(new Scene(root1));
