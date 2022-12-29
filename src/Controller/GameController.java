@@ -56,7 +56,11 @@ public class GameController implements Initializable {
     private Text timerLabel;
     @FXML
     private Text pointsField;
+    @FXML
+    private Text pointsField1;
     public static Text staticPoints;
+
+    public static Text staticTotalPoints;
     @FXML
     private Text usernameField;
     public static Text staticStage;
@@ -202,7 +206,8 @@ public class GameController implements Initializable {
         String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
-        staticPoints = pointsField;
+        staticTotalPoints = pointsField;
+        staticPoints = pointsField1;
         staticStage = StageField;
         staticChessBoard = chessBoard;
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);

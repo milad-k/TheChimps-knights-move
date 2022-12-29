@@ -56,6 +56,8 @@ public class GameLevel3Controller implements Initializable {
     private Text timerLabel;
     @FXML
     private Text pointsField;
+    @FXML
+    private Text pointsField1;
     public static Text staticPoints3;
     @FXML
     private Text usernameField;
@@ -203,7 +205,11 @@ public class GameLevel3Controller implements Initializable {
         String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
-        staticPoints3 = pointsField;
+        int i;
+        i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
+        pointsField.setText(String.valueOf(i));
+        GameController.staticTotalPoints = pointsField;
+        staticPoints3 = pointsField1;
         staticStage3 = StageField;
         staticChessBoard3 = chessBoard;
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "Third Stage ChessBoard", Utils.Stage.Third);

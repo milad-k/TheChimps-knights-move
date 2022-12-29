@@ -24,8 +24,6 @@ public class LoserScreenController {
     public void Home(ActionEvent actionEvent) {
         Stage stage = (Stage) homeButton.getScene().getWindow();
         stage.close();
-        Stage stage1 = (Stage) Window.getWindows().get(0).getScene().getWindow();
-        stage1.close();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");

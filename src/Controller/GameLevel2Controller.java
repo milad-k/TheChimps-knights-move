@@ -56,6 +56,8 @@ public class GameLevel2Controller implements Initializable {
     private Text timerLabel;
     @FXML
     private Text pointsField;
+    @FXML
+    private Text pointsField1;
     public static Text staticPoints2;
     @FXML
     private Text usernameField;
@@ -201,12 +203,17 @@ public class GameLevel2Controller implements Initializable {
         String username = SysData.getInstance().getCurrentUser().getUsername();
         String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
         String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
+        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
+
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
-        staticPoints2 = pointsField;
+        int i;
+        i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
+        pointsField.setText(String.valueOf(i));
+        GameController.staticTotalPoints = pointsField;
+        staticPoints2 = pointsField1;
         staticStage2 = StageField;
         staticChessBoard2 = chessBoard;
-        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         setTimer();
     }
 }

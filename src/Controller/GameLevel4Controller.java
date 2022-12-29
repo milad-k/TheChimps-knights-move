@@ -56,6 +56,8 @@ public class GameLevel4Controller implements Initializable {
     private Text timerLabel;
     @FXML
     private Text pointsField;
+    @FXML
+    private Text pointsField1;
     public static Text staticPoints4;
     @FXML
     private Text usernameField;
@@ -95,12 +97,34 @@ public class GameLevel4Controller implements Initializable {
                         System.out.println(totalSec);
                         convertTime();
                         if(totalSec <= 0) {
+                            if (Integer.parseInt(staticPoints4.getText().toString()) < 15) {
+                                timer.cancel();
+                                timerLabel.setText("00:00:00");
+                                Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
+                                stage4.close();
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
+
+                                } catch (IOException e) {
+                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                    alert1.setTitle("FXML");
+                                    alert1.setHeaderText("Load failure");
+                                    alert1.setContentText("Failed to load the FXML file.");
+                                    alert1.showAndWait();
+                                }
+                            }
+                        }
+                        else{
                             timer.cancel();
                             timerLabel.setText("00:00:00");
                             Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
                             stage4.close();
                             try {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/WinScreen.fxml"));
                                 Parent root1 = (Parent) fxmlLoader.load();
                                 Stage stage = new Stage();
                                 stage.setScene(new Scene(root1));
@@ -181,7 +205,11 @@ public class GameLevel4Controller implements Initializable {
         String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
-        staticPoints4 = pointsField;
+        int i;
+        i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
+        pointsField.setText(String.valueOf(i));
+        GameController.staticTotalPoints = pointsField;
+        staticPoints4 = pointsField1;
         staticStage4 = StageField;
         staticChessBoard4 = chessBoard;
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "Fourth Stage ChessBoard", Utils.Stage.Fourth);
