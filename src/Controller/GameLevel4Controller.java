@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Duration;
 
 import javax.management.Notification;
@@ -96,6 +97,8 @@ public class GameLevel4Controller implements Initializable {
                         if(totalSec <= 0) {
                             timer.cancel();
                             timerLabel.setText("00:00:00");
+                            Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
+                            stage4.close();
                             try {
                                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
                                 Parent root1 = (Parent) fxmlLoader.load();

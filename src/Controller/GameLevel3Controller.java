@@ -98,6 +98,8 @@ public class GameLevel3Controller implements Initializable {
                             if (Integer.parseInt(staticPoints3.getText().toString()) < 15) {
                                 timer.cancel();
                                 timerLabel.setText("00:00:00");
+                                Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
+                                stage4.close();
                                 try {
                                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
                                     Parent root1 = (Parent) fxmlLoader.load();
