@@ -6,31 +6,35 @@ import java.util.Objects;
 
 public class User {
 
-    private static int idCounter = 1;
+    private static int Serial = 0;
     private int id;
     private String username;
+    private int score;
     private String selectedAvatar;
     private String selectedTheme;
-    private int points;
 
     public User(String username) {
-        this.id = idCounter++;
-        this.username = username;
+        super();
+        id = ++Serial;
+        score = 0;
+        selectedAvatar = "avatar1.png";
+        selectedTheme = "Sandcastle";
     }
 
     public User(String username, String selectedAvatar, String selectedTheme) {
-        this.id = idCounter++;
-        this.username = username;
-        this.selectedAvatar = selectedAvatar;
+        super();
+        id = ++Serial;
+        score = 0;
         this.selectedTheme = selectedTheme;
+        this.selectedAvatar = selectedAvatar;
     }
 
-    public static int getIdCounter() {
-        return idCounter;
+    public static int getSerial() {
+        return Serial;
     }
 
-    public static void setIdCounter(int idCounter) {
-        User.idCounter = idCounter;
+    public static void setSerial(int serial) {
+        Serial = serial;
     }
 
     public int getId() {
@@ -49,6 +53,18 @@ public class User {
         this.username = username;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void updateScore(int scoreToAdd) {
+        score += scoreToAdd;
+    }
+
     public String getSelectedAvatar() {
         return selectedAvatar;
     }
@@ -65,35 +81,24 @@ public class User {
         this.selectedTheme = selectedTheme;
     }
 
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && points == user.points && Objects.equals(username, user.username) && Objects.equals(selectedAvatar, user.selectedAvatar) && selectedTheme == user.selectedTheme;
+        return id == user.id && score == user.score && Objects.equals(username, user.username) && Objects.equals(selectedAvatar, user.selectedAvatar) && Objects.equals(selectedTheme, user.selectedTheme);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, selectedAvatar, selectedTheme, points);
+        return Objects.hash(id, username, score, selectedAvatar, selectedTheme);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", selectedAvatar='" + selectedAvatar + '\'' +
-                ", selectedTheme=" + selectedTheme +
-                ", points=" + points +
+                "username='" + username + '\'' +
+                ", score=" + score +
                 '}';
     }
 }

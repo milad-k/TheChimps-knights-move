@@ -71,11 +71,6 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button fx:id="adminButton" layoutX="804.0" layoutY="51.0" mnemonicParsing="false" onAction="#admin" prefHeight="83.0" prefWidth="114.0" style="-fx-background-color: E5D997; -fx-background-radius: 25;" text="Admin" textFill="WHITE">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
 
    </children>
 </AnchorPane>

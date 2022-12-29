@@ -162,18 +162,18 @@ public class Game extends GameController{
         if(square.getBackground().getFills().get(0).getFill().equals(color1)){
             if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
 
-                SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() - 1);
-                staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+                SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+                staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
 
             }
         }
         else if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
-            SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
-            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
 
         }
-        else if(SysData.getInstance().getCurrentUser().getPoints() == 15){
+        else if(SysData.getInstance().getCurrentUser().getScore() == 15){
             ChessBoardFactory cbTwo = new ChessBoardFactory();
             cb = cbTwo.makeChessBoard("Second Stage ChessBoard",cb.chessBoard,"Sandcastle" );
 
@@ -225,8 +225,8 @@ public class Game extends GameController{
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
         if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
-            SysData.getInstance().getCurrentUser().setPoints(SysData.getInstance().getCurrentUser().getPoints() + 1);
-            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getPoints()));
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
         }
 

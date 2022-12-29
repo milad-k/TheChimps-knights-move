@@ -288,7 +288,7 @@ public class SysData {
             return true;
     }
 
-    public Boolean writeUsersJSON() {
+/*    public Boolean writeUsersJSON() {
         try {
             JSONObject JsonObject1 = new JSONObject();
             JSONArray JsonArray1 = new JSONArray();
@@ -299,7 +299,7 @@ public class SysData {
                 map.put("username", (String) u.getUsername());
                 map.put("avatar", (String) u.getSelectedAvatar());
                 map.put("theme", (String) u.getSelectedTheme());
-                map.put("points", u.getPoints());
+                map.put("points", u.getScore());
                 JsonArray1.add(map);
             }
             JsonObject1.put("users", JsonArray1);
@@ -315,23 +315,19 @@ public class SysData {
             return false;
         }
         return true;
-    }
+    } */
 
     public void observableMethod() {
         writeJSON();
         loadQuestions("src/JSON/QuestionsFormat.json");
     }
 
-    public void usersObservableMethod() {
+ /*   public void usersObservableMethod() {
         writeUsersJSON();
         loadUsers("src/JSON/UsersFormat.json");
     }
 
-    public void observableMethodForGame() {
-        writeJSON();
-    }
-
-    public boolean loadUsers(String path1) {
+       public boolean loadUsers(String path1) {
 
         if (path1 != null) {
             JSONParser parser1 = new JSONParser();
@@ -385,7 +381,11 @@ public class SysData {
         }
         return false;
     }
+    */
 
+    public void observableMethodForGame() {
+        writeJSON();
+    }
 
 /*
     public void addPausedGame(Game game) {
