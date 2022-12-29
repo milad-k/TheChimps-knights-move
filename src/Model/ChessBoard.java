@@ -89,7 +89,7 @@ public abstract class ChessBoard {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             squares.get(int_rand).setType("Question Square");
-            //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+            squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
 
 
         }

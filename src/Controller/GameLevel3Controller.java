@@ -33,7 +33,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class GameController implements Initializable {
+public class GameLevel3Controller implements Initializable {
 
 //    private static final Integer STARTTIME = 60;
 //    private Timeline timeline;
@@ -48,17 +48,17 @@ public class GameController implements Initializable {
     private Button settingsButton;
     @FXML
     private Button pauseButton;
-    public static GridPane staticChessBoard;
+    public static GridPane staticChessBoard3;
     @FXML
     private GridPane chessBoard;
     @FXML
     private Text timerLabel;
     @FXML
     private Text pointsField;
-    public static Text staticPoints;
+    public static Text staticPoints3;
     @FXML
     private Text usernameField;
-    public static Text staticStage;
+    public static Text staticStage3;
     @FXML
     private Text StageField;
 
@@ -91,46 +91,27 @@ public class GameController implements Initializable {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        //System.out.println(totalSec);
+                        System.out.println(totalSec);
                         convertTime();
                         if(totalSec <= 0) {
-                            if(Integer.parseInt(staticPoints.getText().toString()) < 15) {
-                                timer.cancel();
-                                timerLabel.setText("00:00:00");
-                                try {
-                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
-                                    Parent root1 = (Parent) fxmlLoader.load();
-                                    Stage stage = new Stage();
-                                    stage.setScene(new Scene(root1));
-                                    stage.show();
+                            timer.cancel();
+                            timerLabel.setText("00:00:00");
+                            try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                Parent root1 = (Parent) fxmlLoader.load();
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root1));
+                                stage.show();
 
-                                } catch (IOException e) {
-                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                                    alert1.setTitle("FXML");
-                                    alert1.setHeaderText("Load failure");
-                                    alert1.setContentText("Failed to load the FXML file.");
-                                    alert1.showAndWait();
-                                }
-                            }
-                            else{
-                                timer.cancel();
-                                timerLabel.setText("00:00:00");
-                                try {
-                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/GameLevel2.fxml"));
-                                    Parent root1 = (Parent) fxmlLoader.load();
-                                    Stage stage = new Stage();
-                                    stage.setScene(new Scene(root1));
-                                    stage.show();
-
-                                } catch (IOException e) {
-                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                                    alert1.setTitle("FXML");
-                                    alert1.setHeaderText("Load failure");
-                                    alert1.setContentText("Failed to load the FXML file.");
-                                    alert1.showAndWait();
-                                }
+                            } catch (IOException e) {
+                                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                alert1.setTitle("FXML");
+                                alert1.setHeaderText("Load failure");
+                                alert1.setContentText("Failed to load the FXML file.");
+                                alert1.showAndWait();
                             }
                         }
+
                     }
                 });
             }
@@ -197,10 +178,10 @@ public class GameController implements Initializable {
         String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
-        staticPoints = pointsField;
-        staticStage = StageField;
-        staticChessBoard = chessBoard;
-        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
+        staticPoints3 = pointsField;
+        staticStage3 = StageField;
+        staticChessBoard3 = chessBoard;
+        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "Third Stage ChessBoard", Utils.Stage.Third);
         setTimer();
     }
 }

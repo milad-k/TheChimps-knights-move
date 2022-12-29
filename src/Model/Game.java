@@ -174,15 +174,6 @@ public class Game extends GameController{
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
 
         }
-        else if(SysData.getInstance().getCurrentUser().getScore() == 15){
-            ChessBoardFactory cbTwo = new ChessBoardFactory();
-            cb = cbTwo.makeChessBoard("Second Stage ChessBoard",cb.chessBoard,"Sandcastle" );
-
-            setCb(cb);
-            setStage(Stage.Second);
-            staticStage.setText(Stage.Second.toString());
-
-        }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
