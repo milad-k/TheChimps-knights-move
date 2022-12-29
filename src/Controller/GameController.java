@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -81,7 +82,7 @@ public class GameController implements Initializable {
     }
 
     private void setTimer() {
-        totalSec = 60;
+        totalSec = 4;
 
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
@@ -95,10 +96,20 @@ public class GameController implements Initializable {
                         if(totalSec <= 0) {
                             timer.cancel();
                             timerLabel.setText("00:00:00");
-                            Alert alert = new Alert(Alert.AlertType.WARNING);
-                            alert.setTitle("Time's up");
-                            alert.setContentText("Time's up");
-                            alert.show();
+                            try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                Parent root1 = (Parent) fxmlLoader.load();
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root1));
+                                stage.show();
+
+                            } catch (IOException e) {
+                                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                alert1.setTitle("FXML");
+                                alert1.setHeaderText("Load failure");
+                                alert1.setContentText("Failed to load the FXML file.");
+                                alert1.showAndWait();
+                            }
                         }
                     }
                 });
