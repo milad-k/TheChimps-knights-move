@@ -37,6 +37,10 @@ public class HomeScreenController implements Initializable {
     private Button usersButton;
 
     @FXML
+    private Button timerButton;
+
+
+    @FXML
     void gamesHistory(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../View/HistoryScreen.fxml"));
@@ -115,9 +119,9 @@ public class HomeScreenController implements Initializable {
     }
 
     @FXML
-    void users(ActionEvent event) {
+    void timer(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Users.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/Timer.fxml"));
             root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
             Scene adminScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
