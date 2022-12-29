@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 public class AddQuestionController implements Initializable {
 
     ToggleGroup group = new ToggleGroup();
+
     @FXML
     private TextArea questionField;
 
@@ -37,6 +38,7 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private TextField answer4;
+
     @FXML
     private RadioButton ranswer1;
 
@@ -51,9 +53,6 @@ public class AddQuestionController implements Initializable {
 
     @FXML
     private ComboBox<Difficulty> difficulty = new ComboBox<Difficulty>();
-
-    @FXML
-    private ComboBox<Team> teamBox;
 
     @FXML
     private Button addQuestionButton;

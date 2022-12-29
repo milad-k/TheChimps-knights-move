@@ -2,7 +2,6 @@ package Controller;
 
 import Model.Game;
 import Model.SysData;
-import Utils.Theme;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -11,6 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -23,8 +23,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class GameController {
+public class GameController implements Initializable {
 
     private static final Integer STARTTIME = 60;
     private Timeline timeline;
@@ -40,10 +42,8 @@ public class GameController {
     public static GridPane staticChessBoard;
     @FXML
     private GridPane chessBoard;
-
     @FXML
     private Text timer;
-
     @FXML
     private Text pointsField;
     public static Text staticPoints;
@@ -52,30 +52,6 @@ public class GameController {
     public static Text staticStage;
     @FXML
     private Text StageField;
-
-    public void initialize() {
-        String username = SysData.getInstance().getCurrentUser().getUsername();
-        String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
-        String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
-        usernameField.setText(username);
-        System.out.println(selectedAvatar);
-        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
-        staticPoints = pointsField;
-        staticStage = StageField;
-        staticChessBoard = chessBoard;
-        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
-        timer.textProperty().bind(timeSeconds.asString());
-        if (timeline != null) {
-            timeline.stop();
-        }
-        timeSeconds.set(STARTTIME);
-        timeline = new Timeline();
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(STARTTIME+1),
-                        new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
-
-    }
 
     @FXML
     void back(ActionEvent event) {
@@ -111,13 +87,6 @@ public class GameController {
             alert.showAndWait();
         }
     }
-    public Text getPointsField() {
-        return pointsField;
-    }
-
-    public void setPointsField(Text pointsField) {
-        this.pointsField = pointsField;
-    }
 
     public void settings(ActionEvent actionEvent)  throws IOException {
         try {
@@ -134,5 +103,29 @@ public class GameController {
             alert.setContentText("Failed to load the FXML file.");
             alert.showAndWait();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String username = SysData.getInstance().getCurrentUser().getUsername();
+        String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
+        String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
+        usernameField.setText(username);
+        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
+        staticPoints = pointsField;
+        staticStage = StageField;
+        staticChessBoard = chessBoard;
+        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
+        timer.textProperty().bind(timeSeconds.asString());
+        if (timeline != null) {
+            timeline.stop();
+        }
+        timeSeconds.set(STARTTIME);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(STARTTIME+1),
+                        new KeyValue(timeSeconds, 0)));
+        timeline.playFromStart();
+
     }
 }

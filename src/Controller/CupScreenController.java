@@ -14,6 +14,7 @@ import javafx.stage.Window;
 import java.io.IOException;
 
 public class CupScreenController {
+
     @FXML
     private Button playagainButton;
 
