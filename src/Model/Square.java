@@ -1,6 +1,9 @@
 package Model;
 
+import Utils.Difficulty;
 import javafx.scene.layout.StackPane;
+
+import java.util.Random;
 
 public class Square extends StackPane {
 
@@ -60,5 +63,6 @@ public class Square extends StackPane {
 
     public void setType(String type) {
         this.type = type;
+
     }
 }

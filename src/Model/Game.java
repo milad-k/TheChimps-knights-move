@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.GameController;
+import Utils.Difficulty;
 import Utils.Stage;
 import javafx.event.EventHandler;
 import javafx.event.EventTarget;
@@ -18,6 +19,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.layout.*;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class Game extends GameController{
 
@@ -181,6 +183,13 @@ public class Game extends GameController{
 
         }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
+            Random rand1 = new Random();
+            Difficulty d = Difficulty.randomDifficulty();
+            int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(d).size());
+            Question q = SysData.getInstance().getQuestions().get(d).get(int_rand1);
+            square = new QuestionSquare(square.getX(), square.getY(),q);
+
+
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
