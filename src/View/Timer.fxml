@@ -24,9 +24,9 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Label fx:id="timer" layoutX="373.0" layoutY="295.0" text="01:00">
+      <Label fx:id="timerLabel" layoutX="277.0" layoutY="300.0" textFill="#ae962b">
          <font>
-            <Font size="96.0" />
+            <Font size="70.0" />
          </font>
       </Label>
 

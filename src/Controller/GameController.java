@@ -5,6 +5,7 @@ import Model.SysData;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -22,15 +24,21 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.management.Notification;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
 
-    private static final Integer STARTTIME = 60;
-    private Timeline timeline;
-    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
+//    private static final Integer STARTTIME = 60;
+//    private Timeline timeline;
+//    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
+
+    private long min, sec, hr, totalSec = 0;
     @FXML
     private ImageView avatarImage;
     @FXML
@@ -43,7 +51,7 @@ public class GameController implements Initializable {
     @FXML
     private GridPane chessBoard;
     @FXML
-    private Text timer;
+    private Text timerLabel;
     @FXML
     private Text pointsField;
     public static Text staticPoints;
@@ -52,6 +60,52 @@ public class GameController implements Initializable {
     public static Text staticStage;
     @FXML
     private Text StageField;
+
+    private String format(long value) {
+        if(value < 10) {
+            return 0 + "" + value;
+        }
+        return value + "";
+    }
+
+    public void convertTime() {
+
+        min = TimeUnit.SECONDS.toMinutes(totalSec);
+        sec = totalSec - (min * 60);
+        hr = TimeUnit.MINUTES.toHours(min);
+        min = min - (hr * 60);
+
+        timerLabel.setText(format(hr) + ":" + format(min) + ":" + format(sec));
+        totalSec--;
+
+    }
+
+    private void setTimer() {
+        totalSec = 60;
+
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println(totalSec);
+                        convertTime();
+                        if(totalSec <= 0) {
+                            timer.cancel();
+                            timerLabel.setText("00:00:00");
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Time's up");
+                            alert.setContentText("Time's up");
+                            alert.show();
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(timerTask, 0, 1000);
+    }
 
     @FXML
     void back(ActionEvent event) {
@@ -116,16 +170,6 @@ public class GameController implements Initializable {
         staticStage = StageField;
         staticChessBoard = chessBoard;
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
-        timer.textProperty().bind(timeSeconds.asString());
-        if (timeline != null) {
-            timeline.stop();
-        }
-        timeSeconds.set(STARTTIME);
-        timeline = new Timeline();
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(STARTTIME+1),
-                        new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
-
+        setTimer();
     }
 }
