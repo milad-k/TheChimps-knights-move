@@ -27,7 +27,7 @@ public class SysData {
     public SysData() {
         questions = new HashMap<Difficulty, ArrayList<Question>>();
         games = new ArrayList<Game>();
-        users = new ArrayList<>();
+        users = new ArrayList<User>();
     }
 
     public HashMap<Difficulty, ArrayList<Question>> getQuestions() {
@@ -46,7 +46,9 @@ public class SysData {
         this.games = games;
     }
 
-    public ArrayList<User> getUsers() { return users; }
+    public ArrayList<User> getUsers() {
+        return users;
+    }
 
     public void setUsers(ArrayList<User> users) { this.users = users; }
 
@@ -299,7 +301,7 @@ public class SysData {
                 map.put("username", (String) u.getUsername());
                 map.put("avatar", (String) u.getSelectedAvatar());
                 map.put("theme", (String) u.getSelectedTheme());
-                map.put("points", u.getScore());
+                map.put("score", u.getScore());
                 JsonArray1.add(map);
             }
             JsonObject1.put("users", JsonArray1);
@@ -315,14 +317,14 @@ public class SysData {
             return false;
         }
         return true;
-    } */
-
+    }
+*/
     public void observableMethod() {
         writeJSON();
         loadQuestions("src/JSON/QuestionsFormat.json");
     }
 
- /*   public void usersObservableMethod() {
+/*    public void usersObservableMethod() {
         writeUsersJSON();
         loadUsers("src/JSON/UsersFormat.json");
     }
@@ -357,11 +359,11 @@ public class SysData {
 
                     // get users' id
                     String userId = (String) u.get("id");
-
                     // get correct users' username.
                     String username = (String) u.get("username");
                     String avatar = (String) u.get("avatar");
                     String theme = (String) u.get("theme");
+                    int score = (Integer) u.get("score");
 
                     User userToAdd = new User(username, avatar, theme);
 
@@ -381,8 +383,7 @@ public class SysData {
         }
         return false;
     }
-    */
-
+*/
     public void observableMethodForGame() {
         writeJSON();
     }
