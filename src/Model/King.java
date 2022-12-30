@@ -29,7 +29,7 @@ public class King extends Piece {
         moves.add("Square" + (y) + (x+7));
 
         for(String move : moves) {
-            if(getSquareByName(move) != null) {
+            if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square"))) {
                 if(getSquareByName(move).occupied && getPieceByName(move).getColor().equals(Game.currentPlayer))
                     continue;
                 possibleMoves.add(move);
