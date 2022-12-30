@@ -18,6 +18,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.*;
+import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.Random;
@@ -326,7 +327,7 @@ public class Game{
         if(!currentPiece.possibleMoves.contains(square.name)) return;
 
         Piece killedPiece = (Piece) square.getChildren().get(0);
-        if(killedPiece.type.equals("King")) this.game = false;
+        if(killedPiece.type.equals("King") || killedPiece.type.equals("Queen")) this.game = false;
 
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().remove(0);
@@ -344,6 +345,23 @@ public class Game{
 
 
         deselectPiece(true);
+
+        javafx.stage.Stage stage4 = (javafx.stage.Stage) Window.getWindows().get(0).getScene().getWindow();
+        stage4.close();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (IOException e) {
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("FXML");
+            alert1.setHeaderText("Load failure");
+            alert1.setContentText("Failed to load the FXML file.");
+            alert1.showAndWait();
+        }
     }
 
     public Stage getStage() {
