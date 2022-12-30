@@ -17,6 +17,7 @@ public class Square extends StackPane {
         this.x = x;
         this.y = y;
         this.occupied = false;
+        this.type = "Normal Square";
     }
 
     @Override

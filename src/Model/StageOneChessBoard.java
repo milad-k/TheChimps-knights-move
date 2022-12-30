@@ -52,7 +52,7 @@ public class StageOneChessBoard extends ChessBoard {
     }
     private void addRandomJumpSquares() {
 
-        Color color1 = Color.web("black");
+        //Color color1 = Color.web("black");
         for (int i = 0; i < 3; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);

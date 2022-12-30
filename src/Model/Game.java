@@ -180,14 +180,56 @@ public class Game{
 
 
 
+
         }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
+            IncrementScore();
+            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+            square.setOccupied(true);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/UniqueSlotPopUp.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                javafx.stage.Stage stage = new javafx.stage.Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+
+            } catch (IOException e) {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("FXML");
+                alert1.setHeaderText("Load failure");
+                alert1.setContentText("Failed to load the FXML file.");
+                alert1.showAndWait();
+            }
+            addAnotherRandomQuestionSquare();
             LoadQuestionPopUp(square);
+
 
 
         }
         if(square.getType() != null && square.getType().equals("Random Jump Square") && square.getChildren().get(0).toString().equals("white Knight")){
-/*
+            IncrementScore();
+            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+            square.setOccupied(true);
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/UniqueSlotPopUp.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                javafx.stage.Stage stage = new javafx.stage.Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            } catch (IOException e) {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("FXML");
+                alert1.setHeaderText("Load failure");
+                alert1.setContentText("Failed to load the FXML file.");
+                alert1.showAndWait();
+            }
+            addAnotherRandomJumpSquare();
+
+
+
+            /*
             Square initialSquare1 = (Square) currentPiece.getParent();
             square.getChildren().add(currentPiece);
             square.occupied = true;
@@ -220,10 +262,81 @@ public class Game{
 
 
         }
+        if(square.getType() != null && square.getType().equals("Forgetful Square") && square.getChildren().get(0).toString().equals("white Knight")) {
+        addAnotherForgetfulSquare();
+        }
+        if(square.getType() != null && square.getType().equals("Blocking Square") && square.getChildren().get(0).toString().equals("white Knight")) {
+          addAnotherBlockingSquare();
+        }
+
 
 
 
         }
+
+    private void addAnotherBlockingSquare() {
+        //Color color1 = Color.web("black");
+
+        Random rand = new Random();
+        int int_rand = rand.nextInt(64);
+        if(cb.squares.get(int_rand).getType().equals("Blocking Square")){
+            addAnotherBlockingSquare();
+        }
+        else{
+            cb.squares.get(int_rand).setType("Blocking Square");
+            //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        }
+    }
+
+    private void addAnotherForgetfulSquare() {
+        //Color color1 = Color.web("black");
+
+        Random rand = new Random();
+        int int_rand = rand.nextInt(64);
+        if(cb.squares.get(int_rand).getType().equals("Forgetful Square")){
+            addAnotherForgetfulSquare();
+        }
+        else{
+            cb.squares.get(int_rand).setType("Forgetful Square");
+            //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        }
+
+    }
+
+    private void addAnotherRandomJumpSquare() {
+        //Color color1 = Color.web("black");
+
+        Random rand = new Random();
+        int int_rand = rand.nextInt(64);
+
+        if(cb.squares.get(int_rand).getType().equals("Random Jump Square")){
+            addAnotherRandomJumpSquare();
+        }
+        else{
+            cb.squares.get(int_rand).setType("Random Jump Square");
+            //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
+        }
+    }
+
+    private void addAnotherRandomQuestionSquare() {
+        //Color color1 = Color.web("black");
+
+            Random rand = new Random();
+            int int_rand = rand.nextInt(64);
+            if(cb.squares.get(int_rand).getType().equals("Question Square")){
+                addAnotherRandomQuestionSquare();
+            }
+            else{
+                cb.squares.get(int_rand).setType("Question Square");
+                //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
+            }
+
+
+    }
 
     private void decreasingScore(Square square) {
         if(this.stage == Stage.First) {
