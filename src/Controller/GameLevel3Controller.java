@@ -94,7 +94,7 @@ public class GameLevel3Controller implements Initializable {
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println(totalSec);
+                        //System.out.println(totalSec);
                         convertTime();
                         if(totalSec <= 0) {
                             if(Integer.parseInt(staticPoints3.getText().toString()) < 15) {
