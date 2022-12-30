@@ -51,7 +51,7 @@ public class GameLevel4Controller implements Initializable {
     private Button pauseButton;
     public static GridPane staticChessBoard4;
     @FXML
-    private GridPane chessBoard;
+    private GridPane chessBoard4;
     @FXML
     private Text timerLabel;
     @FXML
@@ -206,13 +206,13 @@ public class GameLevel4Controller implements Initializable {
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
         int i;
+        Game game = new Game(chessBoard4, selectedTheme, SysData.getInstance().getCurrentUser(), "Fourth Stage ChessBoard", Utils.Stage.Fourth);
         i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
         pointsField.setText(String.valueOf(i));
         GameController.staticTotalPoints = pointsField;
         staticPoints4 = pointsField1;
         staticStage4 = StageField;
-        staticChessBoard4 = chessBoard;
-        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "Fourth Stage ChessBoard", Utils.Stage.Fourth);
+        staticChessBoard4 = chessBoard4;
         setTimer();
     }
 }

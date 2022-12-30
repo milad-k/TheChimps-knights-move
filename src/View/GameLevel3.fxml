@@ -102,7 +102,7 @@
                 <Font size="23.0" />
             </font>
         </Label>
-        <GridPane fx:id="chessBoard" gridLinesVisible="true" layoutX="239.0" layoutY="142.0" prefHeight="495.0" prefWidth="495.0">
+        <GridPane fx:id="chessBoard3" gridLinesVisible="true" layoutX="239.0" layoutY="142.0" prefHeight="495.0" prefWidth="495.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

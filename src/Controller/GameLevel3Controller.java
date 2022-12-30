@@ -51,7 +51,7 @@ public class GameLevel3Controller implements Initializable {
     private Button pauseButton;
     public static GridPane staticChessBoard3;
     @FXML
-    private GridPane chessBoard;
+    private GridPane chessBoard3;
     @FXML
     private Text timerLabel;
     @FXML
@@ -97,7 +97,7 @@ public class GameLevel3Controller implements Initializable {
                         System.out.println(totalSec);
                         convertTime();
                         if(totalSec <= 0) {
-                            if (Integer.parseInt(staticPoints3.getText().toString()) < 15) {
+                            if(Integer.parseInt(staticPoints3.getText().toString()) < 15) {
                                 timer.cancel();
                                 timerLabel.setText("00:00:00");
                                 Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
@@ -206,13 +206,14 @@ public class GameLevel3Controller implements Initializable {
         usernameField.setText(username);
         avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
         int i;
+        Game game = new Game(chessBoard3, selectedTheme, SysData.getInstance().getCurrentUser(), "Third Stage ChessBoard", Utils.Stage.Third);
+
         i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
         pointsField.setText(String.valueOf(i));
         GameController.staticTotalPoints = pointsField;
         staticPoints3 = pointsField1;
         staticStage3 = StageField;
-        staticChessBoard3 = chessBoard;
-        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "Third Stage ChessBoard", Utils.Stage.Third);
+        staticChessBoard3 = chessBoard3;
         setTimer();
     }
 }

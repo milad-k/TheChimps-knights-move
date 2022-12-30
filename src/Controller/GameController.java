@@ -21,14 +21,20 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
 import javax.management.Notification;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -60,6 +66,14 @@ public class GameController implements Initializable {
     private Text pointsField1;
     public static Text staticPoints;
 
+    public static MediaPlayer mediaPlayer;
+    private File directory;
+    private File[] files;
+    private ArrayList<File> sounds;
+    private int soundNumber;
+
+    @FXML
+    private Media media;
     public static Text staticTotalPoints;
     @FXML
     private Text usernameField;
@@ -212,5 +226,25 @@ public class GameController implements Initializable {
         staticChessBoard = chessBoard;
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         setTimer();
+
+        /*sounds = new ArrayList<File>();
+        directory = new File("sounds");
+        files = directory.listFiles();
+        if(files != null){
+            for(File file :files){
+                sounds.add(file);
+                System.out.println(file);
+            }
+        }
+        else{
+            System.out.println("hello");
+            System.out.println(files.length);
+
+        }
+       media = new Media(sounds.get(0).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();*/
+
+
     }
 }

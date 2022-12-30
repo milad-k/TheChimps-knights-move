@@ -11,6 +11,7 @@ public class StageTwoChessBoard extends ChessBoard{
     public StageTwoChessBoard(GridPane chessBoard, String theme) {
         super(chessBoard, theme);
         this.stage = Stage.Second;
+        makeBoard(this.chessBoard, theme);
     }
 
     @Override

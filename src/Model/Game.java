@@ -50,7 +50,8 @@ public class Game{
         this.currentuser = user;
         this.id = idCounter++;
         this.stage = stage1;
-        staticStage.setText(Stage.First.toString());
+        staticStage.setText(stage1.toString());
+
         addEventHandlers(cb.chessBoard);
     }
 
@@ -174,6 +175,7 @@ public class Game{
         else if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+            square.setOccupied(true);
 
 
 
@@ -249,7 +251,9 @@ public class Game{
     }
 
     private void IncrementScore() {
+
         if(this.stage.equals(Stage.First)) {
+            System.out.println("hello");
             SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
             staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
             staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));

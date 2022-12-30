@@ -51,7 +51,7 @@ public class GameLevel2Controller implements Initializable {
     private Button pauseButton;
     public static GridPane staticChessBoard2;
     @FXML
-    private GridPane chessBoard;
+    private GridPane chessBoard2;
     @FXML
     private Text timerLabel;
     @FXML
@@ -63,7 +63,7 @@ public class GameLevel2Controller implements Initializable {
     private Text usernameField;
     public static Text staticStage2;
     @FXML
-    private Text StageField;
+    private Text StageField2;
 
     private String format(long value) {
         if(value < 10) {
@@ -200,20 +200,20 @@ public class GameLevel2Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String username = SysData.getInstance().getCurrentUser().getUsername();
-        String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
-        String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
-        Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
+        String username2 = SysData.getInstance().getCurrentUser().getUsername();
+        String selectedAvatar2 = SysData.getInstance().getCurrentUser().getSelectedAvatar();
+        String selectedTheme2 = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
+            Game game2 = new Game(chessBoard2, selectedTheme2, SysData.getInstance().getCurrentUser(), "Second Stage ChessBoard", Utils.Stage.Second);
 
-        usernameField.setText(username);
-        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
+        usernameField.setText(username2);
+        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar2));
         int i;
         i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
         pointsField.setText(String.valueOf(i));
         GameController.staticTotalPoints = pointsField;
         staticPoints2 = pointsField1;
-        staticStage2 = StageField;
-        staticChessBoard2 = chessBoard;
+        staticStage2 = StageField2;
+        staticChessBoard2 = chessBoard2;
         setTimer();
     }
 }
