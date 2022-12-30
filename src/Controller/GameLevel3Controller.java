@@ -63,7 +63,7 @@ public class GameLevel3Controller implements Initializable {
     private Text usernameField;
     public static Text staticStage3;
     @FXML
-    private Text StageField;
+    private Text StageField3;
 
     private String format(long value) {
         if(value < 10) {
@@ -96,8 +96,8 @@ public class GameLevel3Controller implements Initializable {
                     public void run() {
                         //System.out.println(totalSec);
                         convertTime();
-                        if(totalSec <= 0) {
-                            if(Integer.parseInt(staticPoints3.getText().toString()) < 15) {
+                        if (totalSec <= 0) {
+                            if (Integer.parseInt(staticPoints3.getText().toString()) < 15) {
                                 timer.cancel();
                                 timerLabel.setText("00:00:00");
                                 Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
@@ -117,8 +117,7 @@ public class GameLevel3Controller implements Initializable {
                                     alert1.showAndWait();
                                 }
                             }
-                        }
-                        else{
+                            else {
                             timer.cancel();
                             timerLabel.setText("00:00:00");
                             Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
@@ -138,6 +137,7 @@ public class GameLevel3Controller implements Initializable {
                                 alert1.showAndWait();
                             }
                         }
+                    }
 
                     }
                 });
@@ -200,19 +200,20 @@ public class GameLevel3Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String username = SysData.getInstance().getCurrentUser().getUsername();
-        String selectedAvatar = SysData.getInstance().getCurrentUser().getSelectedAvatar();
-        String selectedTheme = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
-        usernameField.setText(username);
-        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar));
+        String username3 = SysData.getInstance().getCurrentUser().getUsername();
+        String selectedAvatar3 = SysData.getInstance().getCurrentUser().getSelectedAvatar();
+        String selectedTheme3 = SysData.getInstance().getCurrentUser().getSelectedTheme().toString();
+        Game game3 = new Game(chessBoard3, selectedTheme3, SysData.getInstance().getCurrentUser(), "Third Stage ChessBoard", Utils.Stage.Third);
+
+        usernameField.setText(username3);
+        avatarImage.setImage(new Image("Controller/Images/" + selectedAvatar3));
         int i;
-        Game game = new Game(chessBoard3, selectedTheme, SysData.getInstance().getCurrentUser(), "Third Stage ChessBoard", Utils.Stage.Third);
 
         i = Integer.parseInt(GameController.staticTotalPoints.getText().toString());
         pointsField.setText(String.valueOf(i));
         GameController.staticTotalPoints = pointsField;
         staticPoints3 = pointsField1;
-        staticStage3 = StageField;
+        staticStage3 = StageField3;
         staticChessBoard3 = chessBoard3;
         setTimer();
     }

@@ -63,7 +63,7 @@ public class GameLevel4Controller implements Initializable {
     private Text usernameField;
     public static Text staticStage4;
     @FXML
-    private Text StageField;
+    private Text StageField4;
 
     private String format(long value) {
         if(value < 10) {
@@ -116,29 +116,27 @@ public class GameLevel4Controller implements Initializable {
                                     alert1.setContentText("Failed to load the FXML file.");
                                     alert1.showAndWait();
                                 }
+                            } else {
+                                timer.cancel();
+                                timerLabel.setText("00:00:00");
+                                Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
+                                stage4.close();
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/WinScreen.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
+
+                                } catch (IOException e) {
+                                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                    alert1.setTitle("FXML");
+                                    alert1.setHeaderText("Load failure");
+                                    alert1.setContentText("Failed to load the FXML file.");
+                                    alert1.showAndWait();
+                                }
                             }
                         }
-                        else{
-                            timer.cancel();
-                            timerLabel.setText("00:00:00");
-                            Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
-                            stage4.close();
-                            try {
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/WinScreen.fxml"));
-                                Parent root1 = (Parent) fxmlLoader.load();
-                                Stage stage = new Stage();
-                                stage.setScene(new Scene(root1));
-                                stage.show();
-
-                            } catch (IOException e) {
-                                Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                                alert1.setTitle("FXML");
-                                alert1.setHeaderText("Load failure");
-                                alert1.setContentText("Failed to load the FXML file.");
-                                alert1.showAndWait();
-                            }
-                        }
-
                     }
                 });
             }
@@ -211,7 +209,7 @@ public class GameLevel4Controller implements Initializable {
         pointsField.setText(String.valueOf(i));
         GameController.staticTotalPoints = pointsField;
         staticPoints4 = pointsField1;
-        staticStage4 = StageField;
+        staticStage4 = StageField4;
         staticChessBoard4 = chessBoard4;
         setTimer();
     }

@@ -74,7 +74,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Text fx:id="StageField" layoutX="803.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+        <Text fx:id="StageField4" layoutX="803.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
             <font>
                 <Font size="20.0" />
             </font>

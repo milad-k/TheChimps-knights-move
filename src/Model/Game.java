@@ -231,19 +231,19 @@ public class Game{
             staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
         }
         else if(this.stage == Stage.Second){
-            //SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
             int i = Integer.parseInt(staticPoints2.getText().toString());
             i--;
             staticPoints2.setText(String.valueOf(i));
         }
         else if(this.stage == Stage.Third){
-            //SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
             int i = Integer.parseInt(staticPoints3.getText().toString());
             i--;
             staticPoints3.setText(String.valueOf(i));
         }
         else if(this.stage == Stage.Fourth){
-            //SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
             int i = Integer.parseInt(staticPoints4.getText().toString());
             i--;
             staticPoints4.setText(String.valueOf(i));
@@ -253,26 +253,25 @@ public class Game{
     private void IncrementScore() {
 
         if(this.stage.equals(Stage.First)) {
-            System.out.println("hello");
             SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
             staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
             staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
         }
         else if(this.stage == Stage.Second){
-            //SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
             int i = Integer.parseInt(staticPoints2.getText().toString());
             i++;
             staticPoints2.setText(String.valueOf(i));
 
         }
         else if(this.stage == Stage.Third){
-            //SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
             int i = Integer.parseInt(staticPoints3.getText().toString());
             i++;
             staticPoints3.setText(String.valueOf(i));
         }
         else if(this.stage == Stage.Fourth){
-            //SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
+            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
             int i = Integer.parseInt(staticPoints4.getText().toString());
             i++;
             staticPoints4.setText(String.valueOf(i));
