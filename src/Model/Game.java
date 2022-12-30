@@ -145,7 +145,13 @@ public class Game{
         borderGlow.setOffsetX(0f);
         borderGlow.setOffsetY(0f);
         currentPiece.setEffect(borderGlow);
-        currentPiece.getAllPossibleMoves();
+        if(this.stage.equals(Stage.First)){
+            currentPiece.getAllPossibleMoves();
+        }
+        else{
+            currentPiece.getAllPossibleMovesForAdvancedLevels();
+        }
+
         currentPiece.showAllPossibleMoves(true);
     }
 

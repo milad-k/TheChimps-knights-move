@@ -110,4 +110,5 @@ abstract class Piece extends ImageView {
         return this.color + " " + this.type;
     }
 
+    public abstract void getAllPossibleMovesForAdvancedLevels();
 }

@@ -11,6 +11,11 @@ public class Queen extends Piece {
     }
 
     @Override
+    public void getAllPossibleMovesForAdvancedLevels() {
+        getAllPossibleMoves();
+    }
+
+    @Override
     public void getAllPossibleMoves() {
         int x = this.posX;
         int y = this.posY;
