@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CupScreenController">
     <children>
@@ -39,6 +40,21 @@
                 </ImageView>
             </graphic>
         </Button>
+      <Text layoutX="379.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won a cup!" wrappingWidth="211.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="317.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Total Score is:" wrappingWidth="261.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="TotalScoreText" layoutX="578.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="95.99999702721834">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
     </children>
 
 </AnchorPane>

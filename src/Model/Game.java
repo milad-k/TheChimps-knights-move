@@ -263,7 +263,21 @@ public class Game{
 
         }
         if(square.getType() != null && square.getType().equals("Forgetful Square") && square.getChildren().get(0).toString().equals("white Knight")) {
-        addAnotherForgetfulSquare();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/UniqueSlotPopUp.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                javafx.stage.Stage stage = new javafx.stage.Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            } catch (IOException e) {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("FXML");
+                alert1.setHeaderText("Load failure");
+                alert1.setContentText("Failed to load the FXML file.");
+                alert1.showAndWait();
+            }
+            addAnotherForgetfulSquare();
         }
         if(square.getType() != null && square.getType().equals("Blocking Square") && square.getChildren().get(0).toString().equals("white Knight")) {
           addAnotherBlockingSquare();

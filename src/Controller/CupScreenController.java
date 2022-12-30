@@ -3,25 +3,33 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CupScreenController {
+import static Controller.GameController.staticTotalPoints;
+
+public class CupScreenController implements Initializable {
 
     @FXML
     private Button playagainButton;
 
     @FXML
     private Button homeButton;
+    @FXML
+    private Text TotalScoreText;
 
-    public void home(ActionEvent actionEvent) {
+    public void home(ActionEvent actionEvent){
         Stage stage = (Stage) homeButton.getScene().getWindow();
         stage.close();
         Stage stage1 = (Stage) Window.getWindows().get(0).getScene().getWindow();
@@ -62,5 +70,10 @@ public class CupScreenController {
             alert.showAndWait();
         }
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        staticTotalPoints = TotalScoreText;
     }
 }
