@@ -157,7 +157,7 @@ public class Game{
     }
 
     private void dropPiece(Square square) {
-        Color color1 = Color.web("#FF0000");
+        Color color1 = Color.web("black");
         if (!currentPiece.possibleMoves.contains(square.name)) return;
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().add(currentPiece);
@@ -236,18 +236,24 @@ public class Game{
             int i = Integer.parseInt(staticPoints2.getText().toString());
             i--;
             staticPoints2.setText(String.valueOf(i));
+            staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+
         }
         else if(this.stage == Stage.Third){
             SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
             int i = Integer.parseInt(staticPoints3.getText().toString());
             i--;
             staticPoints3.setText(String.valueOf(i));
+            staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+
         }
         else if(this.stage == Stage.Fourth){
             SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() - 1);
             int i = Integer.parseInt(staticPoints4.getText().toString());
             i--;
             staticPoints4.setText(String.valueOf(i));
+            staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+
         }
     }
 
@@ -263,6 +269,8 @@ public class Game{
             int i = Integer.parseInt(staticPoints2.getText().toString());
             i++;
             staticPoints2.setText(String.valueOf(i));
+            staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+
 
         }
         else if(this.stage == Stage.Third){
@@ -270,12 +278,16 @@ public class Game{
             int i = Integer.parseInt(staticPoints3.getText().toString());
             i++;
             staticPoints3.setText(String.valueOf(i));
+            staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+
         }
         else if(this.stage == Stage.Fourth){
             SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
             int i = Integer.parseInt(staticPoints4.getText().toString());
             i++;
             staticPoints4.setText(String.valueOf(i));
+            staticTotalPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
+
         }
     }
 
@@ -322,7 +334,7 @@ public class Game{
     }
 
     private void killPiece(Square square) {
-        Color color1 = Color.web("#FF0000");
+        Color color1 = Color.web("black");
 
         if(!currentPiece.possibleMoves.contains(square.name)) return;
 

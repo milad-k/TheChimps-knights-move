@@ -53,7 +53,7 @@ public class StageFourthChessBoard extends ChessBoard{
 
     private void addBlockingSquares() {
 
-        Color color1 = Color.web("black");
+        Color color1 = Color.web("#FF0000");
         for (int i = 0; i < 8; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);

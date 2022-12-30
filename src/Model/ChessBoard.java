@@ -27,7 +27,7 @@ public abstract class ChessBoard {
     public void setTheme(Square square, String theme, int i, int j) {
         Color color1 = Color.web("#ffffff00");
         Color color2 = Color.web("#ffffff00");
-        Color color3 = Color.web("#FF0000");
+        Color color3 = Color.web("black");
 
         switch (theme) {
             case "Coral" -> {
