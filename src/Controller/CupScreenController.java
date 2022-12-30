@@ -74,6 +74,6 @@ public class CupScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        staticTotalPoints = TotalScoreText;
+        TotalScoreText.setText(staticTotalPoints.getText());
     }
 }

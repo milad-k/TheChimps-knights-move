@@ -5,6 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WinScreenController">
    <children>
@@ -13,7 +14,7 @@
             <Image url="@../Controller/Images/win-screen.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="317.0" fitWidth="413.0" layoutX="341.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="317.0" fitWidth="413.0" layoutX="340.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Controller/Images/win.png" />
          </image>
@@ -42,5 +43,20 @@
             </ImageView>
          </graphic>
       </Button>
+      <Text layoutX="342.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won the game !!" wrappingWidth="286.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="342.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your score is:" wrappingWidth="189.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="totalScoreText" layoutX="525.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="102.99999602138996">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
