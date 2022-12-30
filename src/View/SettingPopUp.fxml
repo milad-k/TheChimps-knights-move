@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="304.0" style="-fx-background-color: FFEB7B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="304.0" style="-fx-background-color: FFEB7B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.settingsPopUpController">
    <children>
       <Label layoutX="30.0" prefHeight="44.0" prefWidth="81.0" text="Setting" textFill="WHITE">
          <font>
@@ -20,7 +19,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="176.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: A5C3DC;" text="No" textFill="WHITE" />
+      <Button fx:id="noSoundButton" layoutX="176.0" layoutY="100.0" mnemonicParsing="false" onAction="#noSound" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: A5C3DC;" text="No" textFill="WHITE" />
       <ImageView fitHeight="55.0" fitWidth="29.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Controller/Images/Close.png" />
@@ -31,8 +30,8 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="122.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: CBDEEE;" text="Yes" textFill="WHITE" />
-      <Button layoutX="123.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: A5C3DC;" text="Yes" textFill="WHITE" />
-      <Button layoutX="176.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: CBDEEE;" text="No" textFill="WHITE" />
+      <Button fx:id="yesSoundButton" layoutX="122.0" layoutY="100.0" mnemonicParsing="false" onAction="#yesSound" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: CBDEEE;" text="Yes" textFill="WHITE" />
+      <Button fx:id="yesMusicButton" layoutX="123.0" layoutY="55.0" mnemonicParsing="false" onAction="#yesMusic" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: A5C3DC;" text="Yes" textFill="WHITE" />
+      <Button fx:id="noMusicButton" layoutX="176.0" layoutY="55.0" mnemonicParsing="false" onAction="#noMusic" prefHeight="25.0" prefWidth="46.0" style="-fx-background-color: CBDEEE;" text="No" textFill="WHITE" />
    </children>
 </AnchorPane>
