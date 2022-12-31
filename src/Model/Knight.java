@@ -41,6 +41,58 @@ public class Knight extends Piece{
         moves.add("Square" + (x+1) + (y+3));
         moves.add("Square" + (x+2) + (y+3));
 
+        moves.add("Square" + (x-5) + (y-2));
+        moves.add("Square" + (x-5) + (y-1));
+        moves.add("Square" + (x-5) + (y+1));
+        moves.add("Square" + (x-5) + (y+2));
+
+        moves.add("Square" + (x-2) + (y+5));
+        moves.add("Square" + (x-1) + (y+5));
+        moves.add("Square" + (x+1) + (y+5));
+        moves.add("Square" + (x+2) + (y+5));
+
+        moves.add("Square" + (x+5) + (y-2));
+        moves.add("Square" + (x+5) + (y-1));
+        moves.add("Square" + (x+5) + (y+1));
+        moves.add("Square" + (x+5) + (y+2));
+
+        moves.add("Square" + (x-2) + (y-5));
+        moves.add("Square" + (x-1) + (y-5));
+        moves.add("Square" + (x+1) + (y-5));
+        moves.add("Square" + (x+2) + (y-5));
+
+        moves.add("Square" + (x-3) + (y-6));
+        moves.add("Square" + (x+3) + (y-6));
+        moves.add("Square" + (x-2) + (y-5));
+        moves.add("Square" + (x-1) + (y-5));
+        moves.add("Square" + (x+1) + (y-5));
+        moves.add("Square" + (x+2) + (y-5));
+
+        moves.add("Square" + (x-6) + (y-3));
+        moves.add("Square" + (x-5) + (y-2));
+        moves.add("Square" + (x-5) + (y-1));
+        moves.add("Square" + (x-5) + (y+1));
+        moves.add("Square" + (x-5) + (y+2));
+        moves.add("Square" + (x-6) + (y+3));
+
+        moves.add("Square" + (x-3) + (y+6));
+        moves.add("Square" + (x+3) + (y+6));
+        moves.add("Square" + (x-2) + (y+5));
+        moves.add("Square" + (x-1) + (y+5));
+        moves.add("Square" + (x+1) + (y+5));
+        moves.add("Square" + (x+2) + (y+5));
+
+        moves.add("Square" + (x+6) + (y-3));
+        moves.add("Square" + (x+5) + (y-2));
+        moves.add("Square" + (x+5) + (y-1));
+        moves.add("Square" + (x+5) + (y+1));
+        moves.add("Square" + (x+5) + (y+2));
+        moves.add("Square" + (x+6) + (y+3));
+
+
+
+
+
 
         for(String move : moves) {
             if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square"))) {
