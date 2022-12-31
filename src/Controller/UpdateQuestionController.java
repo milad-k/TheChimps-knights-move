@@ -98,7 +98,7 @@ public class UpdateQuestionController implements Initializable {
             flag = 1;
         }
 
-        if(quest.isEmpty() || flag == 1 || editDifficulty.getValue() == null || editanswer1.getText().isEmpty() || editanswer2.getText().isEmpty() || editanswer3.getText().isEmpty() || editanswer4.getText().isEmpty()) {
+        if(quest.isEmpty() || quest.trim().isEmpty() || flag == 1 || editDifficulty.getValue() == null || editanswer1.getText().isEmpty() || editanswer2.getText().isEmpty() || editanswer3.getText().isEmpty() || editanswer4.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Missing fields");
             alert.setContentText("You must fill all the fields");
