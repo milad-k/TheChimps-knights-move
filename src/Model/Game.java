@@ -22,6 +22,7 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.Stack;
 
 import static Controller.GameController.*;
 import static Controller.GameLevel2Controller.staticPoints2;
@@ -40,6 +41,7 @@ public class Game{
     private Stage stage;
     private boolean turnToPlay;
     private User currentuser;
+    private Stack<Move> moves;
 
 
     public Game(GridPane chessBoard, String theme, User user, String stage, Stage stage1) {
@@ -52,7 +54,7 @@ public class Game{
         this.id = idCounter++;
         this.stage = stage1;
         staticStage.setText(stage1.toString());
-
+        this.moves = new Stack<Move>();
         addEventHandlers(cb.chessBoard);
     }
 
@@ -62,6 +64,14 @@ public class Game{
 
     public static void setCb(ChessBoard cb) {
         Game.cb = cb;
+    }
+
+    public Stack<Move> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(Stack<Move> moves) {
+        this.moves = moves;
     }
 
     private void addEventHandlers(GridPane chessBoard){
