@@ -155,7 +155,7 @@
                 </ImageView>
             </graphic>
         </Button>
-      <Text fx:id="messageText3" layoutX="141.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="733.9999962747097">
+      <Text fx:id="messageText3" layoutX="53.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="903.9999962747097">
          <font>
             <Font size="22.0" />
          </font>

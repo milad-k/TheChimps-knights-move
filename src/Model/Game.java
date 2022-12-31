@@ -145,6 +145,7 @@ public class Game{
     }
 
     private void selectPiece(boolean game) {
+        staticmessage.setText(" ");
         if(!game){
             currentPiece = null;
             return;
@@ -466,12 +467,6 @@ public class Game{
         initialSquare.occupied = false;
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
-        if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
-            SysData.getInstance().getCurrentUser().setScore(SysData.getInstance().getCurrentUser().getScore() + 1);
-            staticPoints.setText(String.valueOf(SysData.getInstance().getCurrentUser().getScore()));
-            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-        }
-
 
         deselectPiece(true);
 
