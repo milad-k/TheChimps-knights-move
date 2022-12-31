@@ -2,12 +2,7 @@ package Controller;
 
 import Model.Game;
 import Model.SysData;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,23 +11,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import javafx.util.Duration;
 
-import javax.management.Notification;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -41,10 +30,6 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
-
-//    private static final Integer STARTTIME = 60;
-//    private Timeline timeline;
-//    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
 
     private long min, sec, hr, totalSec = 0;
     @FXML

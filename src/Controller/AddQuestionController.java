@@ -3,7 +3,6 @@ package Controller;
 import Model.Question;
 import Model.SysData;
 import Utils.Difficulty;
-import Utils.Team;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
