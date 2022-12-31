@@ -100,13 +100,21 @@ public class PrePlayScreenController implements Initializable {
         }
         Theme theme = themeBox.getValue();
         /* Here we check if the fields are empty/null then we get an invalid alert pop-up. */
-        if(username == null || username.isEmpty() ) {
+        if(username == null || username.isEmpty()) {
             usernameField.setStyle("-fx-background-radius: 8px");
             usernameField.setStyle("-fx-border-color: red");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login");
             alert.setHeaderText("Invalid input");
             alert.setContentText("Please enter a username");
+            alert.showAndWait();
+        }
+
+        else if (username.trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login");
+            alert.setHeaderText("Invalid input");
+            alert.setContentText("Please enter letters/numbers");
             alert.showAndWait();
         }
 
