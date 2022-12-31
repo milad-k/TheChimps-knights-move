@@ -106,7 +106,7 @@ public class PrePlayScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login");
             alert.setHeaderText("Invalid input");
-            alert.setContentText("Please try again");
+            alert.setContentText("Please enter a username");
             alert.showAndWait();
         }
 
@@ -118,11 +118,11 @@ public class PrePlayScreenController implements Initializable {
             alert.showAndWait();
         }
 
-        else if(theme.equals(null)) {
+        else if(themeBox.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Theme");
             alert.setHeaderText("Select a theme");
-            alert.setContentText("Please choose an avatar");
+            alert.setContentText("Please choose a theme for the game");
             alert.showAndWait();
         }
 
