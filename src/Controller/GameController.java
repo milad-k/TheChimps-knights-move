@@ -97,7 +97,6 @@ public class GameController implements Initializable {
 
         timerLabel.setText(format(hr) + ":" + format(min) + ":" + format(sec));
         totalSec--;
-
     }
 
     private void setTimer() {
@@ -112,6 +111,9 @@ public class GameController implements Initializable {
                     public void run() {
                         //System.out.println(totalSec);
                         convertTime();
+                        if(pauseButton.isPressed()) {
+                            timer.cancel();
+                        }
                         if(totalSec <= 0) {
                             if(Integer.parseInt(staticPoints.getText().toString()) < 15) {
                                 timer.cancel();
