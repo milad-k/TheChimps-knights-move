@@ -1,6 +1,7 @@
 package Model;
 
 import Utils.Stage;
+import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -58,6 +59,8 @@ public class StageThreeChessBoard extends ChessBoard{
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             squares.get(int_rand).setType("Forgetful Square");
+            squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
 
         }
         for (int i = 0; i < 2; i++) {

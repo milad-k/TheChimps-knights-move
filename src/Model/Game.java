@@ -187,36 +187,27 @@ public class Game{
         if(square.getBackground().getFills().get(0).getFill().equals(color1)){
             if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
                 decreasingScore(square);
+                Move move = new Move(square,-1);
+                moves.push(move);
             }
         }
         else if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
+            Move move = new Move(square,+1);
+            moves.push(move);
+
 
 
 
 
         }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
+            staticmessage.setText("You Step on a question square! Please answer the question");
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/UniqueSlotPopUp.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                javafx.stage.Stage stage = new javafx.stage.Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-
-
-            } catch (IOException e) {
-                Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                alert1.setTitle("FXML");
-                alert1.setHeaderText("Load failure");
-                alert1.setContentText("Failed to load the FXML file.");
-                alert1.showAndWait();
-            }
             addAnotherRandomQuestionSquare();
             LoadQuestionPopUp(square);
 
@@ -224,23 +215,10 @@ public class Game{
 
         }
         if(square.getType() != null && square.getType().equals("Random Jump Square") && square.getChildren().get(0).toString().equals("white Knight")){
+            staticmessage.setText("Tou step on a random jump square! you will move to another random square");
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/UniqueSlotPopUp.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                javafx.stage.Stage stage = new javafx.stage.Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-
-            } catch (IOException e) {
-                Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                alert1.setTitle("FXML");
-                alert1.setHeaderText("Load failure");
-                alert1.setContentText("Failed to load the FXML file.");
-                alert1.showAndWait();
-            }
             addAnotherRandomJumpSquare();
 
 
@@ -279,24 +257,20 @@ public class Game{
 
         }
         if(square.getType() != null && square.getType().equals("Forgetful Square") && square.getChildren().get(0).toString().equals("white Knight")) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/UniqueSlotPopUp.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                javafx.stage.Stage stage = new javafx.stage.Stage();
-                stage.setScene(new Scene(root1));
-                stage.show();
-
-            } catch (IOException e) {
-                Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                alert1.setTitle("FXML");
-                alert1.setHeaderText("Load failure");
-                alert1.setContentText("Failed to load the FXML file.");
-                alert1.showAndWait();
-            }
+            staticmessage.setText("You step on a forgetful square! Your last 3 steps will be canceled");
             addAnotherForgetfulSquare();
+            Move move = new Move(square,+1);
+            moves.push(move);
+            move.changeSquareColor(square,cb.theme);
+            move.changeSquareStatus(square);
+            move.changePoints(square, this.stage);
+            move.removingLast3Moves(moves);
+
+
         }
         if(square.getType() != null && square.getType().equals("Blocking Square") && square.getChildren().get(0).toString().equals("white Knight")) {
-          addAnotherBlockingSquare();
+            staticmessage.setText("You cant Step on a blocking square! try another square");
+            addAnotherBlockingSquare();
         }
 
 

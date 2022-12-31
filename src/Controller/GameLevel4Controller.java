@@ -25,6 +25,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+import static Controller.GameController.staticmessage;
+
 public class GameLevel4Controller implements Initializable {
 
     private long min, sec, hr, totalSec = 0;
@@ -39,6 +41,8 @@ public class GameLevel4Controller implements Initializable {
     public static GridPane staticChessBoard4;
     @FXML
     private GridPane chessBoard4;
+    @FXML
+    private Text messageText4;
     @FXML
     private Text timerLabel;
     @FXML
@@ -219,6 +223,7 @@ public class GameLevel4Controller implements Initializable {
         staticPoints4 = pointsField1;
         staticStage4 = StageField4;
         staticChessBoard4 = chessBoard4;
+        staticmessage = messageText4;
         setTimer();
     }
 }

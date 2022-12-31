@@ -155,5 +155,10 @@
                 </ImageView>
             </graphic>
         </Button>
+      <Text fx:id="messageText2" layoutX="141.0" layoutY="661.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="721.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

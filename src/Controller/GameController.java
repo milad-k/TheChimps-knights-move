@@ -39,6 +39,9 @@ public class GameController implements Initializable {
     @FXML
     private Button settingsButton;
     @FXML
+    private Text messageText;
+    public static Text staticmessage;
+    @FXML
     private Button pauseButton;
     public static GridPane staticChessBoard;
     @FXML
@@ -211,27 +214,9 @@ public class GameController implements Initializable {
         staticPoints = pointsField1;
         staticStage = StageField;
         staticChessBoard = chessBoard;
+        staticmessage = messageText;
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         setTimer();
-
-        /*sounds = new ArrayList<File>();
-        directory = new File("sounds");
-        files = directory.listFiles();
-        if(files != null){
-            for(File file :files){
-                sounds.add(file);
-                System.out.println(file);
-            }
-        }
-        else{
-            System.out.println("hello");
-            System.out.println(files.length);
-
-        }
-       media = new Media(sounds.get(0).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();*/
-
 
     }
 }
