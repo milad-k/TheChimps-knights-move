@@ -262,10 +262,7 @@ public class Game{
             addAnotherForgetfulSquare();
             Move move = new Move(square,+1);
             moves.push(move);
-            move.changeSquareColor(square,cb.theme);
-            move.changeSquareStatus(square);
-            move.changePoints(square, this.stage);
-            move.removingLast3Moves(moves);
+            move.removingLast3Moves(moves, square, this.stage,cb.theme);
 
 
         }
