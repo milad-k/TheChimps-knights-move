@@ -501,5 +501,13 @@ public class Game{
         this.turnToPlay = turnToPlay;
     }
 
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", currentuser=" + currentuser.getSelectedAvatar() + currentuser.getUsername() +
+                "total Score" + staticTotalPoints +
+                '}';
     }
+}
 
