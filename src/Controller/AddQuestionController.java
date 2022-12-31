@@ -103,7 +103,16 @@ public class AddQuestionController implements Initializable {
             alert.setTitle("Correct Answer");
             alert.setContentText("You must select the correct answer");
             alert.show();
-        } else {
+        }
+
+        else if (quest.trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Empty string");
+            alert.setContentText("You must enter letters/numbers.");
+            alert.show();
+        }
+
+        else {
             if(difficulty.getValue() == null) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Difficulty");
