@@ -82,8 +82,25 @@ public class PrePlayScreenController implements Initializable {
     @FXML
     void start(ActionEvent event) {
         String username = usernameField.getText();
+        String selectedAvatar;
+        if(avatarButton1.isSelected()) {
+            selectedAvatar = "avatar1.png";
+        } else if(avatarButton2.isSelected()) {
+            selectedAvatar = "avatar2.png";
+        } else if(avatarButton3.isSelected()) {
+            selectedAvatar = "avatar3.png";
+        } else if(avatarButton4.isSelected()) {
+            selectedAvatar = "avatar4.png";
+        } else if(avatarButton5.isSelected()) {
+            selectedAvatar = "avatar5.png";
+        } else if(avatarButton6.isSelected()) {
+            selectedAvatar = "avatar6.png";
+        } else {
+            selectedAvatar = "";
+        }
+        Theme theme = themeBox.getValue();
         /* Here we check if the fields are empty/null then we get an invalid alert pop-up. */
-        if(username == null || username.isEmpty()) {
+        if(username == null || username.isEmpty() ) {
             usernameField.setStyle("-fx-background-radius: 8px");
             usernameField.setStyle("-fx-border-color: red");
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -93,25 +110,24 @@ public class PrePlayScreenController implements Initializable {
             alert.showAndWait();
         }
 
+        else if(selectedAvatar.equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Avatar");
+            alert.setHeaderText("Select avatar");
+            alert.setContentText("Please choose an avatar");
+            alert.showAndWait();
+        }
+
+        else if(theme.equals(null)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Theme");
+            alert.setHeaderText("Select a theme");
+            alert.setContentText("Please choose an avatar");
+            alert.showAndWait();
+        }
+
         /* function that check if the username is exists */
         else if(!(SysData.getInstance().checkUsernameExistince(username))) {
-            String selectedAvatar;
-            if(avatarButton1.isSelected()) {
-                selectedAvatar = "avatar1.png";
-            } else if(avatarButton2.isSelected()) {
-                selectedAvatar = "avatar2.png";
-            } else if(avatarButton3.isSelected()) {
-                selectedAvatar = "avatar3.png";
-            } else if(avatarButton4.isSelected()) {
-                selectedAvatar = "avatar4.png";
-            } else if(avatarButton5.isSelected()) {
-                selectedAvatar = "avatar5.png";
-            } else if(avatarButton6.isSelected()) {
-                selectedAvatar = "avatar6.png";
-            } else {
-                selectedAvatar = "avatar1.png";
-            }
-            Theme theme = themeBox.getValue();
             SysData.getInstance().setCurrentUser(new User(username, selectedAvatar, theme.toString()));
             SysData.getInstance().addUser(new User(username, selectedAvatar, theme.toString()));
             try {
@@ -140,23 +156,6 @@ public class PrePlayScreenController implements Initializable {
             ButtonType button = result.orElse(ButtonType.OK);
 
             if(button == ButtonType.OK) {
-                String selectedAvatar;
-                if(avatarButton1.isSelected()) {
-                    selectedAvatar = "avatar1.png";
-                } else if(avatarButton2.isSelected()) {
-                    selectedAvatar = "avatar2.png";
-                } else if(avatarButton3.isSelected()) {
-                    selectedAvatar = "avatar3.png";
-                } else if(avatarButton4.isSelected()) {
-                    selectedAvatar = "avatar4.png";
-                } else if(avatarButton5.isSelected()) {
-                    selectedAvatar = "avatar5.png";
-                } else if(avatarButton6.isSelected()) {
-                    selectedAvatar = "avatar6.png";
-                } else {
-                    selectedAvatar = "avatar1.png";
-                }
-                Theme theme = themeBox.getValue();
                 SysData.getInstance().setCurrentUser(SysData.getInstance().getUserByUserName(username));
                 SysData.getInstance().updateUser(SysData.getInstance().getCurrentUser(), new User(username, selectedAvatar, theme.toString()));
                 try {
