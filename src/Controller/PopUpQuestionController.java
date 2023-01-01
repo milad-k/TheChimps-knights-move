@@ -63,164 +63,228 @@ public class PopUpQuestionController implements Initializable {
     public void answer(ActionEvent actionEvent) {
 
        Question question = SysData.getInstance().getQuestionByText(questionText.getText(), difficultyText.getText());
-        if(userAnswer1.isSelected() && userAnswer1.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer1.isSelected() && staticAnswer1.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
-        if(userAnswer1.isSelected() && !userAnswer1.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer1.isSelected() && !staticAnswer1.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
 
 
 
-        if(userAnswer2.isSelected() && userAnswer2.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer2.isSelected() && staticAnswer2.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
-        if(userAnswer2.isSelected() && !userAnswer2.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer2.isSelected() && !staticAnswer2.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
 
 
 
-        if(userAnswer3.isSelected() && userAnswer3.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer3.isSelected() && staticAnswer3.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
-        if(userAnswer3.isSelected() && !userAnswer3.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer3.isSelected() && !staticAnswer3.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
 
 
-        if(userAnswer4.isSelected() && userAnswer4.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer4.isSelected() && staticAnswer4.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
-        if(userAnswer4.isSelected() && !userAnswer4.getText().equals(question.getCorrect_ans())){
+        if(staticAnswer4.isSelected() && !staticAnswer4.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
                 int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("3")){
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("4")){
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
+                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
+                staticTotalPoints.setText(String.valueOf(v));
             }
         }
 
@@ -230,6 +294,7 @@ public class PopUpQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         staticQuestion = questionText;
         staticDifficulty = difficultyText;
         staticPoints = pointsText;
