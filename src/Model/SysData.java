@@ -226,7 +226,7 @@ public class SysData {
                 return false;
             }
             questions.put(question.getLevel(), myArray);
-            loadQuestions(null);
+            loadQuestions("src/JSON/QuestionsFormat.json");
             return true;
         }
         else {

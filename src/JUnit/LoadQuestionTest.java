@@ -14,9 +14,9 @@ public class LoadQuestionTest{
 
     @Test
     public void test() {
-        SysData.getInstance().loadQuestions(null);
+        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
         HashMap<Difficulty, ArrayList<Question>> questions = SysData.getInstance().getQuestions();
-        SysData.getInstance().loadQuestions(null);
+        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
         HashMap<Difficulty, ArrayList<Question>> questions2 = SysData.getInstance().getQuestions();
 
         assertTrue("Successful", questions.equals(questions2));
