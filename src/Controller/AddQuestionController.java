@@ -149,7 +149,9 @@ public class AddQuestionController implements Initializable {
                     }
                 }
             }
+
         }
+        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
     }
 
     @Override
