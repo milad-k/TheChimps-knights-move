@@ -66,9 +66,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer1.isSelected() && staticAnswer1.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
-                int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                int g = Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
+                int v = Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -93,9 +93,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer1.isSelected() && !staticAnswer1.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -123,9 +123,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer2.isSelected() && staticAnswer2.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -150,9 +150,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer2.isSelected() && !staticAnswer2.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -180,9 +180,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer3.isSelected() && staticAnswer3.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -207,9 +207,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer3.isSelected() && !staticAnswer3.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -236,9 +236,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer4.isSelected() && staticAnswer4.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
@@ -263,9 +263,9 @@ public class PopUpQuestionController implements Initializable {
         if(staticAnswer4.isSelected() && !staticAnswer4.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingLoosingPoints(question);
             if(staticStage.getText().equals("1")){
-                int g =Integer.parseInt(staticPoints.getText()) + additionalPoints;
+                int g =Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
-                staticPoints.setText(String.valueOf(g));
+                GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
             if(staticStage.getText().equals("2")){
