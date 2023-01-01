@@ -219,7 +219,7 @@ public class GameController implements Initializable {
         staticPoints.setText("0");
         SysData.getInstance().getCurrentUser().setScore(0);
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
-        SysData.getInstance().games.add(game);
+        SysData.getInstance().getGames().add(game);
         setTimer();
 
     }

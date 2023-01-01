@@ -507,8 +507,8 @@ public class Game{
     public String toString() {
         return "Game{" +
                 "id=" + id +
-                ", currentuser=" + currentuser.getSelectedAvatar() + currentuser.getUsername() +
-                "total Score" + staticTotalPoints +
+                ", currentuser=" + currentuser.getUsername() +
+                ", total Score=" + staticTotalPoints.getText() +
                 '}';
     }
 }
