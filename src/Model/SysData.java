@@ -9,6 +9,8 @@ import org.json.simple.parser.JSONParser;
 import java.io.*;
 import java.util.*;
 
+import static Controller.GameController.staticStage;
+
 public class SysData {
 
     private static SysData SysData;
@@ -254,6 +256,19 @@ public class SysData {
             }
         }
         return false;
+    }
+    public Question getQuestionByText(String questionText,String difficulty){
+        getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
+        for(Question question: getInstance().getQuestions().get(Difficulty.valueOf(difficulty))){
+            if(question.getText().equals(questionText)){
+                return question;
+            }
+            else{
+                return null;
+            }
+        }
+        return null;
+
     }
 
     public Boolean writeJSON() {

@@ -205,6 +205,7 @@ public class Game{
 
         }
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
+            SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
             staticmessage.setText("You Step on a question square! Please answer the question");
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -407,6 +408,7 @@ public class Game{
     }
 
     private void LoadQuestionPopUp(Square square) {
+        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -423,8 +425,8 @@ public class Game{
         }
         Difficulty d = Difficulty.randomDifficulty();
         Random rand1 = new Random();
-        int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).size());
-        Question q = SysData.getInstance().getQuestions().get(Difficulty.MEDIUM).get(int_rand1);
+        int int_rand1 = rand1.nextInt(SysData.getInstance().getQuestions().get(d).size());
+        Question q = SysData.getInstance().getQuestions().get(d).get(int_rand1);
         square = new QuestionSquare(square.getX(), square.getY(),q);
         PopUpQuestionController.staticQuestion.setText(q.getText());
         PopUpQuestionController.staticDifficulty.setText(q.getLevel().toString());

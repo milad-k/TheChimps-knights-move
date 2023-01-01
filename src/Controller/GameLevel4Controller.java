@@ -25,6 +25,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+import static Controller.GameController.staticStage;
 import static Controller.GameController.staticmessage;
 
 public class GameLevel4Controller implements Initializable {
@@ -221,10 +222,11 @@ public class GameLevel4Controller implements Initializable {
         pointsField.setText(String.valueOf(i));
         GameController.staticTotalPoints = pointsField;
         staticPoints4 = pointsField1;
-        staticStage4 = StageField4;
+        staticStage = StageField4;
         staticChessBoard4 = chessBoard4;
         staticmessage = messageText4;
         staticPoints4.setText("0");
+        staticStage.setText("4");
         setTimer();
     }
 }

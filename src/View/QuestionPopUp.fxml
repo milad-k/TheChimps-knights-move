@@ -9,22 +9,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="491.0" style="-fx-background-color: E5D997;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PopUpQuestionController">
    <children>
-      <RadioButton fx:id="userAnswer1" layoutX="167.0" layoutY="147.0" mnemonicParsing="false" onAction="#userAnswer1pressed" text="1">
+      <RadioButton fx:id="userAnswer1" layoutX="167.0" layoutY="147.0" mnemonicParsing="false" text="1">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="userAnswer2" layoutX="167.0" layoutY="183.0" mnemonicParsing="false" onAction="#userAnswer2pressed" text="2">
+      <RadioButton fx:id="userAnswer2" layoutX="167.0" layoutY="183.0" mnemonicParsing="false" text="2">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="userAnswer4" layoutX="167.0" layoutY="254.0" mnemonicParsing="false" onAction="#userAnswer4pressed" prefWidth="132.0" text="4">
+      <RadioButton fx:id="userAnswer4" layoutX="167.0" layoutY="254.0" mnemonicParsing="false" prefWidth="132.0" text="4">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="userAnswer3" layoutX="167.0" layoutY="216.0" mnemonicParsing="false" onAction="#userAnswer3pressed" text="3">
+      <RadioButton fx:id="userAnswer3" layoutX="167.0" layoutY="216.0" mnemonicParsing="false" text="3">
          <font>
             <Font size="14.0" />
          </font>
