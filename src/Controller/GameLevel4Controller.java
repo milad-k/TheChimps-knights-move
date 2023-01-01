@@ -224,6 +224,7 @@ public class GameLevel4Controller implements Initializable {
         staticStage4 = StageField4;
         staticChessBoard4 = chessBoard4;
         staticmessage = messageText4;
+        staticPoints4.setText("0");
         setTimer();
     }
 }

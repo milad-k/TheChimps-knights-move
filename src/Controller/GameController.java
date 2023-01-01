@@ -215,6 +215,9 @@ public class GameController implements Initializable {
         staticStage = StageField;
         staticChessBoard = chessBoard;
         staticmessage = messageText;
+        staticTotalPoints.setText("0");
+        staticPoints.setText("0");
+        SysData.getInstance().getCurrentUser().setScore(0);
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         SysData.getInstance().games.add(game);
         setTimer();

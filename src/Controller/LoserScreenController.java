@@ -12,6 +12,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static Controller.GameController.staticPoints;
+import static Controller.GameController.staticTotalPoints;
+
 public class LoserScreenController {
 
     @FXML
@@ -40,6 +43,8 @@ public class LoserScreenController {
     }
 
     public void playAgain(ActionEvent actionEvent) {
+        staticTotalPoints.setText("0");
+        staticPoints.setText("0");
         Stage stage = (Stage) playagainButton.getScene().getWindow();
         stage.close();
         try {

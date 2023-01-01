@@ -207,6 +207,7 @@ public class GameLevel2Controller implements Initializable {
         staticStage2 = StageField2;
         staticChessBoard2 = chessBoard2;
         staticmessage = messageText2;
+        staticPoints2.setText("0");
         setTimer();
     }
 }

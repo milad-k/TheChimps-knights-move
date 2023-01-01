@@ -207,6 +207,7 @@ public class GameLevel3Controller implements Initializable {
         staticStage3 = StageField3;
         staticChessBoard3 = chessBoard3;
         staticmessage = messageText3;
+        staticPoints3.setText("0");
         setTimer();
     }
 }
