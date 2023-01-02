@@ -193,7 +193,7 @@ public class Game{
             Move move = new Move(square,-1);
             moves.push(move);
         }
-        if(square.getChildren().get(0).toString().equals("white Knight") ) {
+        if(square.getChildren().get(0).toString().equals("white Knight")) {
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
