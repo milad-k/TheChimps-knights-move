@@ -36,7 +36,6 @@ public class HomeScreenController implements Initializable {
     void gamesHistory(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../View/HistoryScreen.fxml"));
-            root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
             Scene adminScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(adminScene);
