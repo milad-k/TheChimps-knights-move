@@ -138,7 +138,6 @@ public class Game{
                             killPiece(square);
                         }
                     }
-
                 }
             }
         });

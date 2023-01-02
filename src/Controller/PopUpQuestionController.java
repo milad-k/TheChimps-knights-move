@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,9 +24,10 @@ import static Utils.Difficulty.gettingLoosingPoints;
 import static Utils.Difficulty.gettingWinningPoints;
 
 public class PopUpQuestionController implements Initializable {
+
+    ToggleGroup group = new ToggleGroup();
     @FXML
     private Button answerButton;
-
     @FXML
     private Text questionText;
     @FXML
@@ -57,33 +59,31 @@ public class PopUpQuestionController implements Initializable {
     @FXML
     public static RadioButton staticAnswer4;
 
-
-
-
     public void answer(ActionEvent actionEvent) {
 
        Question question = SysData.getInstance().getQuestionByText(questionText.getText(), difficultyText.getText());
+
         if(staticAnswer1.isSelected() && staticAnswer1.getText().equals(question.getCorrect_ans())){
             int additionalPoints = gettingWinningPoints(question);
-            if(staticStage.getText().equals("1")){
+            if(staticStage.getText().equals("1")) {
                 int g = Integer.parseInt(GameController.staticPoints.getText()) + additionalPoints;
                 int v = Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 GameController.staticPoints.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
-            if(staticStage.getText().equals("2")){
+            if(staticStage.getText().equals("2")) {
                 int g =Integer.parseInt(staticPoints2.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints2.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
-            if(staticStage.getText().equals("3")){
+            if(staticStage.getText().equals("3")) {
                 int g =Integer.parseInt(staticPoints3.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints3.setText(String.valueOf(g));
                 staticTotalPoints.setText(String.valueOf(v));
             }
-            if(staticStage.getText().equals("4")){
+            if(staticStage.getText().equals("4")) {
                 int g =Integer.parseInt(staticPoints4.getText()) + additionalPoints;
                 int v =Integer.parseInt(staticTotalPoints.getText()) + additionalPoints;
                 staticPoints4.setText(String.valueOf(g));
@@ -294,6 +294,11 @@ public class PopUpQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        userAnswer1.setToggleGroup(group);
+        userAnswer2.setToggleGroup(group);
+        userAnswer3.setToggleGroup(group);
+        userAnswer4.setToggleGroup(group);
 
         staticQuestion = questionText;
         staticDifficulty = difficultyText;
