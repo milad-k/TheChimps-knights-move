@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.CornerRadii;
@@ -113,7 +114,7 @@ public class Game{
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
-                            if (currentPiece.color.equals("white")) {
+                            if (currentPiece.color.equals("white") && currentPiece.getType().equals("Knight")) {
                                 LoadQuestionPopUp(square);
                                 dropQuestionMark(square);
                             }
