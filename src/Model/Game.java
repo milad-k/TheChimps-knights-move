@@ -107,15 +107,16 @@ public class Game{
                                 killPiece(square);
                             }
                         }
-
                     }
                     // Dropping a piece on blank square
                     else {
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
-                            LoadQuestionPopUp(square);
-                            dropQuestionMark(square);
+                            if (currentPiece.color.equals("white")) {
+                                LoadQuestionPopUp(square);
+                                dropQuestionMark(square);
+                            }
                         }
                     }
                 }
