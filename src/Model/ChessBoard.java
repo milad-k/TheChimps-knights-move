@@ -84,7 +84,6 @@ public abstract class ChessBoard {
     }
 
     public void addRandomQuestionsSquares() {
-        Image image = new Image("Model/pieces/questionMark.png");
         Color color1 = Color.web("black");
         for (int i = 0; i < 5; i++) {
             Random rand = new Random();
