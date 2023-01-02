@@ -114,7 +114,8 @@ public class Game{
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
-
+                            LoadQuestionPopUp(square);
+                            dropQuestionMark(square);
                         }
                     }
                 }
@@ -174,6 +175,24 @@ public class Game{
         currentPiece.showAllPossibleMoves(false);
         currentPiece = null;
         if(changePlayer) currentPlayer = currentPlayer.equals("white") ? "black" : "white";
+    }
+
+    private void dropQuestionMark(Square square) {
+        Color color1 = Color.web("black");
+        if (!currentPiece.possibleMoves.contains(square.name)) return;
+        Square initialSquare = (Square) currentPiece.getParent();
+        square.getChildren().add(currentPiece);
+        square.occupied = true;
+        initialSquare.getChildren().removeAll();
+        initialSquare.occupied = false;
+        currentPiece.posX = square.x;
+        currentPiece.posY = square.y;
+        deselectPiece(true);
+        IncrementScore();
+        square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+        square.setOccupied(true);
+        Move move = new Move(square,+1);
+        moves.push(move);
     }
 
     private void dropPiece(Square square) {
