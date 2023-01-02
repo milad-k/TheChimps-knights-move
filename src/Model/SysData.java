@@ -259,8 +259,6 @@ public class SysData {
     }
     public Question getQuestionByText(String questionText,String difficulty){
         getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
-        System.out.println(Difficulty.valueOf(difficulty));
-        System.out.println(staticStage.getText());
         for(Question question: getInstance().getQuestions().get(Difficulty.valueOf(difficulty))){
             if(question.getText().equals(questionText)){
                 return question;

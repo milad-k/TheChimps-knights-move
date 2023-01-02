@@ -185,14 +185,12 @@ public class Game{
         currentPiece.posY = square.y;
         deselectPiece(true);
 
-        if(square.getBackground().getFills().get(0).getFill().equals(color1)){
-            if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
+        if(square.getBackground().getFills().get(0).getFill().equals(color1) && square.getChildren().get(0).toString().equals("white Knight")){
                 decreasingScore(square);
                 Move move = new Move(square,-1);
                 moves.push(move);
-            }
         }
-        else if(square.getChildren().get(0).toString().equals("white Knight") || square.getChildren().get(0).toString().equals("black Knight")) {
+        if(square.getChildren().get(0).toString().equals("white Knight")) {
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
@@ -207,7 +205,6 @@ public class Game{
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
             SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
             staticmessage.setText("You Step on a question square! Please answer the question");
-            IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
             addAnotherRandomQuestionSquare();
@@ -218,43 +215,9 @@ public class Game{
         }
         if(square.getType() != null && square.getType().equals("Random Jump Square") && square.getChildren().get(0).toString().equals("white Knight")){
             staticmessage.setText("Tou step on a random jump square! you will move to another random square");
-            IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
             addAnotherRandomJumpSquare();
-
-
-
-            /*
-            Square initialSquare1 = (Square) currentPiece.getParent();
-            square.getChildren().add(currentPiece);
-            square.occupied = true;
-            initialSquare1.getChildren().removeAll();
-            initialSquare1.occupied = false;
-            currentPiece.posX = square.x;
-            currentPiece.posY = square.y;
-            deselectPiece(true);
-
-            Random rand = new Random();
-            int int_rand = rand.nextInt(8);
-            Random rand1 = new Random();
-            int int_rand1 = rand1.nextInt(8);
-            Piece p = (Piece) square.getChildren().get(0);
-
-            p.posX = int_rand-1;
-            p.posY = int_rand1-1;
-            ((Piece) square.getChildren().get(0)).setPiece(null);
-            square.getChildren().removeAll();
-            Square s = (Square) p.getParent();
-             p = (Piece) s.getChildren().get(0);
-             ((Piece) s.getChildren().get(0)).setPiece(p.getImage());
-             int m = cb.getSquares().indexOf(s);
-             Piece p1 = (Piece) cb.getSquares().get(m).getChildren().get(0);
-            ((Piece) p1).setPiece(p.getImage());
-
-            square.getChildren().remove(p);
-            s.setOccupied(true);
-            s.getChildren().add(p);*/
 
 
         }

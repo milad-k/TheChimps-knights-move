@@ -30,10 +30,7 @@ public class King extends Piece {
         moves.add("Square" + (x-1) + (y+1));
         moves.add("Square" + (x-1) + (y));
         moves.add("Square" + (x-1) + (y-1));
-        moves.add("Square" + (x) + (y+7));
-        moves.add("Square" + (x+7) + (y));
-        moves.add("Square" + (x) + (y-7));
-        moves.add("Square" + (x-7) + (y));
+
 
 
         for(String move : moves) {
