@@ -34,7 +34,10 @@ public class Knight extends Piece{
         moves.add("Square" + (x-2) + (y-1));
         moves.add("Square" + (x+1) + (y-2));
         moves.add("Square" + (x-1) + (y-2));
-
+        moves.add("Square" + (x+1) + (y+6));
+        moves.add("Square" + (x-1) + (y-6));
+        moves.add("Square" + (x-7) + (y-2));
+        moves.add("Square" + (x+7) + (y+6));
 
         for(String move : moves) {
             if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square"))) {
