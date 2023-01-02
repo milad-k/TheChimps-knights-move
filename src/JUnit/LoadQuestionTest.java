@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class LoadQuestionTest{
 
     @Test
-    public void test() {
+    public void LoadingQuestionsTest() {
         SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
         HashMap<Difficulty, ArrayList<Question>> questions = SysData.getInstance().getQuestions();
         SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
