@@ -13,12 +13,12 @@ public class UserEqualsTest {
     Question q4 = new Question("q","answer1","answer2","answer3","answer4","answer2", Difficulty.HARD,"Chimp");
 
     @Test
-    public void test1(){
+    public void CompareBetweenTwoEqualUsers(){
         assertTrue(q.equals(q3));
 
     }
     @Test
-    public void test2(){
+    public void CompareBetweenTwoNotEqualUsers(){
         assertFalse(q.equals(q4));
 
     }

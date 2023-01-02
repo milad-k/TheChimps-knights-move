@@ -13,13 +13,13 @@ public class CheckUserNameExistance {
     User u2 = new User("milad", "avatar4.png", "Sandcastle");
 
     @Test
-    public void test1(){
+    public void checkingUserNameThatIsExist(){
         sysData.getUsers().add(u2);
         assertTrue(sysData.checkUsernameExistince("milad"));
 
     }
     @Test
-    public void test2(){
+    public void checkingUserNameThatIsnotExist(){
 
         assertFalse(sysData.checkUsernameExistince("maria"));
 

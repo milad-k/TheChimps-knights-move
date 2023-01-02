@@ -14,14 +14,14 @@ public class addUserTest {
 
 
     @Test
-    public void test1() {
+    public void addingNotExistingUser() {
         assertTrue(sysData.addUser(u3));
 
 
 
     }
     @Test
-    public void test2() {
+    public void addingExistingUser() {
         sysData.getUsers().add(u);
         assertFalse(sysData.addUser(u));
 
