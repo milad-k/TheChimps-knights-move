@@ -2,6 +2,8 @@ package Model;
 
 import Utils.Stage;
 import javafx.geometry.Insets;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -85,13 +87,13 @@ public abstract class ChessBoard {
     public void addRandomQuestionsSquares() {
 
         Color color1 = Color.web("black");
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             squares.get(int_rand).setType("Question Square");
             squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-
-
+            squares.get(int_rand).setBackground(new Background(new BackgroundImage(new Image("Model/pieces/questionMark.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+            squares.get(int_rand).setOccupied(false);
         }
     }
 }

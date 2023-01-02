@@ -111,7 +111,11 @@ public class Game{
                     }
                     // Dropping a piece on blank square
                     else {
-                        dropPiece(square);
+                        if(!square.getType().equals("Question Square"))
+                            dropPiece(square);
+                        else {
+
+                        }
                     }
                 }
                 // Clicked on piece
@@ -185,9 +189,9 @@ public class Game{
         deselectPiece(true);
 
         if(square.getBackground().getFills().get(0).getFill().equals(color1) && square.getChildren().get(0).toString().equals("white Knight")){
-                decreasingScore(square);
-                Move move = new Move(square,-1);
-                moves.push(move);
+            decreasingScore(square);
+            Move move = new Move(square,-1);
+            moves.push(move);
         }
         if(square.getChildren().get(0).toString().equals("white Knight")) {
             IncrementScore();
@@ -201,6 +205,7 @@ public class Game{
 
 
         }
+
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
             SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
             staticmessage.setText("You Step on a question square! Please answer the question");
@@ -208,9 +213,6 @@ public class Game{
             square.setOccupied(true);
             addAnotherRandomQuestionSquare();
             LoadQuestionPopUp(square);
-
-
-
         }
         if(square.getType() != null && square.getType().equals("Random Jump Square") && square.getChildren().get(0).toString().equals("white Knight")){
             staticmessage.setText("Tou step on a random jump square! you will move to another random square");
@@ -233,11 +235,7 @@ public class Game{
             staticmessage.setText("You cant Step on a blocking square! try another square");
             addAnotherBlockingSquare();
         }
-
-
-
-
-        }
+    }
 
     private void addAnotherBlockingSquare() {
         //Color color1 = Color.web("black");
