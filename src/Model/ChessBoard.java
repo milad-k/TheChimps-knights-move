@@ -101,6 +101,8 @@ public abstract class ChessBoard {
         for (int i = 0; i < 5; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
+            if(int_rand == 0 || int_rand == 7)
+                int_rand++;
             int columns = int_rand % 8;
             int rows = int_rand / 8;
             this.QuestionSquares.add(new String("Square" + rows + columns));

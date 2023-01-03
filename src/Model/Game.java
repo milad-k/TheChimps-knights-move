@@ -173,7 +173,6 @@ public class Game{
         else{
             currentPiece.getAllPossibleMovesForAdvancedLevels();
         }
-
         currentPiece.showAllPossibleMoves(true);
     }
 
@@ -185,7 +184,8 @@ public class Game{
     }
 
     private void dropQuestionMark(Square square) {
-        Color color1 = Color.web("black");
+        Color color1 = Color.rgb(181, 101, 118);
+        Color color2 = Color.rgb(181, 101, 118);
         if (!currentPiece.possibleMoves.contains(square.name)) return;
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().add(currentPiece);
