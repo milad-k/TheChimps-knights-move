@@ -115,8 +115,14 @@ public class Game{
                             dropPiece(square);
                         else {
                             if (currentPiece.color.equals("white")) {
-                                LoadQuestionPopUp(square);
-                                dropQuestionMark(square);
+                                for(String item1 : cb.getQuestionSquares()) {
+                                    for (String item2 : currentPiece.possibleMoves) {
+                                        if (item1.equals(item2)) {
+                                            LoadQuestionPopUp(square);
+                                            dropQuestionMark(square);
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

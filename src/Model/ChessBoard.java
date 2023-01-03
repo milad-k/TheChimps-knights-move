@@ -9,6 +9,9 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Math.ceil;
+import static java.lang.Math.sqrt;
+
 public abstract class ChessBoard {
 
     GridPane chessBoard;
@@ -17,10 +20,20 @@ public abstract class ChessBoard {
 
     public ArrayList<Square> squares = new ArrayList<>();
 
+    public ArrayList<String> QuestionSquares = new ArrayList<>();
+
     public ChessBoard(GridPane chessBoard, String theme) {
         this.chessBoard = chessBoard;
         this.theme = theme;
 
+    }
+
+    public ArrayList<String> getQuestionSquares() {
+        return QuestionSquares;
+    }
+
+    public void setQuestionSquares(ArrayList<String> questionSquares) {
+        QuestionSquares = questionSquares;
     }
 
     abstract void makeBoard(GridPane chessBoard, String theme);
@@ -88,9 +101,13 @@ public abstract class ChessBoard {
         for (int i = 0; i < 5; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
+            int columns = int_rand % 8;
+            int rows = int_rand / 8;
+            this.QuestionSquares.add(new String("Square" + rows + columns));
             squares.get(int_rand).setType("Question Square");
             squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             squares.get(int_rand).setBackground(new Background(new BackgroundImage(new Image("Model/pieces/questionMark.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+//            System.out.println(this.getQuestionSquares().get(i).getX() + " " + this.getQuestionSquares().get(i).getY());
         }
     }
 }
