@@ -95,7 +95,7 @@ public abstract class ChessBoard {
 
     public void addRandomQuestionsSquares() {
         Color color1 = Color.rgb(181, 101, 118);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             int columns = int_rand % 8;
