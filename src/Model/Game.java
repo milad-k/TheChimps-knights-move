@@ -225,11 +225,6 @@ public class Game{
             square.setOccupied(true);
             Move move = new Move(square,+1);
             moves.push(move);
-
-
-
-
-
         }
 
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
