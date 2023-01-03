@@ -49,6 +49,7 @@ public class GameController implements Initializable {
     private GridPane chessBoard;
     @FXML
     private Text timerLabel;
+    public static Text staticTimerLabel;
     @FXML
     private Text pointsField;
     @FXML
@@ -250,6 +251,7 @@ public class GameController implements Initializable {
         staticmessage = messageText;
         staticTotalPoints.setText("0");
         staticPoints.setText("0");
+        staticTimerLabel = timerLabel;
         SysData.getInstance().getCurrentUser().setScore(0);
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         SysData.getInstance().getGames().add(game);
