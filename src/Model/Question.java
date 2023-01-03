@@ -100,11 +100,9 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question: {" +
-                "text='" + text + '\'' +
-                ", correct_ans=" + correct_ans +
+        return "Question: {" + text + '\'' +
+                ", CorrectAns=" + correct_ans +
                 ", level=" + level +
-                ", team='" + team + '\'' +
                 '}';
     }
 
