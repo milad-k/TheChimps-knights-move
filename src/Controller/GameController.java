@@ -4,6 +4,7 @@ import Model.Game;
 import Model.SysData;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
 
-    private long min, sec, hr, totalSec = 0;
+    public static long min, sec, hr, totalSec = 0;
     @FXML
     private ImageView avatarImage;
     @FXML
@@ -99,9 +100,26 @@ public class GameController implements Initializable {
                     public void run() {
                         //System.out.println(totalSec);
                         convertTime();
-                        if(pauseButton.isPressed()) {
-                            timer.cancel();
-                        }
+                        pauseButton.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                System.out.println("here");
+                                timer.cancel();
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/PausePopUp.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
+                                } catch (IOException e) {
+                                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                                    alert.setTitle("FXML");
+                                    alert.setHeaderText("Load failure");
+                                    alert.setContentText("Failed to load the FXML file.");
+                                    alert.showAndWait();
+                                }
+                            }
+                        });
                         if(totalSec <= 0) {
                             if(Integer.parseInt(staticPoints.getText().toString()) < 15) {
                                 timer.cancel();
