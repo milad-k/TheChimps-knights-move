@@ -101,11 +101,11 @@ public abstract class ChessBoard {
         for (int i = 0; i < 5; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
-            if(int_rand == 0 || int_rand == 7)
-                int_rand++;
             int columns = int_rand % 8;
             int rows = int_rand / 8;
-            this.QuestionSquares.add(new String("Square" + rows + columns));
+            System.out.println(rows + " " + columns);
+            if(!(columns == 0 && rows == 0) && !(columns == 0 && rows == 7))
+                this.QuestionSquares.add(new String("Square" + rows + columns));
             squares.get(int_rand).setType("Question Square");
             squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             squares.get(int_rand).setBackground(new Background(new BackgroundImage(new Image("Model/pieces/questionMark.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
