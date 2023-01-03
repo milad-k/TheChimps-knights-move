@@ -41,7 +41,7 @@ public abstract class ChessBoard {
     public void setTheme(Square square, String theme, int i, int j) {
         Color color1 = Color.web("#ffffff00");
         Color color2 = Color.web("#ffffff00");
-        Color color3 = Color.web("black");
+        Color color3 = Color.rgb(181, 101, 118);
 
         switch (theme) {
             case "Coral" -> {
@@ -97,7 +97,7 @@ public abstract class ChessBoard {
     }
 
     public void addRandomQuestionsSquares() {
-        Color color1 = Color.web("black");
+        Color color1 = Color.rgb(181, 101, 118);
         for (int i = 0; i < 5; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);

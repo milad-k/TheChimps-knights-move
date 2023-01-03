@@ -205,7 +205,7 @@ public class Game{
     }
 
     private void dropPiece(Square square) {
-        Color color1 = Color.web("black");
+        Color color1 = Color.rgb(181, 101, 118);
         if (!currentPiece.possibleMoves.contains(square.name)) return;
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().add(currentPiece);
