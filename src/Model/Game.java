@@ -103,7 +103,8 @@ public class Game{
                                 selectPiece(game);
                             }
                             else{
-                                killPiece(square);
+                                if(!square.getChildren().get(0).toString().equals("black Queen") && square.occupied)
+                                    killPiece(square);
                             }
                         }
                     }
@@ -147,7 +148,8 @@ public class Game{
                             selectPiece(game);
                         }
                         else {
-                            killPiece(square);
+                            if(!square.getChildren().get(0).toString().equals("black Queen") && square.occupied)
+                                killPiece(square);
                         }
                     }
                 }
