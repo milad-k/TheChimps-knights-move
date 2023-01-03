@@ -71,6 +71,29 @@ public class GameController implements Initializable {
     @FXML
     private Text StageField;
 
+    @FXML
+    private Button continueButton;
+    Timer timer = new Timer();
+    @FXML
+    void continueButton(ActionEvent event) {
+        System.out.println(totalSec);
+        Stage stage = (Stage) continueButton.getScene().getWindow();
+        stage.close();
+    }
+
+    public void resetSomeTimer() {
+        TimerTask timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                System.out.println("updating timer");
+            }
+        };
+        timer.cancel();
+        timer = new Timer();
+        timer.schedule(timerTask, 1000);
+
+    }
     private String format(long value) {
         if(value < 10) {
             return 0 + "" + value;
@@ -90,9 +113,10 @@ public class GameController implements Initializable {
     }
 
     private void setTimer(long givenTotalSec) {
+
         totalSec = givenTotalSec;
 
-        Timer timer = new Timer();
+
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -101,25 +125,6 @@ public class GameController implements Initializable {
                     public void run() {
                         //System.out.println(totalSec);
                         convertTime();
-                        pauseButton.setOnAction(new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent actionEvent) {
-                                timer.cancel();
-                                try {
-                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/PausePopUp.fxml"));
-                                    Parent root1 = (Parent) fxmlLoader.load();
-                                    Stage stage = new Stage();
-                                    stage.setScene(new Scene(root1));
-                                    stage.show();
-                                } catch (IOException e) {
-                                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                                    alert.setTitle("FXML");
-                                    alert.setHeaderText("Load failure");
-                                    alert.setContentText("Failed to load the FXML file.");
-                                    alert.showAndWait();
-                                }
-                            }
-                        });
                         backButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent actionEvent) {
@@ -189,12 +194,13 @@ public class GameController implements Initializable {
 
     @FXML
     void back(ActionEvent event) {
+        timer.cancel();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/ExitPopUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.show();
+            stage.showAndWait();
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("FXML");
@@ -202,15 +208,18 @@ public class GameController implements Initializable {
             alert.setContentText("Failed to load the FXML file.");
             alert.showAndWait();
         }
+        resetSomeTimer();
+        setTimer(totalSec);
     }
     @FXML
     void pause(ActionEvent event) throws IOException {
+        timer.cancel();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/PausePopUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.show();
+            stage.showAndWait();
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("FXML");
@@ -218,6 +227,8 @@ public class GameController implements Initializable {
             alert.setContentText("Failed to load the FXML file.");
             alert.showAndWait();
         }
+        resetSomeTimer();
+        setTimer(totalSec);
     }
 
     public void settings(ActionEvent actionEvent)  throws IOException {
