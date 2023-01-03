@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import static Controller.GameController.totalSec;
+
 import java.io.IOException;
 
 public class ExitPopUpController {
