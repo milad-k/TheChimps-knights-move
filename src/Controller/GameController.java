@@ -88,8 +88,8 @@ public class GameController implements Initializable {
         totalSec--;
     }
 
-    private void setTimer() {
-        totalSec = 60;
+    private void setTimer(long givenTotalSec) {
+        totalSec = givenTotalSec;
 
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
@@ -177,7 +177,6 @@ public class GameController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();
-
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("FXML");
@@ -194,7 +193,6 @@ public class GameController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();
-
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("FXML");
@@ -238,7 +236,7 @@ public class GameController implements Initializable {
         SysData.getInstance().getCurrentUser().setScore(0);
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         SysData.getInstance().getGames().add(game);
-        setTimer();
+        setTimer(60);
 
     }
 }
