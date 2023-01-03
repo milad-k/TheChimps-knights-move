@@ -69,7 +69,6 @@ public class GameController implements Initializable {
     public static Text staticStage;
     @FXML
     private Text StageField;
-    static boolean flag = false;
 
     private String format(long value) {
         if(value < 10) {
@@ -104,7 +103,6 @@ public class GameController implements Initializable {
                         pauseButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent actionEvent) {
-                                System.out.println("here");
                                 timer.cancel();
                                 try {
                                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/PausePopUp.fxml"));
@@ -124,7 +122,6 @@ public class GameController implements Initializable {
                         backButton.setOnAction(new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent actionEvent) {
-                                System.out.println("here2");
                                 timer.cancel();
                                 try {
                                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/ExitPopUp.fxml"));
@@ -239,16 +236,6 @@ public class GameController implements Initializable {
         }
     }
 
-    public static long getRemainingTime(long remainingTime) {
-        return remainingTime;
-    }
-
-    public void setTimerAgain() {
-        if(flag)
-            setTimer(getRemainingTime(totalSec));
-        flag = false;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String username = SysData.getInstance().getCurrentUser().getUsername();
@@ -268,7 +255,6 @@ public class GameController implements Initializable {
         SysData.getInstance().getGames().add(game);
         if(SysData.getInstance().getCurrentUser().getScore() == 0)
             totalSec = 60;
-        System.out.println(totalSec);
         setTimer(totalSec);
 
     }

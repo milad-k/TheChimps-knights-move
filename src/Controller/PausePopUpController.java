@@ -13,8 +13,8 @@ public class PausePopUpController{
 
     @FXML
     void continueButton(ActionEvent event) {
-        System.out.println(totalSec);
 
+        System.out.println(totalSec);
         Stage stage = (Stage) continueButton.getScene().getWindow();
         stage.close();
     }

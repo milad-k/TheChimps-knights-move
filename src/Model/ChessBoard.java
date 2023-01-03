@@ -100,7 +100,7 @@ public abstract class ChessBoard {
             int int_rand = rand.nextInt(64);
             int columns = int_rand % 8;
             int rows = int_rand / 8;
-            System.out.println(rows + " " + columns);
+//            System.out.println(rows + " " + columns);
             if(!(columns == 0 && rows == 0) && !(columns == 0 && rows == 7)) {
                 this.QuestionSquares.add(new String("Square" + rows + columns));
                 squares.get(int_rand).setType("Question Square");
