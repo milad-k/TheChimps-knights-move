@@ -11,6 +11,8 @@ public class User {
     private String selectedAvatar;
     private String selectedTheme;
 
+    private int lastScore;
+
     public User(String username) {
         super();
         score = 0;
@@ -24,6 +26,21 @@ public class User {
         score = 0;
         this.selectedTheme = selectedTheme;
         this.selectedAvatar = selectedAvatar;
+    }
+
+    public User(String username, Integer score, String avatar) {
+        super();
+        this.username = username;
+        this.lastScore = score;
+        this.selectedAvatar = avatar;
+    }
+
+    public int getLastScore() {
+        return lastScore;
+    }
+
+    public void setLastScore(int score) {
+        this.lastScore = score;
     }
 
     public String getUsername() {
