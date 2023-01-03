@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="304.0" style="-fx-background-color: FFEB7B;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PausePopUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="304.0" style="-fx-background-color: FFEB7B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PausePopUpController">
    <children>
       <Label layoutX="84.0" layoutY="21.0" prefHeight="44.0" prefWidth="164.0" text="Game Paused" textFill="WHITE">
          <font>
@@ -26,7 +26,3 @@
       </Button>
    </children>
 </AnchorPane>
-
-
-
-

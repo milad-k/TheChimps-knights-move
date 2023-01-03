@@ -69,6 +69,7 @@ public class GameController implements Initializable {
     public static Text staticStage;
     @FXML
     private Text StageField;
+    static boolean flag = false;
 
     private String format(long value) {
         if(value < 10) {
@@ -120,6 +121,26 @@ public class GameController implements Initializable {
                                 }
                             }
                         });
+                        backButton.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                System.out.println("here2");
+                                timer.cancel();
+                                try {
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/ExitPopUp.fxml"));
+                                    Parent root1 = (Parent) fxmlLoader.load();
+                                    Stage stage = new Stage();
+                                    stage.setScene(new Scene(root1));
+                                    stage.show();
+                                } catch (IOException e) {
+                                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                                    alert.setTitle("FXML");
+                                    alert.setHeaderText("Load failure");
+                                    alert.setContentText("Failed to load the FXML file.");
+                                    alert.showAndWait();
+                                }
+                            }
+                        });
                         if(totalSec <= 0) {
                             if(Integer.parseInt(staticPoints.getText().toString()) < 15) {
                                 timer.cancel();
@@ -132,7 +153,6 @@ public class GameController implements Initializable {
                                     Stage stage = new Stage();
                                     stage.setScene(new Scene(root1));
                                     stage.show();
-
                                 } catch (IOException e) {
                                     Alert alert1 = new Alert(Alert.AlertType.ERROR);
                                     alert1.setTitle("FXML");
@@ -219,6 +239,16 @@ public class GameController implements Initializable {
         }
     }
 
+    public static long getRemainingTime(long remainingTime) {
+        return remainingTime;
+    }
+
+    public void setTimerAgain() {
+        if(flag)
+            setTimer(getRemainingTime(totalSec));
+        flag = false;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String username = SysData.getInstance().getCurrentUser().getUsername();
@@ -236,7 +266,10 @@ public class GameController implements Initializable {
         SysData.getInstance().getCurrentUser().setScore(0);
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         SysData.getInstance().getGames().add(game);
-        setTimer(60);
+        if(SysData.getInstance().getCurrentUser().getScore() == 0)
+            totalSec = 60;
+        System.out.println(totalSec);
+        setTimer(totalSec);
 
     }
 }

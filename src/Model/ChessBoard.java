@@ -9,9 +9,6 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static java.lang.Math.ceil;
-import static java.lang.Math.sqrt;
-
 public abstract class ChessBoard {
 
     GridPane chessBoard;
