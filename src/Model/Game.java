@@ -120,6 +120,7 @@ public class Game{
                                         if (item1.equals(item2)) {
                                             LoadQuestionPopUp(square);
                                             dropQuestionMark(square);
+                                            return;
                                         }
                                     }
                                 }
