@@ -113,11 +113,12 @@ public class Game{
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
+                            System.out.println("Q Places: " + cb.getQuestionSquares());
+                            System.out.println("possible moves: " + currentPiece.possibleMoves);
                             if (currentPiece.color.equals("white")) {
                                 for(String item1 : cb.getQuestionSquares()) {
                                     for (String item2 : currentPiece.possibleMoves) {
-                                        if (item1.equals(item2)) {
-                                            LoadQuestionPopUp(square);
+                                        if (item2.equals(item1)) {
                                             dropQuestionMark(square);
                                             return;
                                         }
@@ -189,6 +190,7 @@ public class Game{
         Color color1 = Color.rgb(181, 101, 118);
         Color color2 = Color.rgb(181, 101, 118);
         if (!currentPiece.possibleMoves.contains(square.name)) return;
+        LoadQuestionPopUp(square);
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().add(currentPiece);
         square.occupied = true;
