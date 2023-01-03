@@ -114,7 +114,7 @@ public class Game{
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
-                            if (currentPiece.color.equals("white") && currentPiece.getType().equals("Knight")) {
+                            if (currentPiece.color.equals("white")) {
                                 LoadQuestionPopUp(square);
                                 dropQuestionMark(square);
                             }
