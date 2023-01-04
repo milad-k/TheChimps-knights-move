@@ -97,7 +97,6 @@ public class Game{
                         // Selecting other piece of same color || Killing a piece
                         else{
                             if(currentPiece.color.equals(newPiece.color)){
-                                deselectPiece(false);
                                 currentPiece = newPiece;
 //                                currentPiece.getAllPossibleMoves();
                                 selectPiece(game);
@@ -144,7 +143,6 @@ public class Game{
                     // Selecting other piece of same color || Killing a piece
                     else{
                         if(currentPiece.color.equals(newPiece.color)) {
-                            deselectPiece(false);
                             currentPiece = newPiece;
                             selectPiece(game);
                         }
@@ -183,7 +181,7 @@ public class Game{
         currentPiece.setEffect(null);
         currentPiece.showAllPossibleMoves(false);
         currentPiece = null;
-        if(changePlayer) currentPlayer = currentPlayer.equals("white") ? "black" : "white";
+        currentPlayer = currentPlayer.equals("white") ? "black" : "white";
     }
 
     private void dropQuestionMark(Square square) {
@@ -198,7 +196,6 @@ public class Game{
         initialSquare.occupied = false;
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
-        deselectPiece(true);
         IncrementScore();
         square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
         square.setOccupied(true);
@@ -223,7 +220,6 @@ public class Game{
         initialSquare.occupied = false;
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
-        deselectPiece(true);
 
         if(square.getBackground().getFills().get(0).getFill().equals(color1) && square.getChildren().get(0).toString().equals("white Knight")){
             decreasingScore(square);
@@ -459,7 +455,6 @@ public class Game{
         currentPiece.posX = square.x;
         currentPiece.posY = square.y;
 
-        deselectPiece(true);
 
         javafx.stage.Stage stage4 = (javafx.stage.Stage) Window.getWindows().get(0).getScene().getWindow();
         stage4.close();
