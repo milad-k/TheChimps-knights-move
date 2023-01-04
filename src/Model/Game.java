@@ -216,14 +216,30 @@ public class Game{
             return;
         }
         if (!currentPiece.possibleMoves.contains(square.name)) return;
-        Square initialSquare = (Square) currentPiece.getParent();
-        square.getChildren().add(currentPiece);
-        square.occupied = true;
-        initialSquare.getChildren().removeAll();
-        initialSquare.occupied = false;
-        currentPiece.posX = square.x;
-        currentPiece.posY = square.y;
-        deselectPiece(true);
+        if(square.getType().equals("Random Jump Square") && currentPiece.getType().equals("Knight")){
+            square = getRandomSquare();
+            Square initialSquare = (Square) currentPiece.getParent();
+            square.getChildren().add(currentPiece);
+            square.occupied = true;
+            initialSquare.getChildren().removeAll();
+            initialSquare.occupied = false;
+            currentPiece.posX = square.x;
+            currentPiece.posY = square.y;
+            deselectPiece(true);
+            staticmessage.setText("Tou step on a random jump square! you will move to another random square");
+
+            addAnotherRandomJumpSquare();
+        }
+        else {
+            Square initialSquare = (Square) currentPiece.getParent();
+            square.getChildren().add(currentPiece);
+            square.occupied = true;
+            initialSquare.getChildren().removeAll();
+            initialSquare.occupied = false;
+            currentPiece.posX = square.x;
+            currentPiece.posY = square.y;
+            deselectPiece(true);
+        }
 
         if(square.getBackground().getFills().get(0).getFill().equals(color1) && square.getChildren().get(0).toString().equals("white Knight")){
             decreasingScore(square);
@@ -246,19 +262,10 @@ public class Game{
             addAnotherRandomQuestionSquare();
             LoadQuestionPopUp(square);
         }
-        if(square.getType() != null && square.getType().equals("Random Jump Square") && square.getChildren().get(0).toString().equals("white Knight")){
-            staticmessage.setText("Tou step on a random jump square! you will move to another random square");
-            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-            square.setOccupied(true);
-            addAnotherRandomJumpSquare();
-
-
-        }
         if(square.getType() != null && square.getType().equals("Forgetful Square") && square.getChildren().get(0).toString().equals("white Knight")) {
             staticmessage.setText("You step on a forgetful square! Your last 3 steps will be canceled");
             addAnotherForgetfulSquare();
             Move move = new Move(square,+1);
-            //moves.push(move);
             move.removingLast3Moves(moves, square, this.stage,cb.theme);
 
 
@@ -267,6 +274,12 @@ public class Game{
             staticmessage.setText("You cant Step on a blocking square! try another square");
             addAnotherBlockingSquare();
         }
+    }
+
+    private Square getRandomSquare() {
+        Random rand = new Random();
+        int int_rand = rand.nextInt(64);
+        return cb.squares.get(int_rand);
     }
 
     private void addAnotherBlockingSquare() {
