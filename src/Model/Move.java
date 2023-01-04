@@ -163,6 +163,10 @@ public class Move {
     }
     public void removingLast3Moves(Stack<Move> moves, Square square, Stage stage, String theme){
         for(int i = 0; i<3;i++){
+            if(moves.isEmpty()){
+                return;
+            }
+            System.out.println(moves.peek().getFinalSquare());
             moves.peek().changeSquareStatus(moves.peek().getFinalSquare());
             moves.peek().changeSquareColor(moves.peek().getFinalSquare(),theme);
             moves.peek().changePoints(moves.peek().getFinalSquare(), stage);

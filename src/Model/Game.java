@@ -230,7 +230,7 @@ public class Game{
             Move move = new Move(square,-1);
             moves.push(move);
         }
-        if(square.getChildren().get(0).toString().equals("white Knight")) {
+        else if(square.getChildren().get(0).toString().equals("white Knight")) {
             IncrementScore();
             square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
@@ -258,7 +258,7 @@ public class Game{
             staticmessage.setText("You step on a forgetful square! Your last 3 steps will be canceled");
             addAnotherForgetfulSquare();
             Move move = new Move(square,+1);
-            moves.push(move);
+            //moves.push(move);
             move.removingLast3Moves(moves, square, this.stage,cb.theme);
 
 
