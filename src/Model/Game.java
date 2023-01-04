@@ -183,7 +183,7 @@ public class Game{
         currentPiece.setEffect(null);
         currentPiece.showAllPossibleMoves(false);
         currentPiece = null;
-        if(changePlayer) currentPlayer = currentPlayer.equals("white") ? "black" : "white";
+        if(changePlayer) currentPlayer = "white";
     }
 
     private void dropQuestionMark(Square square) {
