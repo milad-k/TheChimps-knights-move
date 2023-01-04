@@ -113,8 +113,8 @@ public class Game{
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
-                            System.out.println("Q Places: " + cb.getQuestionSquares());
-                            System.out.println("possible moves: " + currentPiece.possibleMoves);
+//                            System.out.println("Q Places: " + cb.getQuestionSquares());
+//                            System.out.println("possible moves: " + currentPiece.possibleMoves);
                             if (currentPiece.color.equals("white")) {
                                 for(String item1 : cb.getQuestionSquares()) {
                                     for (String item2 : currentPiece.possibleMoves) {
@@ -204,6 +204,10 @@ public class Game{
         square.setOccupied(true);
         Move move = new Move(square,+1);
         moves.push(move);
+        cb.QuestionSquares.remove("Square" + square.getX() + square.getY());
+        square.setOccupied(false);
+        square.setType("Square");
+        cb.addRandomQuestionsSquares();
     }
 
     private void dropPiece(Square square) {

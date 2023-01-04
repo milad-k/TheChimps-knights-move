@@ -95,7 +95,22 @@ public abstract class ChessBoard {
 
     public void addRandomQuestionsSquares() {
         Color color1 = Color.rgb(181, 101, 118);
-        for (int i = 0; i < 3; i++) {
+        if (getQuestionSquares().isEmpty()) {
+            for (int i = 0; i < 3; i++) {
+                Random rand = new Random();
+                int int_rand = rand.nextInt(64);
+                int columns = int_rand % 8;
+                int rows = int_rand / 8;
+//            System.out.println(rows + " " + columns);
+                if(!(columns == 0 && rows == 0) && !(columns == 0 && rows == 7)) {
+                    this.QuestionSquares.add(new String("Square" + rows + columns));
+                    squares.get(int_rand).setType("Question Square");
+                    squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    squares.get(int_rand).setBackground(new Background(new BackgroundImage(new Image("Model/pieces/questionMark.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+                }
+//                System.out.println("Square" + rows + columns);
+            }
+        } else if (getQuestionSquares().size() == 2) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             int columns = int_rand % 8;
@@ -107,7 +122,7 @@ public abstract class ChessBoard {
                 squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                 squares.get(int_rand).setBackground(new Background(new BackgroundImage(new Image("Model/pieces/questionMark.png"), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
             }
-            System.out.println("Square" + rows + columns);
+//            System.out.println("Square" + rows + columns);
         }
     }
 }
