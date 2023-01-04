@@ -217,6 +217,7 @@ public class Game{
         }
         if (!currentPiece.possibleMoves.contains(square.name)) return;
         if(square.getType().equals("Random Jump Square") && currentPiece.getType().equals("Knight")){
+            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square = getRandomSquare();
             Square initialSquare = (Square) currentPiece.getParent();
             square.getChildren().add(currentPiece);
@@ -226,8 +227,7 @@ public class Game{
             currentPiece.posX = square.x;
             currentPiece.posY = square.y;
             deselectPiece(true);
-            staticmessage.setText("Tou step on a random jump square! you will move to another random square");
-
+            staticmessage.setText("You step on a random jump square! you will move to another random square");
             addAnotherRandomJumpSquare();
         }
         else {
