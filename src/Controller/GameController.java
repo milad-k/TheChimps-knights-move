@@ -186,8 +186,12 @@ public class GameController implements Initializable {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/HomeScreen.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
+                //Stage stage = new Stage();
+                //stage.setScene(new Scene(root1));
+                //stage.show();
+                Scene adminScene = new Scene(root1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(adminScene);
                 stage.show();
 
             } catch (IOException e) {
