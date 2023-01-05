@@ -226,23 +226,6 @@ public class GameController implements Initializable {
         setTimer(totalSec);
     }
 
-    public void settings(ActionEvent actionEvent)  throws IOException {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/SettingPopUp.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.show();
-
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("FXML");
-            alert.setHeaderText("Load failure");
-            alert.setContentText("Failed to load the FXML file.");
-            alert.showAndWait();
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String username = SysData.getInstance().getCurrentUser().getUsername();
@@ -257,12 +240,11 @@ public class GameController implements Initializable {
         staticmessage = messageText;
         staticTotalPoints.setText("0");
         staticPoints.setText("0");
+        totalSec = 60;
         staticTimerLabel = timerLabel;
         SysData.getInstance().getCurrentUser().setScore(0);
         Game game = new Game(chessBoard, selectedTheme, SysData.getInstance().getCurrentUser(), "First Stage ChessBoard", Utils.Stage.First);
         SysData.getInstance().getGames().add(game);
-        if(SysData.getInstance().getCurrentUser().getScore() == 0)
-            totalSec = 60;
         setTimer(totalSec);
 
     }

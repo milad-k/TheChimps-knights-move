@@ -501,6 +501,23 @@ public class Game{
         Piece killedPiece = (Piece) square.getChildren().get(0);
         if(killedPiece.type.equals("Knight")) this.game = false;
 
+        if(this.game == false) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                Parent root1 = (Parent) fxmlLoader.load();
+                javafx.stage.Stage stage = new javafx.stage.Stage();
+                stage.setScene(new Scene(root1));
+                stage.show();
+
+            } catch (IOException e) {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("FXML");
+                alert1.setHeaderText("Load failure");
+                alert1.setContentText("Failed to load the FXML file.");
+                alert1.showAndWait();
+            }
+        }
+
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().remove(0);
         square.getChildren().add(currentPiece);
