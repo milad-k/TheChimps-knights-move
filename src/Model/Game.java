@@ -179,11 +179,13 @@ public class Game{
     }
 
     private void deselectPiece(boolean changePlayer) {
-        currentPiece.setEffect(null);
-        currentPiece.showAllPossibleMoves(false);
-        currentPiece = null;
-        System.out.println(currentPlayer.toString());
-        if(changePlayer) currentPlayer = "white";
+        if(currentPiece!=null) {
+            currentPiece.setEffect(null);
+            currentPiece.showAllPossibleMoves(false);
+            currentPiece = null;
+            System.out.println(currentPlayer.toString());
+            if (changePlayer) currentPlayer = "white";
+        }
     }
 
     private void dropQuestionMark(Square square) {
@@ -216,7 +218,7 @@ public class Game{
             return;
         }
         System.out.println("currentpiece in start of droppiece:" + currentPiece);
-        if(currentPiece.getType().equals("Queen"))
+        if(currentPiece.getType().equals("black Queen"))
         {
             deselectPiece(true);
         }
@@ -293,9 +295,9 @@ public class Game{
                     currentPiece = (Queen) square1.getChildren().get(0);
                     currentPiece.getAllPossibleMoves();
                     if (!(currentPiece.possibleMoves == null)) {
-                        System.out.println(currentPiece.possibleMoves.get(int_rand));
+                        int randInd = getSquareNum(currentPiece.possibleMoves.get(int_rand));
                         Square initialSquare = square1;
-                        Square queenSquare = cb.squares.get(int_rand);
+                        Square queenSquare = cb.squares.get(randInd);
                         queenSquare.getChildren().add(currentPiece);
                         queenSquare.occupied = true;
                         initialSquare.getChildren().removeAll();
@@ -305,12 +307,23 @@ public class Game{
                         deselectPiece(true);
                         currentPiece = tempPiece;
 
+                        }
+                        deselectPiece(true);
                     }
-                    deselectPiece(true);
                 }
             }
-        }
 
+    }
+
+    private int getSquareNum(String num){
+        num = num.replace("Square","");
+        //System.out.println(num);
+        String splitted[] = num.split("");
+        //System.out.println("splitted1:" + splitted[0]);
+        //System.out.println("splitted2:" + splitted[1]);
+        int firstNum = Integer.parseInt(splitted[0]);
+        int secondNum = Integer.parseInt(splitted[1]);
+        return ((8*firstNum)+secondNum);
     }
 
     private Square getRandomSquare() {
