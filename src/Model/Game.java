@@ -285,15 +285,14 @@ public class Game{
         for (Square square1: cb.squares) {
             if (square1.isOccupied()) {
                 Piece p = (Piece) square1.getChildren().get(0);
+                if(staticStage.getText().equals(Stage.First)||staticStage.getText().equals(Stage.Second)){
                 if (p.getType().equals("Queen")) {
-                    System.out.println("hello");
-
                     Random rand = new Random();
-                    int int_rand = rand.nextInt(15);
                     Piece tempPiece = currentPiece;
-
                     currentPiece = (Queen) square1.getChildren().get(0);
                     currentPiece.getAllPossibleMoves();
+                    int arrSize = currentPiece.possibleMoves.size();
+                    int int_rand = rand.nextInt(arrSize);
                     if (!(currentPiece.possibleMoves == null)) {
                         int randInd = getSquareNum(currentPiece.possibleMoves.get(int_rand));
                         Square initialSquare = square1;
@@ -307,7 +306,8 @@ public class Game{
                         deselectPiece(true);
                         currentPiece = tempPiece;
 
-                        }
+                    }
+                }
                         deselectPiece(true);
                     }
                 }
