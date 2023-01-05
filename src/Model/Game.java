@@ -81,6 +81,9 @@ public class Game{
                 // Clicked on square
                 if(target.toString().equals("Square")){
                     Square square = (Square) target;
+                    if(square.getType().equals("Blocking Square")){
+                        staticmessage.setText("You cant Step on a blocking square! try another square");
+                    }
                     if(square.occupied){
                         Piece newPiece = (Piece) square.getChildren().get(0);
                         // Selecting a new piece
@@ -275,10 +278,6 @@ public class Game{
 
 
         }
-        if(square.getType() != null && square.getType().equals("Blocking Square") && square.getChildren().get(0).toString().equals("white Knight")) {
-            staticmessage.setText("You cant Step on a blocking square! try another square");
-            addAnotherBlockingSquare();
-        }
 
         for (Square square1: cb.squares) {
             if (square1.isOccupied()) {
@@ -317,21 +316,6 @@ public class Game{
         Random rand = new Random();
         int int_rand = rand.nextInt(64);
         return cb.squares.get(int_rand);
-    }
-
-    private void addAnotherBlockingSquare() {
-        //Color color1 = Color.web("black");
-
-        Random rand = new Random();
-        int int_rand = rand.nextInt(64);
-        if(cb.squares.get(int_rand).getType().equals("Blocking Square")){
-            addAnotherBlockingSquare();
-        }
-        else{
-            cb.squares.get(int_rand).setType("Blocking Square");
-            //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-
-        }
     }
 
     private void addAnotherForgetfulSquare() {
