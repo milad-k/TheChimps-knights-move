@@ -81,6 +81,9 @@ public class Game{
                 // Clicked on square
                 if(target.toString().equals("Square")){
                     Square square = (Square) target;
+                    if(square.getType().equals("Blocking Square")){
+                        staticmessage.setText("You cant Step on a blocking square! try another square");
+                    }
                     if(square.occupied){
                         Piece newPiece = (Piece) square.getChildren().get(0);
                         // Selecting a new piece
@@ -264,22 +267,19 @@ public class Game{
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
             SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
             staticmessage.setText("You Step on a question square! Please answer the question");
-            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
             addAnotherRandomQuestionSquare();
             LoadQuestionPopUp(square);
+            square.setType("Normal Square");
         }
         if(square.getType() != null && square.getType().equals("Forgetful Square") && square.getChildren().get(0).toString().equals("white Knight")) {
             staticmessage.setText("You step on a forgetful square! Your last 3 steps will be canceled");
             addAnotherForgetfulSquare();
             Move move = new Move(square,+1);
             move.removingLast3Moves(moves, square, this.stage,cb.theme);
+            square.setType("Normal Square");
 
 
-        }
-        if(square.getType() != null && square.getType().equals("Blocking Square") && square.getChildren().get(0).toString().equals("white Knight")) {
-            staticmessage.setText("You cant Step on a blocking square! try another square");
-            addAnotherBlockingSquare();
         }
 
         for (Square square1: cb.squares) {
@@ -332,21 +332,6 @@ public class Game{
         return cb.squares.get(int_rand);
     }
 
-    private void addAnotherBlockingSquare() {
-        //Color color1 = Color.web("black");
-
-        Random rand = new Random();
-        int int_rand = rand.nextInt(64);
-        if(cb.squares.get(int_rand).getType().equals("Blocking Square")){
-            addAnotherBlockingSquare();
-        }
-        else{
-            cb.squares.get(int_rand).setType("Blocking Square");
-            //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-
-        }
-    }
-
     private void addAnotherForgetfulSquare() {
         //Color color1 = Color.web("black");
 
@@ -390,7 +375,7 @@ public class Game{
             else{
                 cb.squares.get(int_rand).setType("Question Square");
                 //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-
+                dropQuestionMark(cb.squares.get(int_rand));
             }
 
 
