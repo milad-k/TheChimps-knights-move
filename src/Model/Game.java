@@ -186,7 +186,6 @@ public class Game{
             currentPiece.setEffect(null);
             currentPiece.showAllPossibleMoves(false);
             currentPiece = null;
-            System.out.println(currentPlayer.toString());
             if (changePlayer) currentPlayer = "white";
         }
     }
@@ -285,11 +284,14 @@ public class Game{
         for (Square square1: cb.squares) {
             if (square1.isOccupied()) {
                 Piece p = (Piece) square1.getChildren().get(0);
-                //if(staticStage.getText().equals(Stage.First)||staticStage.getText().equals(Stage.Second)){
-                if (p.getType().equals("Queen")) {
+                if (p.getType().equals("Queen") || p.getType().equals("King")  ) {
                     Random rand = new Random();
                     Piece tempPiece = currentPiece;
-                    currentPiece = (Queen) square1.getChildren().get(0);
+                    if(p.getType().equals("Queen"))
+                        currentPiece = (Queen) square1.getChildren().get(0);
+                    else
+                        if(p.getType().equals("King"))
+                            currentPiece = (King) square1.getChildren().get(0);
                     currentPiece.getAllPossibleMoves();
                     int arrSize = currentPiece.possibleMoves.size();
                     int int_rand = rand.nextInt(arrSize);
