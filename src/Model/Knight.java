@@ -12,6 +12,64 @@ public class Knight extends Piece{
 
     @Override
     public void getAllPossibleMovesForAdvancedLevels() {
+        int x = this.posX;
+        int y = this.posY;
+        ArrayList<String> moves = new ArrayList<>();
+        this.possibleMoves = new ArrayList<>();
+
+
+
+        moves.add("Square" + (x-2) + (y-3));
+        moves.add("Square" + (x-1) + (y-3));
+        moves.add("Square" + (x+1) + (y-3));
+        moves.add("Square" + (x+2) + (y-3));
+
+        moves.add("Square" + (x-3) + (y-2));
+        moves.add("Square" + (x+3) + (y-2));
+
+        moves.add("Square" + (x-3) + (y-1));
+        moves.add("Square" + (x+3) + (y-1));
+
+        moves.add("Square" + (x-3) + (y+1));
+        moves.add("Square" + (x+3) + (y+1));
+
+        moves.add("Square" + (x-3) + (y+2));
+        moves.add("Square" + (x+3) + (y+2));
+
+        moves.add("Square" + (x-2) + (y+3));
+        moves.add("Square" + (x-1) + (y+3));
+        moves.add("Square" + (x+1) + (y+3));
+        moves.add("Square" + (x+2) + (y+3));
+
+        moves.add("Square" + (x-5) + (y-2));
+        moves.add("Square" + (x-5) + (y-1));
+        moves.add("Square" + (x-5) + (y+1));
+        moves.add("Square" + (x-5) + (y+2));
+
+        moves.add("Square" + (x-2) + (y+5));
+        moves.add("Square" + (x-1) + (y+5));
+        moves.add("Square" + (x+1) + (y+5));
+        moves.add("Square" + (x+2) + (y+5));
+
+        moves.add("Square" + (x+5) + (y-2));
+        moves.add("Square" + (x+5) + (y-1));
+        moves.add("Square" + (x+5) + (y+1));
+        moves.add("Square" + (x+5) + (y+2));
+
+        moves.add("Square" + (x-2) + (y-5));
+        moves.add("Square" + (x-1) + (y-5));
+        moves.add("Square" + (x+1) + (y-5));
+        moves.add("Square" + (x+2) + (y-5));
+
+
+        for(String move : moves) {
+            if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square"))) {
+                if(getSquareByName(move).occupied && getPieceByName(move).getColor().equals(Game.currentPlayer))
+                    continue;
+                possibleMoves.add(move);
+            }
+        }
+
 
 
 
