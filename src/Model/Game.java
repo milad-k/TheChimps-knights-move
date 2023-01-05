@@ -313,6 +313,9 @@ public class Game{
                 }
     }
 
+    /*this method calculates the square number on the board (from 1-64) so we can use it from the chessboard variable (cb)
+     * because currentPiece.PossibleMoves.get(int) returns a String (Square74: which is the the square with coordinates
+     * x=7, y=4) so we calculated the number of the square on the board using the x and y coordinates */
     private int getSquareNum(String num){
         num = num.replace("Square","");
         //System.out.println(num);
