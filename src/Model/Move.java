@@ -166,7 +166,6 @@ public class Move {
             if(moves.isEmpty()){
                 return;
             }
-            System.out.println(moves.peek().getFinalSquare());
             moves.peek().changeSquareStatus(moves.peek().getFinalSquare());
             moves.peek().changeSquareColor(moves.peek().getFinalSquare(),theme);
             moves.peek().changePoints(moves.peek().getFinalSquare(), stage);
