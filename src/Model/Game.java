@@ -38,7 +38,6 @@ public class Game{
     public static ChessBoard cb;
     private boolean game;
     private Stage stage;
-    private boolean turnToPlay;
     private User currentuser;
     private Stack<Move> moves;
 
@@ -183,6 +182,7 @@ public class Game{
         currentPiece.setEffect(null);
         currentPiece.showAllPossibleMoves(false);
         currentPiece = null;
+        System.out.println(currentPlayer.toString());
         if(changePlayer) currentPlayer = "white";
     }
 
@@ -214,6 +214,11 @@ public class Game{
         Color color1 = Color.rgb(181, 101, 118);
         if(currentPiece == null){
             return;
+        }
+        System.out.println("currentpiece in start of droppiece:" + currentPiece);
+        if(currentPiece.getType().equals("Queen"))
+        {
+            deselectPiece(true);
         }
         if (!currentPiece.possibleMoves.contains(square.name)) return;
         if(square.getType().equals("Random Jump Square") && currentPiece.getType().equals("Knight")){
@@ -274,6 +279,38 @@ public class Game{
             staticmessage.setText("You cant Step on a blocking square! try another square");
             addAnotherBlockingSquare();
         }
+
+        for (Square square1: cb.squares) {
+            if (square1.isOccupied()) {
+                Piece p = (Piece) square1.getChildren().get(0);
+                if (p.getType().equals("Queen")) {
+                    System.out.println("hello");
+
+                    Random rand = new Random();
+                    int int_rand = rand.nextInt(15);
+                    Piece tempPiece = currentPiece;
+
+                    currentPiece = (Queen) square1.getChildren().get(0);
+                    currentPiece.getAllPossibleMoves();
+                    if (!(currentPiece.possibleMoves == null)) {
+                        System.out.println(currentPiece.possibleMoves.get(int_rand));
+                        Square initialSquare = square1;
+                        Square queenSquare = cb.squares.get(int_rand);
+                        queenSquare.getChildren().add(currentPiece);
+                        queenSquare.occupied = true;
+                        initialSquare.getChildren().removeAll();
+                        initialSquare.occupied = false;
+                        currentPiece.posX = queenSquare.x;
+                        currentPiece.posY = queenSquare.y;
+                        deselectPiece(true);
+                        currentPiece = tempPiece;
+
+                    }
+                    deselectPiece(true);
+                }
+            }
+        }
+
     }
 
     private Square getRandomSquare() {
@@ -461,7 +498,7 @@ public class Game{
         if(!currentPiece.possibleMoves.contains(square.name)) return;
 
         Piece killedPiece = (Piece) square.getChildren().get(0);
-        if(killedPiece.type.equals("King") || killedPiece.type.equals("Queen")) this.game = false;
+        if(killedPiece.type.equals("Knight")) this.game = false;
 
         Square initialSquare = (Square) currentPiece.getParent();
         square.getChildren().remove(0);
@@ -498,14 +535,6 @@ public class Game{
 
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
-
-    public boolean isTurnToPlay() {
-        return turnToPlay;
-    }
-
-    public void setTurnToPlay(boolean turnToPlay) {
-        this.turnToPlay = turnToPlay;
     }
 
     @Override
