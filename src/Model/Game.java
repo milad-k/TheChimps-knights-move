@@ -265,16 +265,17 @@ public class Game{
         if(square.getType() != null && square.getType().equals("Question Square") && square.getChildren().get(0).toString().equals("white Knight")){
             SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
             staticmessage.setText("You Step on a question square! Please answer the question");
-            square.setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
             square.setOccupied(true);
             addAnotherRandomQuestionSquare();
             LoadQuestionPopUp(square);
+            square.setType("Normal Square");
         }
         if(square.getType() != null && square.getType().equals("Forgetful Square") && square.getChildren().get(0).toString().equals("white Knight")) {
             staticmessage.setText("You step on a forgetful square! Your last 3 steps will be canceled");
             addAnotherForgetfulSquare();
             Move move = new Move(square,+1);
             move.removingLast3Moves(moves, square, this.stage,cb.theme);
+            square.setType("Normal Square");
 
 
         }
@@ -361,7 +362,7 @@ public class Game{
             else{
                 cb.squares.get(int_rand).setType("Question Square");
                 //cb.squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-
+                dropQuestionMark(cb.squares.get(int_rand));
             }
 
 
