@@ -94,9 +94,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", score=" + score +
-                '}';
+        return "Player: " +
+                "'" + username + '\'' +
+                ", Score: " + score;
     }
 }
