@@ -285,7 +285,7 @@ public class Game{
         for (Square square1: cb.squares) {
             if (square1.isOccupied()) {
                 Piece p = (Piece) square1.getChildren().get(0);
-                if(staticStage.getText().equals(Stage.First)||staticStage.getText().equals(Stage.Second)){
+                //if(staticStage.getText().equals(Stage.First)||staticStage.getText().equals(Stage.Second)){
                 if (p.getType().equals("Queen")) {
                     Random rand = new Random();
                     Piece tempPiece = currentPiece;
@@ -311,8 +311,6 @@ public class Game{
                         deselectPiece(true);
                     }
                 }
-            }
-
     }
 
     private int getSquareNum(String num){
