@@ -35,7 +35,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void gamesHistory(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/HistoryScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../View/Users.fxml"));
             Scene adminScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(adminScene);

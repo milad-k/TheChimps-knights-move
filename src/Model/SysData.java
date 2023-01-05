@@ -304,18 +304,25 @@ public class SysData {
             return true;
     }
 
-/*    public Boolean writeUsersJSON() {
+    public void observableMethod() {
+        writeJSON();
+        loadQuestions("src/JSON/QuestionsFormat.json");
+    }
+
+    public void usersObservableMethod() {
+        writeUsersJSON();
+        loadUsers("src/JSON/UsersFormat.json");
+    }
+    public Boolean writeUsersJSON() {
         try {
             JSONObject JsonObject1 = new JSONObject();
             JSONArray JsonArray1 = new JSONArray();
 
             for (User u : users) {
-                Map<String, Object> map = new LinkedHashMap<String, Object>(5);
-                map.put("id", u.getId());
+                Map<String, Object> map = new LinkedHashMap<String, Object>(3);
                 map.put("username", (String) u.getUsername());
-                map.put("avatar", (String) u.getSelectedAvatar());
-                map.put("theme", (String) u.getSelectedTheme());
                 map.put("score", u.getScore());
+                map.put("avatar", (String) u.getSelectedAvatar());
                 JsonArray1.add(map);
             }
             JsonObject1.put("users", JsonArray1);
@@ -331,16 +338,6 @@ public class SysData {
             return false;
         }
         return true;
-    }
-*/
-    public void observableMethod() {
-        writeJSON();
-        loadQuestions("src/JSON/QuestionsFormat.json");
-    }
-
-/*    public void usersObservableMethod() {
-        writeUsersJSON();
-        loadUsers("src/JSON/UsersFormat.json");
     }
 
        public boolean loadUsers(String path1) {
@@ -371,15 +368,12 @@ public class SysData {
 
                     JSONObject u = usersIterator.next();
 
-                    // get users' id
-                    String userId = (String) u.get("id");
                     // get correct users' username.
                     String username = (String) u.get("username");
+                    String score = (String) u.get("score").toString();
                     String avatar = (String) u.get("avatar");
-                    String theme = (String) u.get("theme");
-                    int score = (Integer) u.get("score");
 
-                    User userToAdd = new User(username, avatar, theme);
+                    User userToAdd = new User(username, score, avatar);
 
                     if(users != null) {
                         if(!users.contains(userToAdd)) {
@@ -389,6 +383,17 @@ public class SysData {
                         users.add(userToAdd);
                     }
                 }
+                Collections.sort(users, new Comparator<User>() {
+                    @Override
+                    public int compare(User u1, User u2) {
+                        if(u1.getScore() < u2.getScore())
+                            return 1;
+                        else if (u1.getScore() == u2.getScore())
+                            return 0;
+                        else
+                            return -1;
+                    }
+                });
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
@@ -397,7 +402,7 @@ public class SysData {
         }
         return false;
     }
-*/
+
     public void observableMethodForGame() {
         writeJSON();
     }

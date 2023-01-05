@@ -182,11 +182,12 @@ public class Game{
     }
 
     private void deselectPiece(boolean changePlayer) {
-        currentPiece.setEffect(null);
-        currentPiece.showAllPossibleMoves(false);
-        currentPiece = null;
-        System.out.println(currentPlayer.toString());
-        if(changePlayer) currentPlayer = "white";
+        if(currentPiece!=null) {
+            currentPiece.setEffect(null);
+            currentPiece.showAllPossibleMoves(false);
+            currentPiece = null;
+            if (changePlayer) currentPlayer = "white";
+        }
     }
 
     private void dropQuestionMark(Square square) {
@@ -219,7 +220,7 @@ public class Game{
             return;
         }
         System.out.println("currentpiece in start of droppiece:" + currentPiece);
-        if(currentPiece.getType().equals("Queen"))
+        if(currentPiece.getType().equals("black Queen"))
         {
             deselectPiece(true);
         }
@@ -283,19 +284,21 @@ public class Game{
         for (Square square1: cb.squares) {
             if (square1.isOccupied()) {
                 Piece p = (Piece) square1.getChildren().get(0);
-                if (p.getType().equals("Queen")) {
-                    System.out.println("hello");
-
+                if (p.getType().equals("Queen") || p.getType().equals("King")  ) {
                     Random rand = new Random();
-                    int int_rand = rand.nextInt(15);
                     Piece tempPiece = currentPiece;
-
-                    currentPiece = (Queen) square1.getChildren().get(0);
+                    if(p.getType().equals("Queen"))
+                        currentPiece = (Queen) square1.getChildren().get(0);
+                    else
+                        if(p.getType().equals("King"))
+                            currentPiece = (King) square1.getChildren().get(0);
                     currentPiece.getAllPossibleMoves();
+                    int arrSize = currentPiece.possibleMoves.size();
+                    int int_rand = rand.nextInt(arrSize);
                     if (!(currentPiece.possibleMoves == null)) {
-                        System.out.println(currentPiece.possibleMoves.get(int_rand));
+                        int randInd = getSquareNum(currentPiece.possibleMoves.get(int_rand));
                         Square initialSquare = square1;
-                        Square queenSquare = cb.squares.get(int_rand);
+                        Square queenSquare = cb.squares.get(randInd);
                         queenSquare.getChildren().add(currentPiece);
                         queenSquare.occupied = true;
                         initialSquare.getChildren().removeAll();
@@ -306,11 +309,24 @@ public class Game{
                         currentPiece = tempPiece;
 
                     }
-                    deselectPiece(true);
                 }
-            }
-        }
+                        deselectPiece(true);
+                    }
+                }
+    }
 
+    /*this method calculates the square number on the board (from 1-64) so we can use it from the chessboard variable (cb)
+     * because currentPiece.PossibleMoves.get(int) returns a String (Square74: which is the the square with coordinates
+     * x=7, y=4) so we calculated the number of the square on the board using the x and y coordinates */
+    private int getSquareNum(String num){
+        num = num.replace("Square","");
+        //System.out.println(num);
+        String splitted[] = num.split("");
+        //System.out.println("splitted1:" + splitted[0]);
+        //System.out.println("splitted2:" + splitted[1]);
+        int firstNum = Integer.parseInt(splitted[0]);
+        int secondNum = Integer.parseInt(splitted[1]);
+        return ((8*firstNum)+secondNum);
     }
 
     private Square getRandomSquare() {
