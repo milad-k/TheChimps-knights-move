@@ -115,8 +115,6 @@ public class Game{
                         if(!square.getType().equals("Question Square"))
                             dropPiece(square);
                         else {
-//                            System.out.println("Q Places: " + cb.getQuestionSquares());
-//                            System.out.println("possible moves: " + currentPiece.possibleMoves);
                             if (currentPiece.color.equals("white")) {
                                 for(String item1 : cb.getQuestionSquares()) {
                                     for (String item2 : currentPiece.possibleMoves) {
@@ -219,7 +217,6 @@ public class Game{
         if(currentPiece == null){
             return;
         }
-        System.out.println("currentpiece in start of droppiece:" + currentPiece);
         if(currentPiece.getType().equals("black Queen"))
         {
             deselectPiece(true);
@@ -320,10 +317,7 @@ public class Game{
      * x=7, y=4) so we calculated the number of the square on the board using the x and y coordinates */
     private int getSquareNum(String num){
         num = num.replace("Square","");
-        //System.out.println(num);
         String splitted[] = num.split("");
-        //System.out.println("splitted1:" + splitted[0]);
-        //System.out.println("splitted2:" + splitted[1]);
         int firstNum = Integer.parseInt(splitted[0]);
         int secondNum = Integer.parseInt(splitted[1]);
         return ((8*firstNum)+secondNum);
