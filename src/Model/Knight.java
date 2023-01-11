@@ -63,7 +63,7 @@ public class Knight extends Piece{
 
 
         for(String move : moves) {
-            if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square"))) {
+            if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square")) && (!getSquareByName(move).type.equals("Wall Square"))) {
                 if(getSquareByName(move).occupied && getPieceByName(move).getColor().equals(Game.currentPlayer))
                     continue;
                 possibleMoves.add(move);
@@ -138,7 +138,7 @@ public class Knight extends Piece{
 
 
         for(String move : moves) {
-            if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square"))) {
+            if((getSquareByName(move) != null) && (!getSquareByName(move).type.equals("Blocking Square")) && (!getSquareByName(move).type.equals("Wall Square"))) {
                 if(getSquareByName(move).occupied && getPieceByName(move).getColor().equals(Game.currentPlayer))
                     continue;
                 possibleMoves.add(move);

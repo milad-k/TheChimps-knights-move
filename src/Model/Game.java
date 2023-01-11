@@ -84,6 +84,9 @@ public class Game{
                     if(square.getType().equals("Blocking Square")){
                         staticmessage.setText("You cant Step on a blocking square! try another square");
                     }
+                    if(square.getType().equals("Wall Square")){
+                        staticmessage.setText("You cant Step on a wall square! try another square");
+                    }
                     if(square.occupied){
                         Piece newPiece = (Piece) square.getChildren().get(0);
                         // Selecting a new piece
