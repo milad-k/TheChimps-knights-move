@@ -57,7 +57,7 @@ public class StageFourthChessBoard extends ChessBoard{
         for (int i = 0; i < 8; i++) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
-            if(!squares.get(int_rand).getType().equals("Normal Square")){
+            if(!squares.get(int_rand).getType().equals("Normal Square") || ((squares.get(int_rand).getX() == 0) && (squares.get(int_rand).getY() == 0)) || ((squares.get(int_rand).getX() == 7) && (squares.get(int_rand).getY() == 0))){
                 addBlockingSquares();
                 break;
             }

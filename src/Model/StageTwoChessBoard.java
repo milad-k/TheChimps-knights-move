@@ -77,7 +77,7 @@ public class StageTwoChessBoard extends ChessBoard{
             Color color1 = Color.web("red");
             Random rand1 = new Random();
             int int_rand = rand1.nextInt(63) + 1;
-            if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0)){
+            if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)){
                 addSwapWall();
 
             }
@@ -94,7 +94,7 @@ public class StageTwoChessBoard extends ChessBoard{
             Color color1 = Color.web("red");
             Random rand1 = new Random();
             int int_rand = rand1.nextInt(64);
-            if(!squares.get(int_rand).getType().equals("Normal Square") && !squares.get(int_rand + 8).getType().equals("Normal Square") && !squares.get(int_rand - 8).getType().equals("Normal Square") || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0)){
+            if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square") || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)){
                 addSwapWall();
             }
             else {
