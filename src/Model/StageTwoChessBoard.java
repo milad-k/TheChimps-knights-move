@@ -58,8 +58,7 @@ public class StageTwoChessBoard extends ChessBoard{
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             if(!squares.get(int_rand).getType().equals("Normal Square")){
-                addForgetfulSquares();
-                break;
+                i--;
             }
             else {
                 squares.get(int_rand).setType("Forgetful Square");
