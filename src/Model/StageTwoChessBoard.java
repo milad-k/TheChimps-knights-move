@@ -59,6 +59,7 @@ public class StageTwoChessBoard extends ChessBoard{
             int int_rand = rand.nextInt(64);
             if(!squares.get(int_rand).getType().equals("Normal Square")){
                 i--;
+                System.out.println("hello");
             }
             else {
                 squares.get(int_rand).setType("Forgetful Square");
@@ -76,33 +77,34 @@ public class StageTwoChessBoard extends ChessBoard{
             Color color1 = Color.web("red");
             Random rand1 = new Random();
             int int_rand = rand1.nextInt(63) + 1;
-            if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)){
+            if (!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)) {
+                System.out.println("Hi i am from level3");
                 addSwapWall();
-
-            }
-            else {
+            } else {
                 squares.get(int_rand).setType("Wall Square");
                 squares.get(int_rand + 1).setType("Wall Square");
                 squares.get(int_rand - 1).setType("Wall Square");
                 squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                 squares.get(int_rand + 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                 squares.get(int_rand - 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
             }
-            }
-        if(int_randCase == 1){
+        }
+        if(int_randCase == 1) {
             Color color1 = Color.web("red");
             Random rand1 = new Random();
             int int_rand = rand1.nextInt(64);
-            if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square") || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)){
+            if (!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square") || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)) {
+                System.out.println("Hi i am from level2");
                 addSwapWall();
-            }
-            else {
+            } else {
                 squares.get(int_rand).setType("Wall Square");
                 squares.get(int_rand + 8).setType("Wall Square");
                 squares.get(int_rand - 8).setType("Wall Square");
                 squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                 squares.get(int_rand + 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                 squares.get(int_rand - 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+
             }
         }
         }

@@ -60,7 +60,8 @@ public class StageThreeChessBoard extends ChessBoard{
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             if(!squares.get(int_rand).getType().equals("Normal Square")){
-               i--;
+                Random rand2 = new Random();
+                int_rand = rand2.nextInt(63) + 1;
             }
             squares.get(int_rand).setType("Forgetful Square");
             //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
@@ -71,7 +72,8 @@ public class StageThreeChessBoard extends ChessBoard{
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             if(!squares.get(int_rand).getType().equals("Normal Square")){
-                i--;
+                Random rand2 = new Random();
+                int_rand = rand2.nextInt(63) + 1;
             }
             else {
                 squares.get(int_rand).setType("Random Jump Square");
@@ -90,6 +92,7 @@ public class StageThreeChessBoard extends ChessBoard{
                 Random rand = new Random();
                 int int_rand = rand.nextInt(63) + 1;
                 if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)){
+                    System.out.println("hello");
                     i--;
 
                 }
@@ -106,8 +109,10 @@ public class StageThreeChessBoard extends ChessBoard{
                 Random rand = new Random();
                 int int_rand = rand.nextInt(64);
                 if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square")  || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)){
+                    Random rand2 = new Random();
+                    int_rand = rand2.nextInt(63) + 1;
+                    System.out.println("m");
                     i--;
-
                 }
                 else {
                     squares.get(int_rand).setType("Wall Square");
