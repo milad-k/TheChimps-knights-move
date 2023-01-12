@@ -54,16 +54,17 @@ public class StageTwoChessBoard extends ChessBoard{
     private void addForgetfulSquares() {
 
         Color color1 = Color.web("black");
-        for (int i = 0; i < 3; i++) {
+        int i = 0;
+        while(i < 3) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             if(!squares.get(int_rand).getType().equals("Normal Square")){
-                i--;
-                System.out.println("hello");
+
             }
             else {
                 squares.get(int_rand).setType("Forgetful Square");
                 //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                i++;
             }
 
         }
@@ -78,7 +79,6 @@ public class StageTwoChessBoard extends ChessBoard{
             Random rand1 = new Random();
             int int_rand = rand1.nextInt(63) + 1;
             if (!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)) {
-                System.out.println("Hi i am from level3");
                 addSwapWall();
             } else {
                 squares.get(int_rand).setType("Wall Square");
@@ -95,7 +95,6 @@ public class StageTwoChessBoard extends ChessBoard{
             Random rand1 = new Random();
             int int_rand = rand1.nextInt(64);
             if (!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square") || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)) {
-                System.out.println("Hi i am from level2");
                 addSwapWall();
             } else {
                 squares.get(int_rand).setType("Wall Square");

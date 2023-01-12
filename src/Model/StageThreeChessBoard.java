@@ -56,28 +56,30 @@ public class StageThreeChessBoard extends ChessBoard{
     private void addForgetfulAndRandomJumpSquares() {
 
         Color color1 = Color.web("black");
-        for (int i = 0; i < 2; i++) {
+        int i = 0;
+        while(i < 2) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
-            if(!squares.get(int_rand).getType().equals("Normal Square")){
-                Random rand2 = new Random();
-                int_rand = rand2.nextInt(63) + 1;
-            }
-            squares.get(int_rand).setType("Forgetful Square");
-            //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+            if (!squares.get(int_rand).getType().equals("Normal Square")) {
 
-
-        }
-        for (int i = 0; i < 2; i++) {
-            Random rand = new Random();
-            int int_rand = rand.nextInt(64);
-            if(!squares.get(int_rand).getType().equals("Normal Square")){
-                Random rand2 = new Random();
-                int_rand = rand2.nextInt(63) + 1;
             }
             else {
-                squares.get(int_rand).setType("Random Jump Square");
+                squares.get(int_rand).setType("Forgetful Square");
                 //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                i++;
+            }
+            int j = 0;
+            while(j < 2) {
+                Random rand2 = new Random();
+                int int_rand2 = rand2.nextInt(64);
+                if (!squares.get(int_rand2).getType().equals("Normal Square")) {
+
+
+                } else {
+                    squares.get(int_rand2).setType("Random Jump Square");
+                    //squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    j++;
+                }
             }
 
         }
@@ -85,15 +87,14 @@ public class StageThreeChessBoard extends ChessBoard{
     }
     private void addSwapWall(){
         Color color1 = Color.web("red");
-        for (int i = 0; i < 2; i++) {
+        int i = 0;
+        while(i < 2) {
             Random rand1 = new Random();
             int int_randCase = rand1.nextInt(2);
             if(int_randCase == 0) {
                 Random rand = new Random();
                 int int_rand = rand.nextInt(63) + 1;
                 if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)){
-                    System.out.println("hello");
-                    i--;
 
                 }
                 else {
@@ -103,16 +104,14 @@ public class StageThreeChessBoard extends ChessBoard{
                     squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand + 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand - 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    i++;
                 }
                 }
             if(int_randCase == 1){
                 Random rand = new Random();
                 int int_rand = rand.nextInt(64);
                 if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square")  || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)){
-                    Random rand2 = new Random();
-                    int_rand = rand2.nextInt(63) + 1;
-                    System.out.println("m");
-                    i--;
+
                 }
                 else {
                     squares.get(int_rand).setType("Wall Square");
@@ -121,6 +120,7 @@ public class StageThreeChessBoard extends ChessBoard{
                     squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand + 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand - 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    i++;
                 }
                 }
             }

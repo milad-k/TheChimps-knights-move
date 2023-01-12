@@ -54,16 +54,17 @@ public class StageFourthChessBoard extends ChessBoard{
     private void addBlockingSquares() {
 
         Color color1 = Color.web("#FF0000");
-        for (int i = 0; i < 8; i++) {
+        int i = 0;
+        while(i < 8) {
             Random rand = new Random();
             int int_rand = rand.nextInt(64);
             if(!squares.get(int_rand).getType().equals("Normal Square") || ((squares.get(int_rand).getX() == 0) && (squares.get(int_rand).getY() == 0)) || ((squares.get(int_rand).getX() == 7) && (squares.get(int_rand).getY() == 0))){
-                addBlockingSquares();
-                break;
+                
             }
             else {
                 squares.get(int_rand).setType("Blocking Square");
                 squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+            i++;
             }
         }
 
