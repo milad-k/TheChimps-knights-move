@@ -5,9 +5,11 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class StageThreeChessBoard extends ChessBoard{
+    static ArrayList<Square> wallSquaresStageThree = new ArrayList<Square>();
 
 
     public StageThreeChessBoard(GridPane chessBoard, String theme) {
@@ -104,6 +106,9 @@ public class StageThreeChessBoard extends ChessBoard{
                     squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand + 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand - 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    wallSquaresStageThree.add(squares.get(int_rand));
+                    wallSquaresStageThree.add(squares.get(int_rand + 1));
+                    wallSquaresStageThree.add(squares.get(int_rand - 1));
                     i++;
                 }
                 }
@@ -120,6 +125,9 @@ public class StageThreeChessBoard extends ChessBoard{
                     squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand + 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
                     squares.get(int_rand - 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    wallSquaresStageThree.add(squares.get(int_rand));
+                    wallSquaresStageThree.add(squares.get(int_rand + 8));
+                    wallSquaresStageThree.add(squares.get(int_rand - 8));
                     i++;
                 }
                 }
