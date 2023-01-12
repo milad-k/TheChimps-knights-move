@@ -27,6 +27,7 @@ import static Controller.GameController.*;
 import static Controller.GameLevel2Controller.staticPoints2;
 import static Controller.GameLevel3Controller.staticPoints3;
 import static Controller.GameLevel4Controller.staticPoints4;
+import static Model.StageTwoChessBoard.wallSquaresStageTwo;
 
 public class Game{
 
@@ -241,6 +242,16 @@ public class Game{
         }
         else {
             Square initialSquare = (Square) currentPiece.getParent();
+            for(Square s: wallSquaresStageTwo){
+                if(((s.getX() < initialSquare.getX()) && (s.getX() > square.getX()) && (s.getY() <= initialSquare.getY()) && (s.getY() >= square.getY())) || ((s.getX() > initialSquare.getX()) && (s.getX() < square.getX()) && (s.getY() >= initialSquare.getY()) && (s.getY() <= square.getY()))){
+                    staticmessage.setText("You cannot cross the wall");
+                    deselectPiece(true);
+                    return;
+                }
+                else{
+                    break;
+                }
+            }
             square.getChildren().add(currentPiece);
             square.occupied = true;
             initialSquare.getChildren().removeAll();
@@ -248,6 +259,7 @@ public class Game{
             currentPiece.posX = square.x;
             currentPiece.posY = square.y;
             deselectPiece(true);
+
         }
 
         if(square.getBackground().getFills().get(0).getFill().equals(color1) && square.getChildren().get(0).toString().equals("white Knight")){
