@@ -62,7 +62,7 @@ public class AddQuestionController implements Initializable {
     @FXML
     void back(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/Questions.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -151,7 +151,7 @@ public class AddQuestionController implements Initializable {
             }
 
         }
-        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
+        SysData.getInstance().loadQuestions("QuestionsFormat.json");
     }
 
     @Override

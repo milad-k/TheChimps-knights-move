@@ -64,7 +64,7 @@ public class PrePlayScreenController implements Initializable {
     @FXML
     void back(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -139,7 +139,7 @@ public class PrePlayScreenController implements Initializable {
             SysData.getInstance().setCurrentUser(new User(username, selectedAvatar, theme.toString()));
             SysData.getInstance().addUser(new User(username, selectedAvatar, theme.toString()));
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/View/Game.fxml"));
                 root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
                 Scene adminScene = new Scene(root);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -167,7 +167,7 @@ public class PrePlayScreenController implements Initializable {
                 SysData.getInstance().setCurrentUser(SysData.getInstance().getUserByUserName(username));
                 SysData.getInstance().updateUser(SysData.getInstance().getCurrentUser(), new User(username, selectedAvatar, theme.toString()));
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/View/Game.fxml"));
                     root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
                     Scene adminScene = new Scene(root);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -183,7 +183,7 @@ public class PrePlayScreenController implements Initializable {
             }
             else {
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/View/Game.fxml"));
                     root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
                     Scene customerScene = new Scene(root);
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

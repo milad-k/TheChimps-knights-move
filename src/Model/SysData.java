@@ -226,7 +226,7 @@ public class SysData {
                 return false;
             }
             questions.put(question.getLevel(), myArray);
-            loadQuestions("src/JSON/QuestionsFormat.json");
+            loadQuestions("QuestionsFormat.json");
             return true;
         }
         else {
@@ -258,7 +258,7 @@ public class SysData {
         return false;
     }
     public Question getQuestionByText(String questionText,String difficulty){
-        getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
+        getInstance().loadQuestions("QuestionsFormat.json");
         for(Question question: getInstance().getQuestions().get(Difficulty.valueOf(difficulty))){
             if(question.getText().equals(questionText)){
                 return question;
@@ -290,7 +290,7 @@ public class SysData {
                     }
                 }
                 JsonObject.put("questions", JsonArray);
-                PrintWriter pw = new PrintWriter("src/JSON/QuestionsFormat.json");
+                PrintWriter pw = new PrintWriter("QuestionsFormat.json");
                 pw.write(JsonObject.toJSONString());
                 pw.flush();
                 pw.close();
@@ -306,12 +306,12 @@ public class SysData {
 
     public void observableMethod() {
         writeJSON();
-        loadQuestions("src/JSON/QuestionsFormat.json");
+        loadQuestions("QuestionsFormat.json");
     }
 
     public void usersObservableMethod() {
         writeUsersJSON();
-        loadUsers("src/JSON/UsersFormat.json");
+        loadUsers("UsersFormat.json");
     }
     public Boolean writeUsersJSON() {
         try {
@@ -326,7 +326,7 @@ public class SysData {
                 JsonArray1.add(map);
             }
             JsonObject1.put("users", JsonArray1);
-            PrintWriter pw1 = new PrintWriter("src/JSON/UsersFormat.json");
+            PrintWriter pw1 = new PrintWriter("UsersFormat.json");
             pw1.write(JsonObject1.toJSONString());
             pw1.flush();
             pw1.close();

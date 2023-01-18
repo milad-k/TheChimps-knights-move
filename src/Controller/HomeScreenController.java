@@ -35,7 +35,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void gamesHistory(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Users.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/Users.fxml"));
             Scene adminScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(adminScene);
@@ -58,7 +58,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void startGame(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/PrePlayScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/PrePlayScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -76,7 +76,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void questions(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Questions.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/Questions.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -94,7 +94,7 @@ public class HomeScreenController implements Initializable {
     @FXML
     void rules(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/RulesScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/1.png');" + "-fx-background-size:cover");
             Scene adminScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

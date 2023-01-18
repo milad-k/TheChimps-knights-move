@@ -27,7 +27,7 @@ public class LoserScreenController {
         Stage stage = (Stage) homeButton.getScene().getWindow();
         stage.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -48,7 +48,7 @@ public class LoserScreenController {
         Stage stage = (Stage) playagainButton.getScene().getWindow();
         stage.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/Game.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/Game.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

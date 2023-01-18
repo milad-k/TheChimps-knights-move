@@ -36,7 +36,7 @@ public class UsersController implements Initializable {
     @FXML
     void back(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/HomeScreen.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/HomeScreen.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
 //                Stage stage = new Stage();
 //                stage.setScene(new Scene(root1));
@@ -57,7 +57,7 @@ public class UsersController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SysData.getInstance().loadUsers("src/JSON/UsersFormat.json");
+        SysData.getInstance().loadUsers("UsersFormat.json");
 
         users = sysData.getUsers();
 

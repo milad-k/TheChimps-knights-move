@@ -34,7 +34,7 @@ public class ExitPopUpController {
         Stage stage1 = (Stage) Window.getWindows().get(0).getScene().getWindow();
         stage1.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

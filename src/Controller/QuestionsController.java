@@ -58,7 +58,7 @@ public class QuestionsController implements Initializable {
     @FXML
     void addQuestion(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/AddQuestion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/AddQuestion.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -76,7 +76,7 @@ public class QuestionsController implements Initializable {
     @FXML
     void back(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/HomeScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/HomeScreen.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -128,7 +128,7 @@ public class QuestionsController implements Initializable {
             return;
         }
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../View/UpdateQuestion.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/View/UpdateQuestion.fxml"));
             root.setStyle("-fx-background-image: url('Images/backgroundWallpaper.jpeg');" + "-fx-background-size:cover");
             Scene customerScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -149,7 +149,7 @@ public class QuestionsController implements Initializable {
         ObservableList<Difficulty> currentList = FXCollections.observableArrayList(Difficulty.values());
         difficulty.setItems(currentList);
 
-        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
+        SysData.getInstance().loadQuestions("QuestionsFormat.json");
 
         questions = sysData.getQuestions();
         for(Difficulty d : questions.keySet()) {

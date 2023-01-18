@@ -131,7 +131,7 @@ public class GameController implements Initializable {
                                 Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
                                 stage4.close();
                                 try {
-                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/LoserScreen.fxml"));
                                     Parent root1 = (Parent) fxmlLoader.load();
                                     Stage stage = new Stage();
                                     stage.setScene(new Scene(root1));
@@ -150,7 +150,7 @@ public class GameController implements Initializable {
                                 Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
                                 stage4.close();
                                 try {
-                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/GameLevel2.fxml"));
+                                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/GameLevel2.fxml"));
                                     Parent root1 = (Parent) fxmlLoader.load();
                                     Stage stage = new Stage();
                                     stage.setScene(new Scene(root1));
@@ -184,7 +184,7 @@ public class GameController implements Initializable {
         if(button == ButtonType.OK) {
             timer.cancel();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/HomeScreen.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/HomeScreen.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 //Stage stage = new Stage();
                 //stage.setScene(new Scene(root1));
@@ -210,7 +210,7 @@ public class GameController implements Initializable {
     void pause(ActionEvent event) throws IOException {
         timer.cancel();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/PausePopUp.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/PausePopUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

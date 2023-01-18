@@ -471,9 +471,9 @@ public class Game{
     }
 
     private void LoadQuestionPopUp(Square square) {
-        SysData.getInstance().loadQuestions("src/JSON/QuestionsFormat.json");
+        SysData.getInstance().loadQuestions("QuestionsFormat.json");
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/QuestionPopUp.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/QuestionPopUp.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             javafx.stage.Stage stage = new javafx.stage.Stage();
             stage.setScene(new Scene(root1));
@@ -523,7 +523,7 @@ public class Game{
 
         if(this.game == false) {
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/LoserScreen.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
                 javafx.stage.Stage stage = new javafx.stage.Stage();
                 stage.setScene(new Scene(root1));
@@ -552,7 +552,7 @@ public class Game{
         javafx.stage.Stage stage4 = (javafx.stage.Stage) Window.getWindows().get(0).getScene().getWindow();
         stage4.close();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/LoserScreen.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/View/LoserScreen.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             javafx.stage.Stage stage = new javafx.stage.Stage();
             stage.setScene(new Scene(root1));

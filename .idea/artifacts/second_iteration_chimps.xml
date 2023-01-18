@@ -5,14 +5,6 @@
       <element id="file-copy" path="$PROJECT_DIR$/bridj-0.7.0 copy.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/corba-api-5.0.1 copy.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/gson-2.8.6.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx-swt.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.base.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.controls.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.fxml.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.graphics.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.media.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.swing.jar" />
-      <element id="file-copy" path="$PROJECT_DIR$/../../../../openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib/javafx.web.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/jl1.0.1 copy.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/json-simple-1.1 copy.jar" />
       <element id="file-copy" path="$PROJECT_DIR$/junit-4.10 copy.jar" />
@@ -21,6 +13,14 @@
       <element id="archive" name="second-iteration.jar">
         <element id="module-output" name="knights-move" />
       </element>
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.web.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx-swt.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.base.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.controls.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.fxml.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.graphics.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.media.jar" />
+      <element id="file-copy" path="/Library/Java/javafx-sdk-19/lib/javafx.swing.jar" />
     </root>
   </artifact>
 </component>
