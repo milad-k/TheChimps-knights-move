@@ -106,7 +106,7 @@ public class GameLevel3Controller implements Initializable {
                         //System.out.println(totalSec);
                         convertTime();
                         if (totalSec <= 0) {
-                            if (Integer.parseInt(staticPoints3.getText().toString()) < 15) {
+                            if (Integer.parseInt(staticPoints3.getText().toString()) < 2) {
                                 timer.cancel();
                                 timerLabel.setText("00:00:00");
                                 Stage stage4 = (Stage) Window.getWindows().get(0).getScene().getWindow();
