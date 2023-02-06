@@ -72,47 +72,50 @@ public class StageTwoChessBoard extends ChessBoard{
         }
 
     }
-    private void addSwapWall(){
-        Random rand = new Random();
-        int int_randCase = rand.nextInt(2);
-
-        if(int_randCase == 0) {
-            Color color1 = Color.web("red");
+    private void addSwapWall() {
+        Color color1 = Color.web("red");
+        int i = 0;
+        while(i < 2) {
             Random rand1 = new Random();
-            int int_rand = rand1.nextInt(63) + 1;
-            if (!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)) {
-                addSwapWall();
-            } else {
-                squares.get(int_rand).setType("Wall Square");
-                squares.get(int_rand + 1).setType("Wall Square");
-                squares.get(int_rand - 1).setType("Wall Square");
-                squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-                squares.get(int_rand + 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-                squares.get(int_rand - 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-                wallSquaresStageTwo.add(squares.get(int_rand));
-                wallSquaresStageTwo.add(squares.get(int_rand + 1));
-                wallSquaresStageTwo.add(squares.get(int_rand - 1));
+            int int_randCase = rand1.nextInt(2);
+            if(int_randCase == 0) {
+                Random rand = new Random();
+                int int_rand = rand.nextInt(63) + 1;
+                if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 1).getType().equals("Normal Square") || !squares.get(int_rand - 1).getType().equals("Normal Square") || !(squares.get(int_rand).getY() < 7) || !(squares.get(int_rand).getY() > 0) || (int_rand == 57) || (int_rand == 1)){
 
+                }
+                else {
+                    squares.get(int_rand).setType("Wall Square");
+                    squares.get(int_rand + 1).setType("Wall Square");
+                    squares.get(int_rand - 1).setType("Wall Square");
+                    squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    squares.get(int_rand + 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    squares.get(int_rand - 1).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    wallSquaresStageTwo.add(squares.get(int_rand));
+                    wallSquaresStageTwo.add(squares.get(int_rand + 1));
+                    wallSquaresStageTwo.add(squares.get(int_rand - 1));
+                    i++;
+                }
+            }
+            if(int_randCase == 1){
+                Random rand = new Random();
+                int int_rand = rand.nextInt(64);
+                if(!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square")  || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)){
 
+                }
+                else {
+                    squares.get(int_rand).setType("Wall Square");
+                    squares.get(int_rand + 8).setType("Wall Square");
+                    squares.get(int_rand - 8).setType("Wall Square");
+                    squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    squares.get(int_rand + 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    squares.get(int_rand - 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
+                    wallSquaresStageTwo.add(squares.get(int_rand));
+                    wallSquaresStageTwo.add(squares.get(int_rand + 8));
+                    wallSquaresStageTwo.add(squares.get(int_rand - 8));
+                    i++;
+                }
             }
         }
-        if(int_randCase == 1) {
-            Color color1 = Color.web("red");
-            Random rand1 = new Random();
-            int int_rand = rand1.nextInt(64);
-            if (!squares.get(int_rand).getType().equals("Normal Square") || !squares.get(int_rand + 8).getType().equals("Normal Square") || !squares.get(int_rand - 8).getType().equals("Normal Square") || !(squares.get(int_rand).getX() < 7) || !(squares.get(int_rand).getX() > 0) || (int_rand == 8) || (int_rand == 48)) {
-                addSwapWall();
-            } else {
-                squares.get(int_rand).setType("Wall Square");
-                squares.get(int_rand + 8).setType("Wall Square");
-                squares.get(int_rand - 8).setType("Wall Square");
-                squares.get(int_rand).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-                squares.get(int_rand + 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-                squares.get(int_rand - 8).setBackground(new Background(new BackgroundFill(color1, CornerRadii.EMPTY, Insets.EMPTY)));
-                wallSquaresStageTwo.add(squares.get(int_rand));
-                wallSquaresStageTwo.add(squares.get(int_rand + 8));
-                wallSquaresStageTwo.add(squares.get(int_rand - 8));
-            }
-        }
-        }
+    }
 }

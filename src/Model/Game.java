@@ -27,6 +27,7 @@ import static Controller.GameController.*;
 import static Controller.GameLevel2Controller.staticPoints2;
 import static Controller.GameLevel3Controller.staticPoints3;
 import static Controller.GameLevel4Controller.staticPoints4;
+import static Model.StageOneChessBoard.wallSquaresStageOne;
 import static Model.StageThreeChessBoard.wallSquaresStageThree;
 import static Model.StageTwoChessBoard.wallSquaresStageTwo;
 
@@ -244,6 +245,16 @@ public class Game{
         else {
             Square initialSquare = (Square) currentPiece.getParent();
             for(Square s: wallSquaresStageTwo){
+                if(((s.getX() <= initialSquare.getX()) && (s.getX() >= square.getX()) && (s.getY() <= initialSquare.getY()) && (s.getY() >= square.getY())) || ((s.getX() >= initialSquare.getX()) && (s.getX() <= square.getX()) && (s.getY() >= initialSquare.getY()) && (s.getY() <= square.getY())) && stage.equals(Stage.Second) || ((s.getX() <= initialSquare.getX()) && (s.getX() >= square.getX()) && (s.getY() >= initialSquare.getY()) && (s.getY() <= square.getY())) || ((s.getX() >= initialSquare.getX()) && (s.getX() <= square.getX()) && (s.getY() <= initialSquare.getY()) && (s.getY() >= square.getY()))){
+                    staticmessage.setText("You cannot cross the wall");
+                    deselectPiece(true);
+                    return;
+                }
+                else{
+                    break;
+                }
+            }
+            for(Square s: wallSquaresStageOne){
                 if(((s.getX() <= initialSquare.getX()) && (s.getX() >= square.getX()) && (s.getY() <= initialSquare.getY()) && (s.getY() >= square.getY())) || ((s.getX() >= initialSquare.getX()) && (s.getX() <= square.getX()) && (s.getY() >= initialSquare.getY()) && (s.getY() <= square.getY())) && stage.equals(Stage.Second) || ((s.getX() <= initialSquare.getX()) && (s.getX() >= square.getX()) && (s.getY() >= initialSquare.getY()) && (s.getY() <= square.getY())) || ((s.getX() >= initialSquare.getX()) && (s.getX() <= square.getX()) && (s.getY() <= initialSquare.getY()) && (s.getY() >= square.getY()))){
                     staticmessage.setText("You cannot cross the wall");
                     deselectPiece(true);
